@@ -1,0 +1,18 @@
+{
+  "machine": "M3",
+  "channel": "hook:Stop",
+  "from": "IDLE",
+  "input": "stop_event",
+  "to": "IDLE",
+  "declared": "IDLE",
+  "then": null,
+  "steps": [
+    {
+      "from": "IDLE",
+      "input": "stop_event",
+      "to": "IDLE"
+    }
+  ],
+  "drift": null,
+  "recorded_at": "2026-11-13T14:21:34.154Z"
+}

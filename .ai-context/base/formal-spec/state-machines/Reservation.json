@@ -1,0 +1,25 @@
+{
+  "aggregate_root": "Reservation",
+  "id": "Reservation",
+  "initial": "reserved",
+  "description": "예약의 상태(doc:§4 R7~R9). 그린필드라 source_ref 는 기획서 자리다.",
+  "related_brs": [
+    "BR-RESERVATION-CANCEL-001",
+    "BR-RESERVATION-CANCEL-002",
+    "BR-RESERVATION-RETAIN-001"
+  ],
+  "states": {
+    "reserved": {
+      "on": {
+        "CANCEL": {
+          "target": "cancelled",
+          "guard": "요청자가 예약한 본인이고 시작 30분 전이 지나지 않았다",
+          "source_ref": "docs/prd.md:38"
+        }
+      }
+    },
+    "cancelled": {
+      "type": "final"
+    }
+  }
+}

@@ -1,0 +1,163 @@
+{
+  "$schema_ref": "schemas/state.schema.json",
+  "version": "6.4",
+  "project_id": "testbed",
+  "current_chain": "discovery",
+  "current_phase": "input.0",
+  "current_scope": "roombook-mvp",
+  "stage_progress": {
+    "analysis": {
+      "status": "complete"
+    },
+    "discovery": {
+      "status": "in_progress",
+      "agent_required": null,
+      "agent_required_at": null,
+      "stage_agent_available": "context-ops:discovery-agent",
+      "agent_dispatch_attempts": 0,
+      "agent_dispatched_at": null,
+      "artifact_view_plan": null,
+      "stage_kit": {
+        "outputs": [
+          {
+            "artifact": "task-card",
+            "part": "discovery",
+            "schema_path": "schemas/task-card.schema.json",
+            "skeleton": {
+              "top_required": [],
+              "arrays": [
+                {
+                  "key": "scope",
+                  "required": [
+                    "target",
+                    "disposition",
+                    "reason"
+                  ],
+                  "field_count": 8
+                },
+                {
+                  "key": "drafts",
+                  "required": [
+                    "kind",
+                    "props"
+                  ],
+                  "field_count": 3
+                },
+                {
+                  "key": "questions",
+                  "required": [
+                    "id",
+                    "kind",
+                    "text"
+                  ],
+                  "field_count": 4
+                }
+              ],
+              "enums": {
+                "discovery_status": [
+                  "draft",
+                  "confirmed",
+                  "final"
+                ],
+                "scope[].disposition": [
+                  "add",
+                  "modify",
+                  "deprecate",
+                  "keep",
+                  "unrelated"
+                ],
+                "scope[].certainty": [
+                  "observed",
+                  "inferred-consequence",
+                  "unverified-intent",
+                  "source-refuted"
+                ],
+                "drafts[].kind": [
+                  "use_case",
+                  "risk",
+                  "nfr"
+                ],
+                "questions[].kind": [
+                  "question",
+                  "conflict",
+                  "decision"
+                ]
+              }
+            },
+            "example_path": "testbed/fixtures/bookmark-node/.ai-context/local/task/card.json"
+          }
+        ],
+        "validators": [
+          "discovery-extraction-validator",
+          "schema-validator",
+          "br-cross-consistency-validator"
+        ],
+        "degraded": null
+      },
+      "reading_plan": null
+    },
+    "spec": {
+      "status": "pending"
+    },
+    "plan": {
+      "status": "pending"
+    },
+    "test": {
+      "status": "pending"
+    },
+    "implement": {
+      "status": "pending"
+    }
+  },
+  "last_gate": null,
+  "pending_revisit": null,
+  "blocked": false,
+  "block_reason": null,
+  "revisit_ignore_globs": [],
+  "intervention_log_path": ".ai-context/local/evidence/intervention-log.jsonl",
+  "current_task": null,
+  "task": {
+    "scope": "roombook-mvp",
+    "status": "pending",
+    "opened_at": "2026-11-13T14:16:52.999Z",
+    "scenario": "S3",
+    "route": "full",
+    "analysis_refs": {
+      "rules": [],
+      "endpoints": [],
+      "schemas": [],
+      "domain": [],
+      "antipatterns": []
+    },
+    "reference_sources": [],
+    "finished_tasks": [],
+    "closure": null
+  },
+  "guards": {
+    "stage_dirty": {
+      "status": "undetermined",
+      "attempts": 0,
+      "cap": null,
+      "waiver": null,
+      "updated_at": "2026-11-13T14:21:15.415Z"
+    }
+  },
+  "user_waive_token": null,
+  "user_external_write_token": null,
+  "user_discard_token": null,
+  "user_heavier_token": null,
+  "light_heavier_pending": null,
+  "user_start_token": null,
+  "start_recommendation": null,
+  "block_scope": null,
+  "pending_gate": null,
+  "user_gate_token": null,
+  "sessions_seen": [
+    {
+      "id": "ae737add-278d-4acd-a16c-0aba0db7d17e",
+      "scope": "roombook-mvp",
+      "first_seen_at": "2026-11-13T14:16:53.003Z",
+      "last_seen_at": "2026-11-13T14:16:53.003Z"
+    }
+  ]
+}

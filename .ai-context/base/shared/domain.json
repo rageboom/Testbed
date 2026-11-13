@@ -1,0 +1,193 @@
+{
+  "meta": {
+    "generated_at": "2026-11-13T00:00:00Z",
+    "confidence": 0.7,
+    "inputs_used": [
+      "planning_docs"
+    ],
+    "warnings": [
+      "그린필드(S3): docs/prd.md 에서 도출했다. 엔티티 속성의 타입과 이름은 추론(inferred)이다."
+    ]
+  },
+  "stakeholders": [
+    "직원"
+  ],
+  "business_intent_summary": "직원이 웹에서 빈 회의실을 보고 바로 예약하고 필요 없어지면 취소하게 하여 중복 예약과 노쇼를 줄인다",
+  "ubiquitous_language": [
+    {
+      "term": "회의실",
+      "term_en": "Room",
+      "definition": "예약 대상이 되는 사내 공간. 이름, 층, 수용 인원을 가진다. 초기 데이터로 넣는다."
+    },
+    {
+      "term": "예약",
+      "term_en": "Reservation",
+      "definition": "한 직원이 한 회의실을 하루 안의 시작 시각부터 끝 시각까지 쓰겠다고 잡은 한 건"
+    },
+    {
+      "term": "직원",
+      "term_en": "Employee",
+      "definition": "요청 헤더 X-Employee-Id 로 식별되는 사용자",
+      "anti_definition": "이 시스템이 관리하는 엔티티가 아니다(로그인 · 권한은 범위 밖)"
+    },
+    {
+      "term": "취소 상태",
+      "term_en": "Cancelled",
+      "definition": "취소한 예약이 지워지지 않고 남는 상태. 겹침 판정에서 빠진다."
+    },
+    {
+      "term": "겹침",
+      "term_en": "Overlap",
+      "definition": "같은 회의실의 두 예약 시간이 겹치는 것. 끝 시각과 다음 시작 시각이 같은 것은 겹침이 아니다."
+    }
+  ],
+  "bounded_contexts": [
+    {
+      "id": "BC-RESERVATION",
+      "name": "회의실 예약",
+      "verdict": "core",
+      "verdict_basis": {
+        "write_ops": 2,
+        "read_ops": 2,
+        "owned_aggregates": 2,
+        "decided_by": "rule"
+      },
+      "description": "회의실 조회, 날짜별 예약 현황 조회, 예약 생성, 예약 취소",
+      "related_modules": [
+        "MOD-API-WEB",
+        "MOD-API-APPLICATION",
+        "MOD-API-DOMAIN",
+        "MOD-API-PERSISTENCE",
+        "MOD-WEB-UI",
+        "MOD-WEB-API-CLIENT"
+      ],
+      "entities": [
+        {
+          "id": "E-RESERVATION-Room",
+          "name": "Room",
+          "description": "회의실(doc:§3.1-1). 이번 범위에서는 읽기 전용이다.",
+          "is_aggregate_root": true,
+          "attributes": [
+            {
+              "name": "id",
+              "type": "long",
+              "is_id": true
+            },
+            {
+              "name": "name",
+              "type": "string"
+            },
+            {
+              "name": "floor",
+              "type": "int"
+            },
+            {
+              "name": "capacity",
+              "type": "int"
+            }
+          ],
+          "persisted_to": "ROOM"
+        },
+        {
+          "id": "E-RESERVATION-Reservation",
+          "name": "Reservation",
+          "description": "예약(doc:§3.1-3, §4)",
+          "is_aggregate_root": true,
+          "attributes": [
+            {
+              "name": "id",
+              "type": "long",
+              "is_id": true
+            },
+            {
+              "name": "roomId",
+              "type": "long"
+            },
+            {
+              "name": "date",
+              "type": "LocalDate"
+            },
+            {
+              "name": "startTime",
+              "type": "LocalTime"
+            },
+            {
+              "name": "endTime",
+              "type": "LocalTime"
+            },
+            {
+              "name": "title",
+              "type": "string"
+            },
+            {
+              "name": "attendeeCount",
+              "type": "int"
+            },
+            {
+              "name": "reservedBy",
+              "type": "string"
+            },
+            {
+              "name": "status",
+              "type": "ReservationStatus"
+            },
+            {
+              "name": "cancelledAt",
+              "type": "LocalDateTime",
+              "nullable": true
+            }
+          ],
+          "behaviors": [
+            {
+              "method_name": "reserve",
+              "description": "규칙을 확인하고 예약을 만든다",
+              "related_rules": [
+                "BR-RESERVATION-OVERLAP-001",
+                "BR-RESERVATION-SLOT-001",
+                "BR-RESERVATION-DURATION-001",
+                "BR-RESERVATION-HOURS-001",
+                "BR-RESERVATION-WINDOW-001",
+                "BR-RESERVATION-ATTENDEES-001",
+                "BR-RESERVATION-TITLE-001"
+              ]
+            },
+            {
+              "method_name": "cancel",
+              "description": "본인 확인과 기한 확인 뒤 취소 상태로 바꾼다",
+              "related_rules": [
+                "BR-RESERVATION-CANCEL-001",
+                "BR-RESERVATION-CANCEL-002",
+                "BR-RESERVATION-RETAIN-001"
+              ]
+            }
+          ],
+          "persisted_to": "RESERVATION"
+        }
+      ],
+      "aggregates": [
+        {
+          "root_entity_id": "E-RESERVATION-Room",
+          "transaction_boundary": false,
+          "consistency": "strong"
+        },
+        {
+          "root_entity_id": "E-RESERVATION-Reservation",
+          "transaction_boundary": true,
+          "consistency": "strong",
+          "invariants": [
+            {
+              "id": "INV-RESERVATION-001",
+              "description": "같은 회의실 · 같은 날짜의 취소되지 않은 예약끼리는 시간이 겹치지 않는다. 동시에 들어온 요청에서도 성립한다(doc:§4 R1, §7).",
+              "enforced_by": "unknown"
+            },
+            {
+              "id": "INV-RESERVATION-002",
+              "description": "취소된 예약은 지워지지 않고 다시 예약 상태로 돌아가지 않는다(doc:§4 R9).",
+              "enforced_by": "unknown"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

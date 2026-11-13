@@ -1,0 +1,10 @@
+{
+  "scope": "roombook-mvp",
+  "stage": "discovery",
+  "taken_at": "2026-11-13T14:16:53.251Z",
+  "head": "4c3e23b17da870d29011e618d725933b1ce4ab70",
+  "entries": {
+    ".ai-context/.gitignore": "1e46da9a5995d00b86749072c370061f201090a0",
+    ".codegraph/.gitignore": "d20c0fe4bdba98d3521079d2535222adddb2bf0c"
+  }
+}

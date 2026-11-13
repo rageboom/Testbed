@@ -1,0 +1,24 @@
+{
+  "last": {
+    "at": "2026-11-13T14:21:34.598Z",
+    "scope": "roombook-mvp",
+    "stage": "discovery",
+    "trigger": "session_end",
+    "sum": null,
+    "status": "skipped",
+    "reason": "no_parent",
+    "targets": []
+  },
+  "history": [
+    {
+      "at": "2026-11-13T14:21:34.598Z",
+      "scope": "roombook-mvp",
+      "stage": "discovery",
+      "trigger": "session_end",
+      "sum": null,
+      "status": "skipped",
+      "reason": "no_parent",
+      "targets": []
+    }
+  ]
+}

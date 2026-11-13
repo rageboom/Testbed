@@ -1,0 +1,91 @@
+{
+  "meta": {
+    "generated_at": "2026-11-13T00:00:00Z",
+    "confidence": 0.6,
+    "inputs_used": [
+      "planning_docs"
+    ],
+    "warnings": [
+      "그린필드(S3): 경로 · 응답 꼴 · 거절 코드 이름은 기획서에 없어 추론했다(inferred). spec 단계에서 확정한다."
+    ]
+  },
+  "openapi_file": "openapi.yaml",
+  "openapi_version": "3.1.0",
+  "operations": [
+    {
+      "operation_id": "listRooms",
+      "method": "GET",
+      "path": "/api/rooms",
+      "reads_aggregates": [
+        "E-RESERVATION-Room"
+      ],
+      "provenance": {
+        "source": "chain_scope",
+        "extraction_method": "llm_with_grounding",
+        "scope": "roombook-mvp"
+      }
+    },
+    {
+      "operation_id": "listReservations",
+      "method": "GET",
+      "path": "/api/rooms/{roomId}/reservations",
+      "reads_aggregates": [
+        "E-RESERVATION-Reservation"
+      ],
+      "provenance": {
+        "source": "chain_scope",
+        "extraction_method": "llm_with_grounding",
+        "scope": "roombook-mvp"
+      }
+    },
+    {
+      "operation_id": "createReservation",
+      "method": "POST",
+      "path": "/api/rooms/{roomId}/reservations",
+      "affects_aggregates": [
+        "E-RESERVATION-Reservation"
+      ],
+      "reads_aggregates": [
+        "E-RESERVATION-Room"
+      ],
+      "related_rules": [
+        "BR-RESERVATION-OVERLAP-001",
+        "BR-RESERVATION-SLOT-001",
+        "BR-RESERVATION-DURATION-001",
+        "BR-RESERVATION-HOURS-001",
+        "BR-RESERVATION-WINDOW-001",
+        "BR-RESERVATION-ATTENDEES-001",
+        "BR-RESERVATION-TITLE-001",
+        "BR-RESERVATION-RETAIN-001"
+      ],
+      "provenance": {
+        "source": "chain_scope",
+        "extraction_method": "llm_with_grounding",
+        "scope": "roombook-mvp"
+      }
+    },
+    {
+      "operation_id": "cancelReservation",
+      "method": "POST",
+      "path": "/api/reservations/{reservationId}/cancel",
+      "affects_aggregates": [
+        "E-RESERVATION-Reservation"
+      ],
+      "related_rules": [
+        "BR-RESERVATION-CANCEL-001",
+        "BR-RESERVATION-CANCEL-002",
+        "BR-RESERVATION-RETAIN-001"
+      ],
+      "formal_spec_links": {
+        "state_machines": [
+          "../../formal-spec/state-machines/Reservation.json"
+        ]
+      },
+      "provenance": {
+        "source": "chain_scope",
+        "extraction_method": "llm_with_grounding",
+        "scope": "roombook-mvp"
+      }
+    }
+  ]
+}

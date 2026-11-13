@@ -1,0 +1,13 @@
+{
+  "finding_id": "F-20261113-b6cfb1",
+  "phase": "db-schema",
+  "discovered_at": "2026-11-13",
+  "discoverer": "analysis-greenfield-bootstrap (main thread)",
+  "description": "기획서(docs/prd.md)에 ER · DDL 이 없어서 shared/schema.json 을 산출하지 못했다. domain 엔티티에서 테이블을 합성해 보았으나, db-schema 스키마의 sources 칸이 erd · orm · operational_db · migration · ddic 만 받아서 기획서 출처를 정직하게 적을 수 없었다. 신뢰도 high(스키마 검사기가 실제로 거절했다).",
+  "context": "S3 그린필드, 입력 채널은 plan-doc 하나. 저장은 관계형 DB(H2 인메모리로 시작)라는 조건만 있다(doc:§6).",
+  "spec_gap": "methodology-spec/use-scenario-taxonomy.md §6 · §9: PRD 에 ER/DDL 이 없을 때의 entity→table 합성은 carry(C-use-scenario-greenfield-schema-synthesis)로 남아 있고, schemas/db-schema.schema.json 의 sources 에는 기획 문서 출처 값이 없다.",
+  "decision_made": "schema.json 은 산출하지 않았다. 테이블 의도는 shared/domain.json 의 persisted_to(ROOM · RESERVATION)에만 남기고, 테이블 설계와 겹침 방지 방식(DB 제약 또는 잠금)은 plan 단계의 ADR 에서 정한다. 구현에서 JPA 엔티티나 마이그레이션이 생기면 그것을 출처로 schema.json 을 만든다.",
+  "severity": "low",
+  "proposed_fix": "db-schema 의 sources 에 설계 의도 출처(예: planning_doc)를 더하거나, 그린필드에서는 schema.json 을 구현 뒤에 만든다고 절차에 명시한다.",
+  "status": "open"
+}

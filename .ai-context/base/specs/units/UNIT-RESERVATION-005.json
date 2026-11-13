@@ -1,0 +1,31 @@
+{
+	"id": "UNIT-RESERVATION-005",
+	"name": "TimeRange.overlaps",
+	"provenance": "designed_from_spec",
+	"kind": "function",
+	"code_pointer": {
+		"anchor_type": "ast_symbol",
+		"path": "apps/api/src/main/java/com/roombook/api/domain/TimeRange.java",
+		"symbol": "TimeRange.overlaps"
+	},
+	"bc_ref": "BC-RESERVATION",
+	"realizes": [
+		"BHV-RESERVATION-004"
+	],
+	"unit_test_obligation": "required",
+	"interface": {
+		"inputs": [
+			{
+				"name": "other",
+				"type": "TimeRange"
+			}
+		],
+		"output": {
+			"type": "boolean",
+			"description": "두 구간 [start,end) 이 겹치면 true. 맞닿기만 하면 false"
+		}
+	},
+	"invariant_refs": [
+		"INV-RESERVATION-001"
+	]
+}

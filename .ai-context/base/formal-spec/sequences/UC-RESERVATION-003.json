@@ -1,0 +1,114 @@
+{
+	"uc_id": "UC-RESERVATION-003",
+	"actors": [
+		{
+			"id": "직원",
+			"type": "user"
+		},
+		{
+			"id": "ReservationForm",
+			"type": "system",
+			"unit_ref": "UNIT-RESERVATION-019"
+		},
+		{
+			"id": "ReservationController",
+			"type": "controller",
+			"unit_ref": "UNIT-RESERVATION-002"
+		},
+		{
+			"id": "ReservationService",
+			"type": "service",
+			"unit_ref": "UNIT-RESERVATION-003"
+		},
+		{
+			"id": "RoomRepository",
+			"type": "repository",
+			"unit_ref": "UNIT-RESERVATION-008"
+		},
+		{
+			"id": "ReservationPolicy",
+			"type": "domain",
+			"unit_ref": "UNIT-RESERVATION-004"
+		},
+		{
+			"id": "ReservationRepository",
+			"type": "repository",
+			"unit_ref": "UNIT-RESERVATION-009"
+		},
+		{
+			"id": "TimeRange",
+			"type": "domain",
+			"unit_ref": "UNIT-RESERVATION-005"
+		},
+		{
+			"id": "ApiExceptionHandler",
+			"type": "controller",
+			"unit_ref": "UNIT-RESERVATION-011"
+		}
+	],
+	"messages": [
+		{
+			"from": "직원",
+			"to": "ReservationForm",
+			"label": "폼을 제출한다"
+		},
+		{
+			"from": "ReservationForm",
+			"to": "ReservationController",
+			"label": "POST /api/rooms/{roomId}/reservations"
+		},
+		{
+			"from": "ReservationController",
+			"to": "ReservationService",
+			"label": "create(roomId, request, employeeId)"
+		},
+		{
+			"from": "ReservationService",
+			"to": "RoomRepository",
+			"label": "findByIdForUpdate(roomId)",
+			"sync": "sync",
+			"guard": "없으면 ROOM_NOT_FOUND"
+		},
+		{
+			"from": "ReservationService",
+			"to": "ReservationPolicy",
+			"label": "validate(date, startTime, endTime, title, attendeeCount, roomCapacity, now)"
+		},
+		{
+			"from": "ReservationService",
+			"to": "ReservationRepository",
+			"label": "같은 회의실 · 날짜의 예약 상태 예약을 읽는다"
+		},
+		{
+			"from": "ReservationService",
+			"to": "TimeRange",
+			"label": "overlaps(other)",
+			"sync": "sync",
+			"guard": "겹치면 OVERLAP"
+		},
+		{
+			"from": "ReservationService",
+			"to": "ReservationRepository",
+			"label": "save(reservation)"
+		},
+		{
+			"from": "ReservationService",
+			"to": "ReservationController",
+			"label": "Reservation",
+			"sync": "return"
+		},
+		{
+			"from": "ReservationController",
+			"to": "ReservationForm",
+			"label": "201 Reservation",
+			"sync": "return"
+		},
+		{
+			"from": "ApiExceptionHandler",
+			"to": "ReservationForm",
+			"label": "4xx {code, message}",
+			"sync": "return",
+			"guard": "규칙 위반일 때"
+		}
+	]
+}

@@ -1,0 +1,23 @@
+{
+  "machine": "M3",
+  "channel": "hook:UserPromptSubmit",
+  "from": "HOLD",
+  "input": "prompt_decision",
+  "to": "IDLE",
+  "declared": "HOLD_TOKEN",
+  "then": "next_with_matching_token",
+  "steps": [
+    {
+      "from": "HOLD",
+      "input": "prompt_decision",
+      "to": "HOLD_TOKEN"
+    },
+    {
+      "from": "HOLD_TOKEN",
+      "input": "next_with_matching_token",
+      "to": "IDLE"
+    }
+  ],
+  "drift": null,
+  "recorded_at": "2026-11-13T14:25:36.193Z"
+}

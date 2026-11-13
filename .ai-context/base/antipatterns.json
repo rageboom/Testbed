@@ -1,0 +1,14 @@
+{
+  "meta": {
+    "generated_at": "2026-11-13T14:17:30.748Z",
+    "confidence": 0.98,
+    "inputs_used": [
+      "planning_docs"
+    ],
+    "methodology_version": "v11.10.0",
+    "generated_by": "greenfield-bootstrap",
+    "scenario": "S3",
+    "na_reason": "greenfield scenario — legacy 코드가 없어 리버스 엔지니어링 패스를 수행하지 않음. antipatterns 카탈로그는 legacy 전용(회피 후보 추출) 산출물이므로 N/A. 빈 배열은 설계상 정당(누락 ❌). 코드가 생겨 S1(베이스라인) · S2(브라운필드)로 넘어가면 채워짐."
+  },
+  "antipatterns": []
+}

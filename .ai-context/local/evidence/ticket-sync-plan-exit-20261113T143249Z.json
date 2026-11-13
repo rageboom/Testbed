@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "generated_at": "2026-11-13T14:32:49Z",
+    "generated_by": "chain-driver ticket-unreachable"
+  },
+  "$schema_ref": "ticket-sync-evidence.schema.json",
+  "stage": "plan",
+  "phase": "exit",
+  "scope": "roombook-mvp",
+  "jira_reachability": "unreachable",
+  "ticket_cascade": {
+    "epics": [],
+    "stories": [],
+    "op_tasks": [],
+    "subtasks": []
+  },
+  "mcp_invocations": [],
+  "graceful_mcp_missing": {
+    "mcp_available": false,
+    "skip_reason": "Jira MCP 도구가 이 세션에 없다(신 · 구 이름 둘 다 보이지 않는다) · 재시도: Jira MCP 도구가 이 세션에 여전히 없다"
+  }
+}

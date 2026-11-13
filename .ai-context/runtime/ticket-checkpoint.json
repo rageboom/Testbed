@@ -1,0 +1,84 @@
+{
+  "last": {
+    "at": "2026-11-13T14:33:11.071Z",
+    "scope": "roombook-mvp",
+    "stage": "plan",
+    "trigger": "session_end",
+    "sum": null,
+    "status": "skipped",
+    "reason": "no_parent",
+    "targets": []
+  },
+  "history": [
+    {
+      "at": "2026-11-13T14:33:11.071Z",
+      "scope": "roombook-mvp",
+      "stage": "plan",
+      "trigger": "session_end",
+      "sum": null,
+      "status": "skipped",
+      "reason": "no_parent",
+      "targets": []
+    },
+    {
+      "at": "2026-11-13T14:28:10.967Z",
+      "scope": "roombook-mvp",
+      "stage": "spec",
+      "trigger": "gate",
+      "sum": null,
+      "status": "skipped",
+      "reason": "no_parent",
+      "targets": []
+    },
+    {
+      "at": "2026-11-13T14:28:10.659Z",
+      "scope": "roombook-mvp",
+      "stage": "spec",
+      "trigger": "gate",
+      "sum": null,
+      "status": "queued",
+      "reason": null,
+      "targets": []
+    },
+    {
+      "at": "2026-11-13T14:25:36.328Z",
+      "scope": "roombook-mvp",
+      "stage": "discovery",
+      "trigger": "gate",
+      "sum": null,
+      "status": "skipped",
+      "reason": "no_parent",
+      "targets": []
+    },
+    {
+      "at": "2026-11-13T14:25:36.009Z",
+      "scope": "roombook-mvp",
+      "stage": "discovery",
+      "trigger": "gate",
+      "sum": null,
+      "status": "queued",
+      "reason": null,
+      "targets": []
+    },
+    {
+      "at": "2026-11-13T14:24:44.055Z",
+      "scope": "roombook-mvp",
+      "stage": "discovery",
+      "trigger": "session_end",
+      "sum": null,
+      "status": "skipped",
+      "reason": "no_parent",
+      "targets": []
+    },
+    {
+      "at": "2026-11-13T14:21:34.598Z",
+      "scope": "roombook-mvp",
+      "stage": "discovery",
+      "trigger": "session_end",
+      "sum": null,
+      "status": "skipped",
+      "reason": "no_parent",
+      "targets": []
+    }
+  ]
+}

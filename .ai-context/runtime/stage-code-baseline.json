@@ -1,0 +1,30 @@
+{
+  "scope": "roombook-mvp",
+  "stage": "plan",
+  "taken_at": "2026-11-13T14:28:11.092Z",
+  "head": "4c3e23b17da870d29011e618d725933b1ce4ab70",
+  "entries": {
+    ".ai-context/.gitignore": "1e46da9a5995d00b86749072c370061f201090a0",
+    ".ai-context/base/antipatterns.json": "e5d081921f255f4555902f1d3cd8012a079a5b16",
+    ".ai-context/base/domains/BC-RESERVATION/business-rules.json": "7496fbeeb134c562555dbb7f20cbd45453761320",
+    ".ai-context/base/domains/BC-RESERVATION/openapi-extension.json": "8c301b47ebda75beb9e4ef437e57448b67be0108",
+    ".ai-context/base/domains/BC-RESERVATION/openapi.yaml": "c576ae571689e2e87375f5ddca54cd8af0a67cd3",
+    ".ai-context/base/formal-spec/state-machines/Reservation.json": "56212f8a8618de7b2e0332d4fe7ec4593ecb7aa9",
+    ".ai-context/base/migration-cautions.json": "6b8e7483caddb6c380b2092a9a5fcb952c1154ae",
+    ".ai-context/base/shared/architecture.json": "d659f82386578f6558aa5da083a9566c2351a753",
+    ".ai-context/base/shared/domain.json": "d84686211604d7a72c89fd562e4c87e875cc8407",
+    ".ai-context/base/specs/behaviors/BHV-RESERVATION-001.json": "f7642233a46a14e28668f98c65c168db5350545a",
+    ".ai-context/base/specs/behaviors/BHV-RESERVATION-002.json": "e9632aea1685b6470828161adc3c0c0907059da2",
+    ".ai-context/base/specs/behaviors/BHV-RESERVATION-003.json": "c20a554b669e9ae10a122f010ebfaea1ea633fe4",
+    ".ai-context/base/specs/behaviors/BHV-RESERVATION-004.json": "075a5c7a4410ab59696cd7712458577080a9d457",
+    ".ai-context/base/specs/behaviors/BHV-RESERVATION-005.json": "fb9f227e0c03ec86a160764158a23907cb87b3bc",
+    ".ai-context/base/specs/qualities/NFR-RESERVATION-001.json": "2825d813ff1ad1aeb0f8e0fe325f1b7c43011d74",
+    ".ai-context/base/specs/qualities/NFR-RESERVATION-002.json": "d948f001f4c1c167d57087921081d7d9d1bf5fd9",
+    ".ai-context/base/specs/use-cases/UC-RESERVATION-001.json": "d7cdb7f219715575f64d10cf4f64d4f0685dbff9",
+    ".ai-context/base/specs/use-cases/UC-RESERVATION-002.json": "599c91d11a6620e31726076ee6d281487b00011a",
+    ".ai-context/base/specs/use-cases/UC-RESERVATION-003.json": "ac42252e9b6720289cc09e6e1f6dfbdb06d4f547",
+    ".ai-context/base/specs/use-cases/UC-RESERVATION-004.json": "4bf459f159b126b3bd813523318aabf582106b52",
+    ".ai-context/findings/F-20261113-b6cfb1.json": "293e7c50e25da47ef56a82e52680501b6f9bd364",
+    ".codegraph/.gitignore": "d20c0fe4bdba98d3521079d2535222adddb2bf0c"
+  }
+}

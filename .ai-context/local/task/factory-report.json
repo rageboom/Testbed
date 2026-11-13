@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "scope": "roombook-mvp",
+  "generated_at": "2026-11-13T14:33:10.633Z",
+  "route": "full",
+  "authorization_stage": "discovery",
+  "authorized_at": "2026-11-13T14:25:35.904Z",
+  "terminal": {
+    "reason": "ticket",
+    "at": "2026-11-13T14:33:10.633Z",
+    "stage": "plan"
+  },
+  "stages": [
+    {
+      "stage": "spec",
+      "verifies": 1,
+      "result": "passed"
+    },
+    {
+      "stage": "plan",
+      "verifies": 6,
+      "result": "passed"
+    }
+  ],
+  "items": [],
+  "notes": [],
+  "revisits": [],
+  "approved_tests_changes": [],
+  "counts": {
+    "drives": 2,
+    "verifies": 7,
+    "revisits": 0,
+    "elapsed_ms": 454729
+  },
+  "summary": {
+    "fixed": 0,
+    "carried": 0,
+    "unresolved": 0,
+    "unverified": 0,
+    "open": 0,
+    "notes": 0,
+    "completable": false
+  }
+}

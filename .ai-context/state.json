@@ -1,0 +1,951 @@
+{
+  "$schema_ref": "schemas/state.schema.json",
+  "version": "6.21",
+  "project_id": "testbed",
+  "current_chain": "plan",
+  "current_phase": "input.0",
+  "current_scope": "roombook-mvp",
+  "stage_progress": {
+    "analysis": {
+      "status": "complete"
+    },
+    "discovery": {
+      "status": "complete",
+      "agent_required": null,
+      "agent_required_at": null,
+      "stage_agent_available": "context-ops:discovery-agent",
+      "agent_dispatch_attempts": 0,
+      "agent_dispatched_at": null,
+      "artifact_view_plan": null,
+      "stage_kit": {
+        "outputs": [
+          {
+            "artifact": "task-card",
+            "part": "discovery",
+            "schema_path": "schemas/task-card.schema.json",
+            "skeleton": {
+              "top_required": [],
+              "arrays": [
+                {
+                  "key": "scope",
+                  "required": [
+                    "target",
+                    "disposition",
+                    "reason"
+                  ],
+                  "field_count": 8
+                },
+                {
+                  "key": "drafts",
+                  "required": [
+                    "kind",
+                    "props"
+                  ],
+                  "field_count": 3
+                },
+                {
+                  "key": "questions",
+                  "required": [
+                    "id",
+                    "kind",
+                    "text"
+                  ],
+                  "field_count": 4
+                }
+              ],
+              "enums": {
+                "discovery_status": [
+                  "draft",
+                  "confirmed",
+                  "final"
+                ],
+                "scope[].disposition": [
+                  "add",
+                  "modify",
+                  "deprecate",
+                  "keep",
+                  "unrelated"
+                ],
+                "scope[].certainty": [
+                  "observed",
+                  "inferred-consequence",
+                  "unverified-intent",
+                  "source-refuted"
+                ],
+                "drafts[].kind": [
+                  "use_case",
+                  "risk",
+                  "nfr"
+                ],
+                "questions[].kind": [
+                  "question",
+                  "conflict",
+                  "decision"
+                ]
+              }
+            },
+            "example_path": "testbed/fixtures/bookmark-node/.ai-context/local/task/card.json"
+          }
+        ],
+        "validators": [
+          "discovery-extraction-validator",
+          "schema-validator",
+          "br-cross-consistency-validator"
+        ],
+        "degraded": null
+      },
+      "reading_plan": null,
+      "completed_at": "2026-11-13T14:25:35.904Z",
+      "gate_decision": "go",
+      "metrics": {
+        "time": {
+          "wall_ms": 522905,
+          "last_pass_ms": 522905,
+          "first_started_at": "2026-11-13T14:16:52.999Z",
+          "last_completed_at": "2026-11-13T14:25:35.904Z",
+          "passes": 1
+        },
+        "cost": {
+          "main_usd": 0,
+          "subagent_usd": 0,
+          "background_usd": 0,
+          "total_usd": 0,
+          "samples": 0,
+          "source": "transcript",
+          "includes_subagents": true,
+          "lower_bound": true,
+          "attribution": "transcript-estimate",
+          "unpriced_models": [
+            "claude-fable-5-2"
+          ]
+        },
+        "tokens": {
+          "input": 52,
+          "output": 33720,
+          "cache_read": 3232328,
+          "cache_creation": 114016,
+          "billable": 147788,
+          "background_billable": 0,
+          "samples": 26,
+          "requests": 26,
+          "background_requests": 0,
+          "cache_read_per_request": 124320,
+          "source": "transcript",
+          "attribution": "transcript-estimate"
+        }
+      }
+    },
+    "spec": {
+      "status": "complete",
+      "started_at": "2026-11-13T14:25:35.904Z",
+      "agent_required": null,
+      "agent_required_at": null,
+      "stage_agent_available": "context-ops:spec-agent",
+      "agent_dispatch_attempts": 0,
+      "agent_dispatched_at": null,
+      "artifact_view_plan": [
+        {
+          "artifact": "task-card",
+          "for_stage": "spec",
+          "context": "mid",
+          "uc_ids": [
+            "UC-RESERVATION-001",
+            "UC-RESERVATION-002",
+            "UC-RESERVATION-003",
+            "UC-RESERVATION-004"
+          ]
+        },
+        {
+          "artifact": "business-rules",
+          "for_stage": "spec",
+          "context": "mid",
+          "uc_ids": [
+            "UC-RESERVATION-001",
+            "UC-RESERVATION-002",
+            "UC-RESERVATION-003",
+            "UC-RESERVATION-004"
+          ]
+        }
+      ],
+      "stage_kit": {
+        "outputs": [
+          {
+            "artifact": "use-case",
+            "schema_path": "schemas/elements/use-case.schema.json",
+            "skeleton": {
+              "top_required": [
+                "id",
+                "description"
+              ],
+              "arrays": [
+                {
+                  "key": "actors",
+                  "required": [],
+                  "field_count": 0
+                },
+                {
+                  "key": "preconditions",
+                  "required": [],
+                  "field_count": 0
+                },
+                {
+                  "key": "postconditions",
+                  "required": [],
+                  "field_count": 0
+                }
+              ],
+              "enums": {
+                "status": [
+                  "active",
+                  "deprecated"
+                ]
+              }
+            },
+            "example_path": "testbed/fixtures/bookmark-node/.ai-context/base/specs/use-cases/UC-BOOKMARK-001.json"
+          },
+          {
+            "artifact": "behavior",
+            "schema_path": "schemas/elements/behavior.schema.json",
+            "skeleton": {
+              "top_required": [
+                "id",
+                "use_case_refs"
+              ],
+              "arrays": [
+                {
+                  "key": "use_case_refs",
+                  "required": [],
+                  "field_count": 0
+                },
+                {
+                  "key": "br_refs",
+                  "required": [],
+                  "field_count": 0
+                },
+                {
+                  "key": "preconditions",
+                  "required": [],
+                  "field_count": 0
+                },
+                {
+                  "key": "postconditions",
+                  "required": [],
+                  "field_count": 0
+                },
+                {
+                  "key": "invariants",
+                  "required": [],
+                  "field_count": 0
+                },
+                {
+                  "key": "property_tests",
+                  "required": [
+                    "property",
+                    "framework"
+                  ],
+                  "field_count": 4
+                },
+                {
+                  "key": "source_grounded_evidence",
+                  "required": [],
+                  "field_count": 0
+                },
+                {
+                  "key": "acceptance_criteria",
+                  "required": [
+                    "id",
+                    "gherkin",
+                    "severity",
+                    "verifiable"
+                  ],
+                  "field_count": 21
+                }
+              ],
+              "enums": {
+                "status": [
+                  "active",
+                  "deprecated"
+                ],
+                "property_tests[].framework": [
+                  "fast-check",
+                  "hypothesis",
+                  "jqwik",
+                  "quickcheck",
+                  "proptest",
+                  "other"
+                ],
+                "property_tests[].framework_status": [
+                  "active",
+                  "maintenance",
+                  "deprecated"
+                ],
+                "acceptance_criteria[].status": [
+                  "active",
+                  "deprecated"
+                ],
+                "acceptance_criteria[].severity": [
+                  "must",
+                  "should",
+                  "nice"
+                ],
+                "acceptance_criteria[].layer": [
+                  "be",
+                  "fe",
+                  "fe-legacy",
+                  "db",
+                  "e2e",
+                  "infra",
+                  "cross-cut"
+                ]
+              }
+            },
+            "example_path": "testbed/fixtures/bookmark-node/.ai-context/base/specs/behaviors/BHV-BOOKMARK-001.json"
+          },
+          {
+            "artifact": "risk",
+            "schema_path": "schemas/elements/risk.schema.json",
+            "skeleton": {
+              "top_required": [
+                "id",
+                "severity",
+                "description"
+              ],
+              "arrays": [],
+              "enums": {
+                "status": [
+                  "active",
+                  "deprecated"
+                ],
+                "severity": [
+                  "critical",
+                  "high",
+                  "medium",
+                  "low"
+                ]
+              }
+            },
+            "example_path": "testbed/fixtures/bookmark-node/.ai-context/base/specs/risks/RISK-BOOKMARK-001.json"
+          },
+          {
+            "artifact": "nfr",
+            "schema_path": "schemas/elements/nfr.schema.json",
+            "skeleton": {
+              "top_required": [
+                "id",
+                "characteristic",
+                "statement",
+                "severity"
+              ],
+              "arrays": [
+                {
+                  "key": "source_grounded_evidence",
+                  "required": [],
+                  "field_count": 0
+                }
+              ],
+              "enums": {
+                "status": [
+                  "active",
+                  "deprecated"
+                ],
+                "characteristic": [
+                  "functional_suitability",
+                  "performance_efficiency",
+                  "compatibility",
+                  "usability",
+                  "reliability",
+                  "security",
+                  "maintainability",
+                  "portability",
+                  "safety"
+                ],
+                "severity": [
+                  "critical",
+                  "high",
+                  "medium",
+                  "low"
+                ]
+              }
+            },
+            "example_path": "testbed/fixtures/bookmark-node/.ai-context/base/specs/qualities/NFR-BOOKMARK-001.json"
+          }
+        ],
+        "validators": [
+          "chain-coverage-validator",
+          "drift-validator (chain mode)",
+          "formal-spec-link-validator (--mode=chain)",
+          "schema-validator",
+          "openapi-spec-validator (계약 문서를 고쳤을 때)"
+        ],
+        "degraded": null
+      },
+      "reading_plan": {
+        "protocol": "methodology-spec/policies/artifact-reading-protocol.md",
+        "index_cmd": "chain-driver index <project> --scope roombook-mvp",
+        "closure_cmd": "chain-driver closure <project> --scope roombook-mvp --seed UC-RESERVATION-001,UC-RESERVATION-002,UC-RESERVATION-003,UC-RESERVATION-004",
+        "seed_ids": [
+          "UC-RESERVATION-001",
+          "UC-RESERVATION-002",
+          "UC-RESERVATION-003",
+          "UC-RESERVATION-004"
+        ],
+        "seed_kinds": [
+          "UC"
+        ],
+        "engraved_at": "2026-11-13T14:25:36.133Z",
+        "items": [],
+        "parts": 0
+      },
+      "completed_at": "2026-11-13T14:28:10.549Z",
+      "gate_decision": "go",
+      "metrics": {
+        "time": {
+          "wall_ms": 154645,
+          "last_pass_ms": 154645,
+          "first_started_at": "2026-11-13T14:25:35.904Z",
+          "last_completed_at": "2026-11-13T14:28:10.549Z",
+          "passes": 1
+        },
+        "cost": {
+          "main_usd": 0,
+          "subagent_usd": 0,
+          "background_usd": 0,
+          "total_usd": 0,
+          "samples": 0,
+          "source": "transcript",
+          "includes_subagents": true,
+          "lower_bound": true,
+          "attribution": "transcript-estimate",
+          "unpriced_models": [
+            "claude-fable-5-2"
+          ]
+        },
+        "tokens": {
+          "input": 14,
+          "output": 18167,
+          "cache_read": 1309962,
+          "cache_creation": 44414,
+          "billable": 62595,
+          "background_billable": 0,
+          "samples": 7,
+          "requests": 7,
+          "background_requests": 0,
+          "cache_read_per_request": 187137,
+          "source": "transcript",
+          "attribution": "transcript-estimate"
+        }
+      }
+    },
+    "plan": {
+      "status": "in_progress",
+      "started_at": "2026-11-13T14:28:10.549Z",
+      "agent_required": null,
+      "agent_required_at": null,
+      "stage_agent_available": "context-ops:plan-agent",
+      "agent_dispatch_attempts": 0,
+      "agent_dispatched_at": null,
+      "artifact_view_plan": [
+        {
+          "artifact": "task-card",
+          "for_stage": "plan",
+          "context": "mid",
+          "uc_ids": [
+            "UC-RESERVATION-001",
+            "UC-RESERVATION-002",
+            "UC-RESERVATION-003",
+            "UC-RESERVATION-004"
+          ]
+        },
+        {
+          "artifact": "behaviors",
+          "for_stage": "plan",
+          "context": "mid",
+          "uc_ids": [
+            "UC-RESERVATION-001",
+            "UC-RESERVATION-002",
+            "UC-RESERVATION-003",
+            "UC-RESERVATION-004"
+          ]
+        },
+        {
+          "artifact": "criteria",
+          "for_stage": "plan",
+          "context": "mid",
+          "uc_ids": [
+            "UC-RESERVATION-001",
+            "UC-RESERVATION-002",
+            "UC-RESERVATION-003",
+            "UC-RESERVATION-004"
+          ]
+        }
+      ],
+      "stage_kit": {
+        "outputs": [
+          {
+            "artifact": "task-card",
+            "part": "plan",
+            "schema_path": "schemas/task-card.schema.json",
+            "skeleton": {
+              "top_required": [],
+              "arrays": [
+                {
+                  "key": "epics",
+                  "required": [],
+                  "field_count": 6
+                },
+                {
+                  "key": "stories",
+                  "required": [],
+                  "field_count": 8
+                },
+                {
+                  "key": "op_tasks",
+                  "required": [
+                    "op_task_id"
+                  ],
+                  "field_count": 9
+                },
+                {
+                  "key": "tasks",
+                  "required": [
+                    "id",
+                    "ac_refs",
+                    "behavior_ref",
+                    "execution_order"
+                  ],
+                  "field_count": 23
+                },
+                {
+                  "key": "risk_responses",
+                  "required": [
+                    "id"
+                  ],
+                  "field_count": 6
+                },
+                {
+                  "key": "nfr_allocations",
+                  "required": [
+                    "id"
+                  ],
+                  "field_count": 3
+                },
+                {
+                  "key": "sp_conversions",
+                  "required": [
+                    "sp_id",
+                    "sp_conversion_class",
+                    "rationale"
+                  ],
+                  "field_count": 9
+                },
+                {
+                  "key": "regression_tests",
+                  "required": [],
+                  "field_count": 0
+                }
+              ],
+              "enums": {
+                "op_tasks[].category": [
+                  "migration",
+                  "cron",
+                  "health-check",
+                  "refactor",
+                  "infra",
+                  "ops",
+                  "monitoring",
+                  "security-patch",
+                  "dependency-upgrade"
+                ],
+                "tasks[].layer": [
+                  "domain",
+                  "application",
+                  "infrastructure",
+                  "presentation",
+                  "cross-cutting",
+                  "be",
+                  "fe",
+                  "fe-legacy",
+                  "db",
+                  "e2e",
+                  "infra"
+                ],
+                "tasks[].unit_test_obligation": [
+                  "required",
+                  "characterization_only",
+                  "waived"
+                ],
+                "sp_conversions[].sp_conversion_class": [
+                  "alpha",
+                  "beta",
+                  "gamma",
+                  "delta"
+                ],
+                "sp_conversions[].implementation": [
+                  "code",
+                  "orm",
+                  "criteria",
+                  "native"
+                ]
+              }
+            },
+            "example_path": "testbed/fixtures/bookmark-node/.ai-context/local/task/card.json"
+          },
+          {
+            "artifact": "unit",
+            "schema_path": "schemas/elements/unit.schema.json",
+            "skeleton": {
+              "top_required": [
+                "id",
+                "provenance",
+                "kind",
+                "code_pointer",
+                "unit_test_obligation"
+              ],
+              "arrays": [
+                {
+                  "key": "invariant_refs",
+                  "required": [],
+                  "field_count": 0
+                },
+                {
+                  "key": "property_test_refs",
+                  "required": [],
+                  "field_count": 0
+                },
+                {
+                  "key": "collaborators",
+                  "required": [],
+                  "field_count": 0
+                },
+                {
+                  "key": "realizes",
+                  "required": [],
+                  "field_count": 0
+                },
+                {
+                  "key": "characterization_snapshot_refs",
+                  "required": [],
+                  "field_count": 0
+                }
+              ],
+              "enums": {
+                "status": [
+                  "active",
+                  "deprecated"
+                ],
+                "provenance": [
+                  "characterized_from_code",
+                  "designed_from_spec"
+                ],
+                "kind": [
+                  "class",
+                  "function",
+                  "module",
+                  "component",
+                  "config",
+                  "sql",
+                  "schema"
+                ],
+                "unit_test_obligation": [
+                  "required",
+                  "characterization_only",
+                  "waived"
+                ]
+              }
+            },
+            "example_path": "testbed/fixtures/bookmark-node/.ai-context/base/specs/units/UNIT-BOOKMARK-001.json"
+          },
+          {
+            "artifact": "adr",
+            "schema_path": "schemas/elements/adr.schema.json",
+            "skeleton": {
+              "top_required": [
+                "id",
+                "title",
+                "status",
+                "decision",
+                "alternatives",
+                "consequences"
+              ],
+              "arrays": [
+                {
+                  "key": "alternatives",
+                  "required": [
+                    "option",
+                    "rejection_reason"
+                  ],
+                  "field_count": 2
+                },
+                {
+                  "key": "integration_points",
+                  "required": [],
+                  "field_count": 0
+                },
+                {
+                  "key": "behavior_refs",
+                  "required": [],
+                  "field_count": 0
+                }
+              ],
+              "enums": {
+                "status": [
+                  "proposed",
+                  "accepted",
+                  "deprecated",
+                  "superseded"
+                ],
+                "trigger_category": [
+                  "structure",
+                  "non_functional_requirements",
+                  "dependencies",
+                  "interfaces",
+                  "construction_techniques",
+                  "security_compliance"
+                ]
+              }
+            },
+            "example_path": "testbed/fixtures/bookmark-node/.ai-context/base/specs/adrs/ADR-BOOKMARK-001.json"
+          },
+          {
+            "artifact": "risk",
+            "schema_path": "schemas/elements/risk.schema.json",
+            "skeleton": {
+              "top_required": [
+                "id",
+                "severity",
+                "description"
+              ],
+              "arrays": [],
+              "enums": {
+                "status": [
+                  "active",
+                  "deprecated"
+                ],
+                "severity": [
+                  "critical",
+                  "high",
+                  "medium",
+                  "low"
+                ]
+              }
+            },
+            "example_path": "testbed/fixtures/bookmark-node/.ai-context/base/specs/risks/RISK-BOOKMARK-001.json"
+          }
+        ],
+        "validators": [
+          "plan-coverage-validator",
+          "schema-validator",
+          "unit-spec-oracle-validator (required UNIT oracle≥1)",
+          "formal-spec-link-validator (--mode=chain · 이 브랜치가 손댄 formal-spec 한 건짜리 파일의 참조 무결성 · plan 이 쓰는 시퀀스)"
+        ],
+        "degraded": null
+      },
+      "reading_plan": {
+        "protocol": "methodology-spec/policies/artifact-reading-protocol.md",
+        "index_cmd": "chain-driver index <project> --scope roombook-mvp",
+        "closure_cmd": "chain-driver closure <project> --scope roombook-mvp --seed UC-RESERVATION-001,UC-RESERVATION-002,UC-RESERVATION-003,UC-RESERVATION-004",
+        "seed_ids": [
+          "UC-RESERVATION-001",
+          "UC-RESERVATION-002",
+          "UC-RESERVATION-003",
+          "UC-RESERVATION-004"
+        ],
+        "seed_kinds": [
+          "BHV",
+          "AC"
+        ],
+        "engraved_at": "2026-11-13T14:28:11.001Z",
+        "items": [
+          {
+            "kind": "element",
+            "id": null,
+            "path": ".ai-context/base/specs",
+            "range": null,
+            "read": null,
+            "part": 1
+          }
+        ],
+        "parts": 1
+      }
+    },
+    "test": {
+      "status": "pending"
+    },
+    "implement": {
+      "status": "pending"
+    }
+  },
+  "last_gate": {
+    "id": "#2",
+    "stage": "spec",
+    "decision": "go",
+    "decision_at": "2026-11-13T14:28:10.549Z",
+    "validator_findings": {
+      "critical": 0,
+      "high": 0,
+      "medium": 2,
+      "low": 0,
+      "info": 0
+    },
+    "intervention_log_path": ".ai-context/local/evidence/intervention-log.jsonl"
+  },
+  "pending_revisit": null,
+  "blocked": false,
+  "block_reason": null,
+  "revisit_ignore_globs": [],
+  "intervention_log_path": ".ai-context/local/evidence/intervention-log.jsonl",
+  "current_task": null,
+  "task": {
+    "scope": "roombook-mvp",
+    "status": "in_progress",
+    "opened_at": "2026-11-13T14:16:52.999Z",
+    "scenario": "S3",
+    "route": "full",
+    "analysis_refs": {
+      "rules": [
+        "BR-RESERVATION-ATTENDEES-001",
+        "BR-RESERVATION-CANCEL-001",
+        "BR-RESERVATION-CANCEL-002",
+        "BR-RESERVATION-DURATION-001",
+        "BR-RESERVATION-HOURS-001",
+        "BR-RESERVATION-OVERLAP-001",
+        "BR-RESERVATION-RETAIN-001",
+        "BR-RESERVATION-SLOT-001",
+        "BR-RESERVATION-TITLE-001",
+        "BR-RESERVATION-WINDOW-001"
+      ],
+      "endpoints": [],
+      "schemas": [],
+      "domain": [],
+      "antipatterns": [],
+      "artifacts": {
+        "antipatterns.json": ".ai-context/base/antipatterns.json",
+        "architecture.json": ".ai-context/base/shared/architecture.json",
+        "business-rules.json": ".ai-context/base",
+        "domain.json": ".ai-context/base/shared/domain.json",
+        "openapi.yaml": ".ai-context/base"
+      }
+    },
+    "reference_sources": [],
+    "finished_tasks": [],
+    "closure": null
+  },
+  "guards": {
+    "stage_dirty": {
+      "status": "undetermined",
+      "attempts": 0,
+      "cap": null,
+      "waiver": null,
+      "updated_at": "2026-11-13T14:33:10.311Z"
+    },
+    "entry_task": {
+      "status": "armed",
+      "attempts": 0,
+      "cap": null,
+      "waiver": null,
+      "updated_at": "2026-11-13T14:28:11.001Z"
+    },
+    "gate_surfacing": {
+      "status": "armed",
+      "attempts": 0,
+      "cap": null,
+      "waiver": null,
+      "updated_at": "2026-11-13T14:28:11.001Z"
+    },
+    "task_close": {
+      "status": "armed",
+      "attempts": 0,
+      "cap": null,
+      "waiver": null,
+      "updated_at": "2026-11-13T14:28:11.001Z"
+    },
+    "picker_repeat": {
+      "status": "armed",
+      "attempts": 0,
+      "cap": null,
+      "waiver": null,
+      "updated_at": "2026-11-13T14:28:11.001Z"
+    },
+    "stage_agent": {
+      "status": "armed",
+      "attempts": 0,
+      "cap": null,
+      "waiver": null,
+      "updated_at": "2026-11-13T14:28:11.001Z"
+    },
+    "initiative": {
+      "status": "armed",
+      "attempts": 0,
+      "cap": null,
+      "waiver": null,
+      "updated_at": "2026-11-13T14:28:11.001Z"
+    },
+    "task_post": {
+      "status": "armed",
+      "attempts": 0,
+      "cap": 3,
+      "waiver": null,
+      "updated_at": "2026-11-13T14:28:11.001Z"
+    },
+    "research_dispatch": {
+      "status": "armed",
+      "attempts": 0,
+      "cap": null,
+      "waiver": null,
+      "updated_at": "2026-11-13T14:28:11.001Z"
+    },
+    "external_write": {
+      "status": "armed",
+      "attempts": 0,
+      "cap": null,
+      "waiver": null,
+      "opted_in": false,
+      "updated_at": "2026-11-13T14:28:11.001Z"
+    },
+    "stage_write": {
+      "status": "armed",
+      "attempts": 0,
+      "cap": 3,
+      "waiver": null,
+      "updated_at": "2026-11-13T14:28:11.001Z"
+    },
+    "impl_retry": {
+      "status": "armed",
+      "attempts": 0,
+      "cap": null,
+      "waiver": null,
+      "updated_at": "2026-11-13T14:28:11.001Z"
+    }
+  },
+  "user_waive_token": null,
+  "user_external_write_token": null,
+  "user_discard_token": null,
+  "user_heavier_token": null,
+  "light_heavier_pending": null,
+  "user_start_token": null,
+  "start_recommendation": null,
+  "block_scope": null,
+  "pending_gate": null,
+  "user_gate_token": null,
+  "sessions_seen": [
+    {
+      "id": "ae737add-278d-4acd-a16c-0aba0db7d17e",
+      "scope": "roombook-mvp",
+      "first_seen_at": "2026-11-13T14:16:53.003Z",
+      "last_seen_at": "2026-11-13T14:16:53.003Z"
+    }
+  ],
+  "user_auto_delegation_token": {
+    "issued_at": "2026-11-13T14:25:35.904Z",
+    "nonce": "28bd2c15-07ef-4c91-96e4-0b7278667b38",
+    "consumed": false,
+    "scope": "roombook-mvp",
+    "session_id": "ae737add-278d-4acd-a16c-0aba0db7d17e",
+    "confirmed_by": {
+      "context": "prompt",
+      "choice_id": "go",
+      "stage": "discovery",
+      "issued_at": "2026-11-13T14:25:34.227Z"
+    }
+  }
+}

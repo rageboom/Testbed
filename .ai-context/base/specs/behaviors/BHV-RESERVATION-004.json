@@ -1,0 +1,167 @@
+{
+	"id": "BHV-RESERVATION-004",
+	"name": "겹치는 예약 거절",
+	"description": "같은 회의실 · 같은 날짜의 취소되지 않은 예약과 시간이 겹치는 예약을 거절한다. 끝 시각과 시작 시각이 맞닿기만 한 예약은 받고, 겹치는 요청이 동시에 들어와도 하나만 성공한다.",
+	"use_case_refs": [
+		"UC-RESERVATION-003"
+	],
+	"br_refs": [
+		"BR-RESERVATION-OVERLAP-001",
+		"BR-RESERVATION-RETAIN-001"
+	],
+	"preconditions": [
+		"예약 요청이 입력 규칙(BHV-RESERVATION-003)을 통과했다"
+	],
+	"postconditions": [
+		"같은 회의실 · 같은 날짜의 취소되지 않은 예약끼리는 시간이 겹치지 않는다"
+	],
+	"invariants": [
+		"INV-RESERVATION-001"
+	],
+	"source_grounded_evidence": [
+		"doc:docs/prd.md:13:3",
+		"doc:docs/prd.md:13:11",
+		"doc:docs/prd.md:22:1"
+	],
+	"property_tests": [
+		{
+			"property": "두 시간 구간 [s1,e1) 과 [s2,e2) 의 겹침 판정은 대칭이고, e1 == s2 이면 겹침이 아니다",
+			"framework": "jqwik",
+			"framework_status": "active",
+			"arbitrary_stub": "@ForAll(\"slots\") TimeRange a, @ForAll(\"slots\") TimeRange b"
+		}
+	],
+	"acceptance_criteria": [
+		{
+			"id": "AC-RESERVATION-037",
+			"title": "기존 예약과 시간이 겹치면 OVERLAP 으로 거절한다",
+			"gherkin": {
+				"given": [
+					"서버 현재 시각이 2026-11-16 10:00 (Asia/Seoul) 이다",
+					"수용 인원 6명인 회의실 1 이 있다",
+					"회의실 1 의 2026-11-17 에 예약 상태인 예약(10:00~11:00)이 있다"
+				],
+				"when": "직원 E100 이 POST /api/rooms/1/reservations 를 {date:'2026-11-17', startTime:'10:30', endTime:'11:30', title:'회의', attendeeCount:2} 로 호출한다",
+				"then": [
+					"409 응답",
+					"응답 본문의 code 가 OVERLAP 이다",
+					"예약이 저장되지 않는다"
+				]
+			},
+			"severity": "must",
+			"verifiable": true,
+			"automated_runnable": true,
+			"layer": "be",
+			"openapi_path": "/api/rooms/{roomId}/reservations",
+			"operationId": "createReservation",
+			"related_brs": [
+				"BR-RESERVATION-OVERLAP-001"
+			]
+		},
+		{
+			"id": "AC-RESERVATION-038",
+			"title": "기존 예약의 끝과 맞닿은 예약은 받는다",
+			"gherkin": {
+				"given": [
+					"서버 현재 시각이 2026-11-16 10:00 (Asia/Seoul) 이다",
+					"수용 인원 6명인 회의실 1 이 있다",
+					"회의실 1 의 2026-11-17 에 예약 상태인 예약(10:00~11:00)이 있다"
+				],
+				"when": "직원 E100 이 POST /api/rooms/1/reservations 를 {date:'2026-11-17', startTime:'11:00', endTime:'12:00', title:'회의', attendeeCount:2} 로 호출한다",
+				"then": [
+					"201 응답",
+					"응답 본문의 status 가 RESERVED 이다"
+				]
+			},
+			"severity": "must",
+			"verifiable": true,
+			"automated_runnable": true,
+			"layer": "be",
+			"openapi_path": "/api/rooms/{roomId}/reservations",
+			"operationId": "createReservation",
+			"related_brs": [
+				"BR-RESERVATION-OVERLAP-001"
+			]
+		},
+		{
+			"id": "AC-RESERVATION-039",
+			"title": "취소된 예약과 같은 시간대의 예약은 받는다",
+			"gherkin": {
+				"given": [
+					"서버 현재 시각이 2026-11-16 10:00 (Asia/Seoul) 이다",
+					"수용 인원 6명인 회의실 1 이 있다",
+					"회의실 1 의 2026-11-17 에 취소 상태인 예약(10:00~11:00)이 있다"
+				],
+				"when": "직원 E100 이 POST /api/rooms/1/reservations 를 {date:'2026-11-17', startTime:'10:00', endTime:'11:00', title:'회의', attendeeCount:2} 로 호출한다",
+				"then": [
+					"201 응답",
+					"응답 본문의 status 가 RESERVED 이다"
+				]
+			},
+			"severity": "must",
+			"verifiable": true,
+			"automated_runnable": true,
+			"layer": "be",
+			"openapi_path": "/api/rooms/{roomId}/reservations",
+			"operationId": "createReservation",
+			"related_brs": [
+				"BR-RESERVATION-OVERLAP-001",
+				"BR-RESERVATION-RETAIN-001"
+			]
+		},
+		{
+			"id": "AC-RESERVATION-040",
+			"title": "다른 회의실의 같은 시간대 예약은 받는다",
+			"gherkin": {
+				"given": [
+					"서버 현재 시각이 2026-11-16 10:00 (Asia/Seoul) 이다",
+					"수용 인원 6명인 회의실 1 이 있다",
+					"회의실 2 의 2026-11-17 에 E100 의 예약(10:00~11:00)이 있다"
+				],
+				"when": "직원 E100 이 POST /api/rooms/1/reservations 를 {date:'2026-11-17', startTime:'10:00', endTime:'11:00', title:'회의', attendeeCount:2} 로 호출한다",
+				"then": [
+					"201 응답",
+					"응답 본문의 status 가 RESERVED 이다"
+				]
+			},
+			"severity": "must",
+			"verifiable": true,
+			"automated_runnable": true,
+			"layer": "be",
+			"openapi_path": "/api/rooms/{roomId}/reservations",
+			"operationId": "createReservation",
+			"related_brs": [
+				"BR-RESERVATION-OVERLAP-001"
+			]
+		},
+		{
+			"id": "AC-RESERVATION-041",
+			"title": "겹치는 예약이 동시에 들어오면 하나만 성공한다",
+			"gherkin": {
+				"given": [
+					"서버 현재 시각이 2026-11-16 10:00 (Asia/Seoul) 이다",
+					"수용 인원 6명인 회의실 1 이 있다",
+					"회의실 1 의 2026-11-17 에 예약이 없다"
+				],
+				"when": "서로 다른 직원 10명이 동시에 POST /api/rooms/1/reservations 를 {date:'2026-11-17', startTime:'10:00', endTime:'11:00', title:'회의', attendeeCount:2} 로 호출한다",
+				"then": [
+					"201 응답이 정확히 1건이다",
+					"나머지 9건은 409 이고 code 가 OVERLAP 이다",
+					"회의실 1 의 2026-11-17 에 예약 상태인 예약이 1건이다"
+				]
+			},
+			"severity": "must",
+			"verifiable": true,
+			"automated_runnable": true,
+			"layer": "be",
+			"openapi_path": "/api/rooms/{roomId}/reservations",
+			"operationId": "createReservation",
+			"related_brs": [
+				"BR-RESERVATION-OVERLAP-001"
+			],
+			"nfr_refs": [
+				"NFR-RESERVATION-001"
+			]
+		}
+	]
+}

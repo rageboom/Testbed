@@ -1,0 +1,19 @@
+{
+	"id": "UNIT-RESERVATION-010",
+	"name": "RejectionCode",
+	"provenance": "designed_from_spec",
+	"kind": "class",
+	"code_pointer": {
+		"anchor_type": "ast_symbol",
+		"path": "apps/api/src/main/java/com/roombook/api/domain/RejectionCode.java",
+		"symbol": "RejectionCode"
+	},
+	"bc_ref": "BC-RESERVATION",
+	"realizes": [
+		"BHV-RESERVATION-003",
+		"BHV-RESERVATION-004",
+		"BHV-RESERVATION-005"
+	],
+	"unit_test_obligation": "waived",
+	"waiver_reason": "거절 코드와 HTTP 상태를 담은 enum 이라 분기 로직이 없다"
+}

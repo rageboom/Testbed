@@ -1,0 +1,83 @@
+{
+	"id": "UNIT-RESERVATION-004",
+	"name": "ReservationPolicy.validate",
+	"provenance": "designed_from_spec",
+	"kind": "function",
+	"code_pointer": {
+		"anchor_type": "ast_symbol",
+		"path": "apps/api/src/main/java/com/roombook/api/domain/ReservationPolicy.java",
+		"symbol": "ReservationPolicy.validate"
+	},
+	"bc_ref": "BC-RESERVATION",
+	"realizes": [
+		"BHV-RESERVATION-003"
+	],
+	"unit_test_obligation": "required",
+	"collaborators": [
+		"UNIT-RESERVATION-010"
+	],
+	"interface": {
+		"inputs": [
+			{
+				"name": "date",
+				"type": "LocalDate"
+			},
+			{
+				"name": "startTime",
+				"type": "LocalTime"
+			},
+			{
+				"name": "endTime",
+				"type": "LocalTime"
+			},
+			{
+				"name": "title",
+				"type": "String"
+			},
+			{
+				"name": "attendeeCount",
+				"type": "int"
+			},
+			{
+				"name": "roomCapacity",
+				"type": "int"
+			},
+			{
+				"name": "now",
+				"type": "LocalDateTime"
+			}
+		],
+		"output": {
+			"type": "void"
+		},
+		"errors": [
+			{
+				"type": "RejectionException(INVALID_TITLE)",
+				"when": "제목이 비었거나 50자를 넘는다"
+			},
+			{
+				"type": "RejectionException(INVALID_SLOT)",
+				"when": "시작이나 끝이 30분 단위가 아니다"
+			},
+			{
+				"type": "RejectionException(INVALID_DURATION)",
+				"when": "길이가 30분 미만이거나 4시간을 넘는다"
+			},
+			{
+				"type": "RejectionException(OUT_OF_HOURS)",
+				"when": "시작이 09:00 보다 이르거나 끝이 20:00 보다 늦다"
+			},
+			{
+				"type": "RejectionException(OUT_OF_WINDOW)",
+				"when": "시작이 now 보다 이전이거나 날짜가 오늘 + 30일보다 늦다"
+			},
+			{
+				"type": "RejectionException(INVALID_ATTENDEES)",
+				"when": "참석 인원이 1 미만이거나 수용 인원을 넘는다"
+			}
+		]
+	},
+	"oracle_waiver": "걸린 불변식이 없다. oracle 은 BHV-RESERVATION-003 의 AC(AC-RESERVATION-015~029)의 구체 예와 그 BHV 의 속성(시간 규칙)이다",
+	"behavior_method_ref": "reserve",
+	"domain_ref": "E-RESERVATION-Reservation"
+}

@@ -1,0 +1,20 @@
+{
+	"id": "UNIT-RESERVATION-015",
+	"name": "roombookApi",
+	"provenance": "designed_from_spec",
+	"kind": "module",
+	"code_pointer": {
+		"anchor_type": "ast_symbol",
+		"path": "apps/web/src/api/client.ts",
+		"symbol": "roombookApi"
+	},
+	"bc_ref": "BC-RESERVATION",
+	"realizes": [
+		"BHV-RESERVATION-001",
+		"BHV-RESERVATION-002",
+		"BHV-RESERVATION-003",
+		"BHV-RESERVATION-005"
+	],
+	"unit_test_obligation": "waived",
+	"waiver_reason": "fetch 를 감싼 얇은 호출 모듈이다. 컴포넌트 테스트가 fetch 만 대역으로 두고 이 모듈을 그대로 지난다"
+}

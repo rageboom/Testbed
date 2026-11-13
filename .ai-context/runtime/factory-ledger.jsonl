@@ -1,0 +1,12 @@
+{"at":"2026-11-13T14:25:35.904Z","scope":"roombook-mvp","kind":"authorize","route":"full","stage":"discovery"}
+{"at":"2026-11-13T14:28:10.526Z","scope":"roombook-mvp","kind":"verify","stage":"spec","passed":true,"codes":[],"fingerprint":null,"work_hash":"a679f2c304f0f782297c2f79ad0bb2f6134544dddcb3d11363aa65b41b175d7c"}
+{"at":"2026-11-13T14:28:10.549Z","scope":"roombook-mvp","kind":"advance","from":"spec","to":"plan","carried":[]}
+{"at":"2026-11-13T14:32:12.162Z","scope":"roombook-mvp","kind":"verify","stage":"plan","passed":true,"codes":[],"fingerprint":null,"work_hash":"566f324708a297aefa15f5694511db9360c1c5abc7b627648f7371a23fe3c80a"}
+{"at":"2026-11-13T14:32:27.367Z","scope":"roombook-mvp","kind":"verify","stage":"plan","passed":true,"codes":[],"fingerprint":null,"work_hash":"7f0dc3f861f918fb219b73045ce17a69498f1abb9c4b475fa936b288c0f6dbf8"}
+{"at":"2026-11-13T14:32:45.182Z","scope":"roombook-mvp","kind":"verify","stage":"plan","passed":true,"codes":[],"fingerprint":null,"work_hash":"7f0dc3f861f918fb219b73045ce17a69498f1abb9c4b475fa936b288c0f6dbf8"}
+{"at":"2026-11-13T14:32:45.227Z","scope":"roombook-mvp","kind":"drive","stage":"plan","action":"ticket","work_hash":"7f0dc3f861f918fb219b73045ce17a69498f1abb9c4b475fa936b288c0f6dbf8"}
+{"at":"2026-11-13T14:32:56.977Z","scope":"roombook-mvp","kind":"verify","stage":"plan","passed":true,"codes":[],"fingerprint":null,"work_hash":"7f0dc3f861f918fb219b73045ce17a69498f1abb9c4b475fa936b288c0f6dbf8"}
+{"at":"2026-11-13T14:32:57.022Z","scope":"roombook-mvp","kind":"drive","stage":"plan","action":"ticket","work_hash":"7f0dc3f861f918fb219b73045ce17a69498f1abb9c4b475fa936b288c0f6dbf8"}
+{"at":"2026-11-13T14:33:01.539Z","scope":"roombook-mvp","kind":"verify","stage":"plan","passed":true,"codes":[],"fingerprint":null,"work_hash":"7f0dc3f861f918fb219b73045ce17a69498f1abb9c4b475fa936b288c0f6dbf8"}
+{"at":"2026-11-13T14:33:10.594Z","scope":"roombook-mvp","kind":"verify","stage":"plan","passed":true,"codes":[],"fingerprint":null,"work_hash":"7f0dc3f861f918fb219b73045ce17a69498f1abb9c4b475fa936b288c0f6dbf8"}
+{"at":"2026-11-13T14:33:10.633Z","scope":"roombook-mvp","kind":"terminal","reason":"ticket","stage":"plan"}

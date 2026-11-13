@@ -1,0 +1,6 @@
+{
+	"id": "RISK-RESERVATION-001",
+	"severity": "high",
+	"type": "security",
+	"description": "직원 식별을 요청 헤더 X-Employee-Id 에만 기댄다. 사내 게이트웨이를 거치지 않고 API 에 직접 닿을 수 있으면 누구나 다른 직원으로 예약하거나 남의 예약을 취소할 수 있다(기획서 §3.2 의 가정)."
+}

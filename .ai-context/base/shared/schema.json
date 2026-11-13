@@ -1,0 +1,212 @@
+{
+  "$schema_ref": "schemas/db-schema.schema.json",
+  "meta": {
+    "generated_at": "2026-11-13T00:00:00Z",
+    "confidence": 0.7,
+    "inputs_used": [
+      "planning_docs"
+    ],
+    "warnings": [
+      "그린필드(S3): plan 이 설계한 DDL(apps/api/src/main/resources/schema.sql)이 출처다. database_type 은 H2(인메모리)인데 닫힌 값에 없어 unknown 으로 적었다."
+    ]
+  },
+  "database_type": "unknown",
+  "tables": [
+    {
+      "name": "ROOM",
+      "description": "회의실. 초기 데이터(data.sql)로 넣는다.",
+      "related_entity_id": "E-RESERVATION-Room",
+      "sources": [
+        "migration"
+      ],
+      "columns": [
+        {
+          "name": "ID",
+          "type": "BIGINT",
+          "sources": [
+            "migration"
+          ],
+          "nullable": false,
+          "is_primary_key": true
+        },
+        {
+          "name": "NAME",
+          "type": "VARCHAR(100)",
+          "sources": [
+            "migration"
+          ],
+          "nullable": false
+        },
+        {
+          "name": "FLOOR",
+          "type": "INT",
+          "sources": [
+            "migration"
+          ],
+          "nullable": false
+        },
+        {
+          "name": "CAPACITY",
+          "type": "INT",
+          "sources": [
+            "migration"
+          ],
+          "nullable": false
+        }
+      ],
+      "primary_key": [
+        "ID"
+      ],
+      "check_constraints": [
+        {
+          "name": "CK_ROOM_CAPACITY",
+          "expression": "CAPACITY >= 1"
+        }
+      ]
+    },
+    {
+      "name": "RESERVATION",
+      "description": "예약. 취소해도 행을 지우지 않는다.",
+      "related_entity_id": "E-RESERVATION-Reservation",
+      "sources": [
+        "migration"
+      ],
+      "columns": [
+        {
+          "name": "ID",
+          "type": "BIGINT",
+          "sources": [
+            "migration"
+          ],
+          "nullable": false,
+          "is_primary_key": true,
+          "description": "자동 증가"
+        },
+        {
+          "name": "ROOM_ID",
+          "type": "BIGINT",
+          "sources": [
+            "migration"
+          ],
+          "nullable": false
+        },
+        {
+          "name": "RESERVATION_DATE",
+          "type": "DATE",
+          "sources": [
+            "migration"
+          ],
+          "nullable": false
+        },
+        {
+          "name": "START_TIME",
+          "type": "TIME",
+          "sources": [
+            "migration"
+          ],
+          "nullable": false
+        },
+        {
+          "name": "END_TIME",
+          "type": "TIME",
+          "sources": [
+            "migration"
+          ],
+          "nullable": false
+        },
+        {
+          "name": "TITLE",
+          "type": "VARCHAR(50)",
+          "sources": [
+            "migration"
+          ],
+          "nullable": false
+        },
+        {
+          "name": "ATTENDEE_COUNT",
+          "type": "INT",
+          "sources": [
+            "migration"
+          ],
+          "nullable": false
+        },
+        {
+          "name": "RESERVED_BY",
+          "type": "VARCHAR(64)",
+          "sources": [
+            "migration"
+          ],
+          "nullable": false,
+          "description": "X-Employee-Id 값",
+          "sensitivity": "internal"
+        },
+        {
+          "name": "STATUS",
+          "type": "VARCHAR(16)",
+          "sources": [
+            "migration"
+          ],
+          "nullable": false,
+          "description": "RESERVED 또는 CANCELLED"
+        },
+        {
+          "name": "CANCELLED_AT",
+          "type": "TIMESTAMP",
+          "sources": [
+            "migration"
+          ],
+          "nullable": true
+        },
+        {
+          "name": "CREATED_AT",
+          "type": "TIMESTAMP",
+          "sources": [
+            "migration"
+          ],
+          "nullable": false
+        }
+      ],
+      "primary_key": [
+        "ID"
+      ],
+      "foreign_keys": [
+        {
+          "name": "FK_RESERVATION_ROOM",
+          "columns": [
+            "ROOM_ID"
+          ],
+          "references_table": "ROOM",
+          "references_columns": [
+            "ID"
+          ],
+          "on_delete": "RESTRICT"
+        }
+      ],
+      "indexes": [
+        {
+          "name": "IX_RESERVATION_ROOM_DATE",
+          "columns": [
+            "ROOM_ID",
+            "RESERVATION_DATE",
+            "START_TIME"
+          ],
+          "unique": false,
+          "type": "btree"
+        }
+      ],
+      "check_constraints": [
+        {
+          "name": "CK_RESERVATION_STATUS",
+          "expression": "STATUS IN ('RESERVED','CANCELLED')"
+        },
+        {
+          "name": "CK_RESERVATION_TIME",
+          "expression": "START_TIME < END_TIME"
+        }
+      ]
+    }
+  ],
+  "source_files": [
+    "apps/api/src/main/resources/schema.sql"
+  ]
+}

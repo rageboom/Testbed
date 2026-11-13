@@ -1,0 +1,21 @@
+{
+	"id": "UNIT-RESERVATION-020",
+	"name": "RoombookApplication",
+	"provenance": "designed_from_spec",
+	"kind": "class",
+	"code_pointer": {
+		"anchor_type": "ast_symbol",
+		"path": "apps/api/src/main/java/com/roombook/api/RoombookApplication.java",
+		"symbol": "RoombookApplication"
+	},
+	"bc_ref": "BC-RESERVATION",
+	"realizes": [
+		"BHV-RESERVATION-001",
+		"BHV-RESERVATION-002",
+		"BHV-RESERVATION-003",
+		"BHV-RESERVATION-004",
+		"BHV-RESERVATION-005"
+	],
+	"unit_test_obligation": "waived",
+	"waiver_reason": "Spring Boot 시작 클래스다. 분기 로직이 없다"
+}

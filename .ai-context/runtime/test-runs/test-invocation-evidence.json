@@ -1,0 +1,665 @@
+{
+  "test_runner_version": "junit5:unknown",
+  "test_runner_stdout_path": "/home/user/testbed/.ai-context/runtime/test-runs/test-stdout.txt",
+  "test_runner_stderr_path": "/home/user/testbed/.ai-context/runtime/test-runs/test-stderr.txt",
+  "invocation_timestamp": "2026-11-13T15:12:25.512Z",
+  "duration_ms": 11248,
+  "pass_count": 72,
+  "fail_count": 0,
+  "skip_count": 0,
+  "reproduction_command": "node scripts/test/run-tests.mjs",
+  "result_hash": "sha256:d3886775663a6bf926e8f4933decaf5c220d08704175dbdc3b3f118e8f599baa",
+  "report_format": "junit_xml",
+  "flaky_retries_count": 0,
+  "tests": [
+    {
+      "name": "com.roombook.api.domain.ReservationPolicyPropertiesTest.TC-RESERVATION-109 — 시간 규칙은 30분 단위 · 길이 · 시간대를 모두 지킬 때에만 통과한다",
+      "title": "TC-RESERVATION-109 — 시간 규칙은 30분 단위 · 길이 · 시간대를 모두 지킬 때에만 통과한다",
+      "ancestors": [
+        "com.roombook.api.domain.ReservationPolicyPropertiesTest"
+      ],
+      "file": null,
+      "status": "pass"
+    },
+    {
+      "name": "com.roombook.api.domain.ReservationPolicyTest.TC-RESERVATION-103 — 길이가 30분 미만이거나 4시간을 넘으면 INVALID_DURATION 이다 (BR-RESERVATION-DURATION-001)",
+      "title": "TC-RESERVATION-103 — 길이가 30분 미만이거나 4시간을 넘으면 INVALID_DURATION 이다 (BR-RESERVATION-DURATION-001)",
+      "ancestors": [
+        "BHV-RESERVATION-003 / UNIT-RESERVATION-004 ReservationPolicy.validate"
+      ],
+      "file": null,
+      "status": "pass"
+    },
+    {
+      "name": "com.roombook.api.domain.ReservationPolicyTest.TC-RESERVATION-105 — 지난 시각이나 오늘 + 30일을 넘는 날짜는 OUT_OF_WINDOW 다 (BR-RESERVATION-WINDOW-001)",
+      "title": "TC-RESERVATION-105 — 지난 시각이나 오늘 + 30일을 넘는 날짜는 OUT_OF_WINDOW 다 (BR-RESERVATION-WINDOW-001)",
+      "ancestors": [
+        "BHV-RESERVATION-003 / UNIT-RESERVATION-004 ReservationPolicy.validate"
+      ],
+      "file": null,
+      "status": "pass"
+    },
+    {
+      "name": "com.roombook.api.domain.ReservationPolicyTest.TC-RESERVATION-101 — 규칙을 모두 지킨 예약은 통과한다",
+      "title": "TC-RESERVATION-101 — 규칙을 모두 지킨 예약은 통과한다",
+      "ancestors": [
+        "BHV-RESERVATION-003 / UNIT-RESERVATION-004 ReservationPolicy.validate"
+      ],
+      "file": null,
+      "status": "pass"
+    },
+    {
+      "name": "com.roombook.api.domain.ReservationPolicyTest.TC-RESERVATION-102 — 시작이나 끝이 30분 단위가 아니면 INVALID_SLOT 이다 (BR-RESERVATION-SLOT-001)",
+      "title": "TC-RESERVATION-102 — 시작이나 끝이 30분 단위가 아니면 INVALID_SLOT 이다 (BR-RESERVATION-SLOT-001)",
+      "ancestors": [
+        "BHV-RESERVATION-003 / UNIT-RESERVATION-004 ReservationPolicy.validate"
+      ],
+      "file": null,
+      "status": "pass"
+    },
+    {
+      "name": "com.roombook.api.domain.ReservationPolicyTest.TC-RESERVATION-106 — 참석 인원이 1명 미만이거나 수용 인원을 넘으면 INVALID_ATTENDEES 다 (BR-RESERVATION-ATTENDEES-001)",
+      "title": "TC-RESERVATION-106 — 참석 인원이 1명 미만이거나 수용 인원을 넘으면 INVALID_ATTENDEES 다 (BR-RESERVATION-ATTENDEES-001)",
+      "ancestors": [
+        "BHV-RESERVATION-003 / UNIT-RESERVATION-004 ReservationPolicy.validate"
+      ],
+      "file": null,
+      "status": "pass"
+    },
+    {
+      "name": "com.roombook.api.domain.ReservationPolicyTest.TC-RESERVATION-104 — 09:00 이전 시작이나 20:00 이후 끝은 OUT_OF_HOURS 다 (BR-RESERVATION-HOURS-001)",
+      "title": "TC-RESERVATION-104 — 09:00 이전 시작이나 20:00 이후 끝은 OUT_OF_HOURS 다 (BR-RESERVATION-HOURS-001)",
+      "ancestors": [
+        "BHV-RESERVATION-003 / UNIT-RESERVATION-004 ReservationPolicy.validate"
+      ],
+      "file": null,
+      "status": "pass"
+    },
+    {
+      "name": "com.roombook.api.domain.ReservationPolicyTest.TC-RESERVATION-108 — 여러 규칙에 걸리면 정해진 순서의 첫 위반을 알린다",
+      "title": "TC-RESERVATION-108 — 여러 규칙에 걸리면 정해진 순서의 첫 위반을 알린다",
+      "ancestors": [
+        "BHV-RESERVATION-003 / UNIT-RESERVATION-004 ReservationPolicy.validate"
+      ],
+      "file": null,
+      "status": "pass"
+    },
+    {
+      "name": "com.roombook.api.domain.ReservationPolicyTest.TC-RESERVATION-107 — 제목이 비었거나 50자를 넘으면 INVALID_TITLE 이다 (BR-RESERVATION-TITLE-001)",
+      "title": "TC-RESERVATION-107 — 제목이 비었거나 50자를 넘으면 INVALID_TITLE 이다 (BR-RESERVATION-TITLE-001)",
+      "ancestors": [
+        "BHV-RESERVATION-003 / UNIT-RESERVATION-004 ReservationPolicy.validate"
+      ],
+      "file": null,
+      "status": "pass"
+    },
+    {
+      "name": "com.roombook.api.domain.ReservationPropertiesTest.TC-RESERVATION-126 — 취소된 예약은 다시 예약 상태로 돌아가지 않는다",
+      "title": "TC-RESERVATION-126 — 취소된 예약은 다시 예약 상태로 돌아가지 않는다",
+      "ancestors": [
+        "com.roombook.api.domain.ReservationPropertiesTest"
+      ],
+      "file": null,
+      "status": "pass"
+    },
+    {
+      "name": "com.roombook.api.domain.ReservationTest.TC-RESERVATION-124 — 이미 취소된 예약의 취소는 ALREADY_CANCELLED 다 (BR-RESERVATION-RETAIN-001)",
+      "title": "TC-RESERVATION-124 — 이미 취소된 예약의 취소는 ALREADY_CANCELLED 다 (BR-RESERVATION-RETAIN-001)",
+      "ancestors": [
+        "BHV-RESERVATION-005 · BHV-RESERVATION-002 / Reservation"
+      ],
+      "file": null,
+      "status": "pass"
+    },
+    {
+      "name": "com.roombook.api.domain.ReservationTest.TC-RESERVATION-121 — 새 예약은 예약 상태이고 본인이 기한 안에 취소하면 취소 상태가 된다 (BR-RESERVATION-RETAIN-001)",
+      "title": "TC-RESERVATION-121 — 새 예약은 예약 상태이고 본인이 기한 안에 취소하면 취소 상태가 된다 (BR-RESERVATION-RETAIN-001)",
+      "ancestors": [
+        "BHV-RESERVATION-005 · BHV-RESERVATION-002 / Reservation"
+      ],
+      "file": null,
+      "status": "pass"
+    },
+    {
+      "name": "com.roombook.api.domain.ReservationTest.TC-RESERVATION-125 — 본인 확인이 기한 확인보다 먼저다",
+      "title": "TC-RESERVATION-125 — 본인 확인이 기한 확인보다 먼저다",
+      "ancestors": [
+        "BHV-RESERVATION-005 · BHV-RESERVATION-002 / Reservation"
+      ],
+      "file": null,
+      "status": "pass"
+    },
+    {
+      "name": "com.roombook.api.domain.ReservationTest.TC-RESERVATION-131 — 본인 예약이고 예약 상태이며 시작 30분 전 이내가 아닐 때만 취소할 수 있다고 답한다 (BR-RESERVATION-CANCEL-002)",
+      "title": "TC-RESERVATION-131 — 본인 예약이고 예약 상태이며 시작 30분 전 이내가 아닐 때만 취소할 수 있다고 답한다 (BR-RESERVATION-CANCEL-002)",
+      "ancestors": [
+        "BHV-RESERVATION-005 · BHV-RESERVATION-002 / Reservation"
+      ],
+      "file": null,
+      "status": "pass"
+    },
+    {
+      "name": "com.roombook.api.domain.ReservationTest.TC-RESERVATION-123 — 시작 30분 전까지는 취소되고 그 뒤에는 CANCEL_TOO_LATE 다 (BR-RESERVATION-CANCEL-002)",
+      "title": "TC-RESERVATION-123 — 시작 30분 전까지는 취소되고 그 뒤에는 CANCEL_TOO_LATE 다 (BR-RESERVATION-CANCEL-002)",
+      "ancestors": [
+        "BHV-RESERVATION-005 · BHV-RESERVATION-002 / Reservation"
+      ],
+      "file": null,
+      "status": "pass"
+    },
+    {
+      "name": "com.roombook.api.domain.ReservationTest.TC-RESERVATION-122 — 예약한 본인이 아니면 NOT_OWNER 이고 상태는 그대로다 (BR-RESERVATION-CANCEL-001)",
+      "title": "TC-RESERVATION-122 — 예약한 본인이 아니면 NOT_OWNER 이고 상태는 그대로다 (BR-RESERVATION-CANCEL-001)",
+      "ancestors": [
+        "BHV-RESERVATION-005 · BHV-RESERVATION-002 / Reservation"
+      ],
+      "file": null,
+      "status": "pass"
+    },
+    {
+      "name": "com.roombook.api.domain.TimeRangePropertiesTest.TC-RESERVATION-114 — 맞닿은 두 구간은 겹치지 않는다",
+      "title": "TC-RESERVATION-114 — 맞닿은 두 구간은 겹치지 않는다",
+      "ancestors": [
+        "com.roombook.api.domain.TimeRangePropertiesTest"
+      ],
+      "file": null,
+      "status": "pass"
+    },
+    {
+      "name": "com.roombook.api.domain.TimeRangePropertiesTest.TC-RESERVATION-113 — 겹침 판정은 대칭이고 구간 산술과 같다",
+      "title": "TC-RESERVATION-113 — 겹침 판정은 대칭이고 구간 산술과 같다",
+      "ancestors": [
+        "com.roombook.api.domain.TimeRangePropertiesTest"
+      ],
+      "file": null,
+      "status": "pass"
+    },
+    {
+      "name": "com.roombook.api.domain.TimeRangeTest.TC-RESERVATION-112 — 맞닿기만 하거나 떨어진 구간은 겹침이 아니다 (BR-RESERVATION-OVERLAP-001)",
+      "title": "TC-RESERVATION-112 — 맞닿기만 하거나 떨어진 구간은 겹침이 아니다 (BR-RESERVATION-OVERLAP-001)",
+      "ancestors": [
+        "BHV-RESERVATION-004 / UNIT-RESERVATION-005 TimeRange.overlaps"
+      ],
+      "file": null,
+      "status": "pass"
+    },
+    {
+      "name": "com.roombook.api.domain.TimeRangeTest.TC-RESERVATION-111 — 시간이 겹치는 두 구간은 겹침이다 (BR-RESERVATION-OVERLAP-001)",
+      "title": "TC-RESERVATION-111 — 시간이 겹치는 두 구간은 겹침이다 (BR-RESERVATION-OVERLAP-001)",
+      "ancestors": [
+        "BHV-RESERVATION-004 / UNIT-RESERVATION-005 TimeRange.overlaps"
+      ],
+      "file": null,
+      "status": "pass"
+    },
+    {
+      "name": "com.roombook.api.web.ReservationCancelApiTest.TC-RESERVATION-043 — 정확히 시작 30분 전의 취소는 받는다 (BR-RESERVATION-CANCEL-002 / AC-RESERVATION-043)",
+      "title": "TC-RESERVATION-043 — 정확히 시작 30분 전의 취소는 받는다 (BR-RESERVATION-CANCEL-002 / AC-RESERVATION-043)",
+      "ancestors": [
+        "UC-RESERVATION-004 / BHV-RESERVATION-005 예약 취소"
+      ],
+      "file": null,
+      "status": "pass"
+    },
+    {
+      "name": "com.roombook.api.web.ReservationCancelApiTest.TC-RESERVATION-045 — 시작 30분 전이 지나면 CANCEL_TOO_LATE 로 거절한다 (BR-RESERVATION-CANCEL-002 / AC-RESERVATION-045)",
+      "title": "TC-RESERVATION-045 — 시작 30분 전이 지나면 CANCEL_TOO_LATE 로 거절한다 (BR-RESERVATION-CANCEL-002 / AC-RESERVATION-045)",
+      "ancestors": [
+        "UC-RESERVATION-004 / BHV-RESERVATION-005 예약 취소"
+      ],
+      "file": null,
+      "status": "pass"
+    },
+    {
+      "name": "com.roombook.api.web.ReservationCancelApiTest.TC-RESERVATION-046 — 이미 취소된 예약의 취소는 ALREADY_CANCELLED 로 거절한다 (BR-RESERVATION-RETAIN-001 / AC-RESERVATION-046)",
+      "title": "TC-RESERVATION-046 — 이미 취소된 예약의 취소는 ALREADY_CANCELLED 로 거절한다 (BR-RESERVATION-RETAIN-001 / AC-RESERVATION-046)",
+      "ancestors": [
+        "UC-RESERVATION-004 / BHV-RESERVATION-005 예약 취소"
+      ],
+      "file": null,
+      "status": "pass"
+    },
+    {
+      "name": "com.roombook.api.web.ReservationCancelApiTest.TC-RESERVATION-047 — 없는 예약의 취소는 404 로 거절한다 (AC-RESERVATION-047)",
+      "title": "TC-RESERVATION-047 — 없는 예약의 취소는 404 로 거절한다 (AC-RESERVATION-047)",
+      "ancestors": [
+        "UC-RESERVATION-004 / BHV-RESERVATION-005 예약 취소"
+      ],
+      "file": null,
+      "status": "pass"
+    },
+    {
+      "name": "com.roombook.api.web.ReservationCancelApiTest.TC-RESERVATION-042 — 본인이 기한 안에 취소하면 취소 상태가 된다 (BR-RESERVATION-CANCEL-001 / AC-RESERVATION-042)",
+      "title": "TC-RESERVATION-042 — 본인이 기한 안에 취소하면 취소 상태가 된다 (BR-RESERVATION-CANCEL-001 / AC-RESERVATION-042)",
+      "ancestors": [
+        "UC-RESERVATION-004 / BHV-RESERVATION-005 예약 취소"
+      ],
+      "file": null,
+      "status": "pass"
+    },
+    {
+      "name": "com.roombook.api.web.ReservationCancelApiTest.TC-RESERVATION-044 — 예약한 본인이 아니면 NOT_OWNER 로 거절한다 (BR-RESERVATION-CANCEL-001 / AC-RESERVATION-044)",
+      "title": "TC-RESERVATION-044 — 예약한 본인이 아니면 NOT_OWNER 로 거절한다 (BR-RESERVATION-CANCEL-001 / AC-RESERVATION-044)",
+      "ancestors": [
+        "UC-RESERVATION-004 / BHV-RESERVATION-005 예약 취소"
+      ],
+      "file": null,
+      "status": "pass"
+    },
+    {
+      "name": "com.roombook.api.web.ReservationCreateApiTest.TC-RESERVATION-024 — 오늘 + 30일의 예약은 받는다 (BR-RESERVATION-WINDOW-001 / AC-RESERVATION-024)",
+      "title": "TC-RESERVATION-024 — 오늘 + 30일의 예약은 받는다 (BR-RESERVATION-WINDOW-001 / AC-RESERVATION-024)",
+      "ancestors": [
+        "UC-RESERVATION-003 / BHV-RESERVATION-003 예약 생성과 입력 규칙 확인"
+      ],
+      "file": null,
+      "status": "pass"
+    },
+    {
+      "name": "com.roombook.api.web.ReservationCreateApiTest.TC-RESERVATION-021 — 끝 시각이 정확히 20:00 인 예약은 받는다 (BR-RESERVATION-HOURS-001 / AC-RESERVATION-021)",
+      "title": "TC-RESERVATION-021 — 끝 시각이 정확히 20:00 인 예약은 받는다 (BR-RESERVATION-HOURS-001 / AC-RESERVATION-021)",
+      "ancestors": [
+        "UC-RESERVATION-003 / BHV-RESERVATION-003 예약 생성과 입력 규칙 확인"
+      ],
+      "file": null,
+      "status": "pass"
+    },
+    {
+      "name": "com.roombook.api.web.ReservationCreateApiTest.TC-RESERVATION-018 — 정확히 4시간인 예약은 받는다 (BR-RESERVATION-DURATION-001 / AC-RESERVATION-018)",
+      "title": "TC-RESERVATION-018 — 정확히 4시간인 예약은 받는다 (BR-RESERVATION-DURATION-001 / AC-RESERVATION-018)",
+      "ancestors": [
+        "UC-RESERVATION-003 / BHV-RESERVATION-003 예약 생성과 입력 규칙 확인"
+      ],
+      "file": null,
+      "status": "pass"
+    },
+    {
+      "name": "com.roombook.api.web.ReservationCreateApiTest.TC-RESERVATION-016 — 끝 시각이 시작 시각과 같으면 INVALID_DURATION 으로 거절한다 (BR-RESERVATION-DURATION-001 / AC-RESERVATION-016)",
+      "title": "TC-RESERVATION-016 — 끝 시각이 시작 시각과 같으면 INVALID_DURATION 으로 거절한다 (BR-RESERVATION-DURATION-001 / AC-RESERVATION-016)",
+      "ancestors": [
+        "UC-RESERVATION-003 / BHV-RESERVATION-003 예약 생성과 입력 규칙 확인"
+      ],
+      "file": null,
+      "status": "pass"
+    },
+    {
+      "name": "com.roombook.api.web.ReservationCreateApiTest.TC-RESERVATION-030 — 없는 회의실의 예약은 404 로 거절한다 (AC-RESERVATION-030)",
+      "title": "TC-RESERVATION-030 — 없는 회의실의 예약은 404 로 거절한다 (AC-RESERVATION-030)",
+      "ancestors": [
+        "UC-RESERVATION-003 / BHV-RESERVATION-003 예약 생성과 입력 규칙 확인"
+      ],
+      "file": null,
+      "status": "pass"
+    },
+    {
+      "name": "com.roombook.api.web.ReservationCreateApiTest.TC-RESERVATION-031 — X-Employee-Id 헤더가 없는 예약 요청은 400 으로 거절한다 (AC-RESERVATION-031)",
+      "title": "TC-RESERVATION-031 — X-Employee-Id 헤더가 없는 예약 요청은 400 으로 거절한다 (AC-RESERVATION-031)",
+      "ancestors": [
+        "UC-RESERVATION-003 / BHV-RESERVATION-003 예약 생성과 입력 규칙 확인"
+      ],
+      "file": null,
+      "status": "pass"
+    },
+    {
+      "name": "com.roombook.api.web.ReservationCreateApiTest.TC-RESERVATION-014 — 규칙을 지킨 예약은 예약 상태로 만들어진다 (AC-RESERVATION-014)",
+      "title": "TC-RESERVATION-014 — 규칙을 지킨 예약은 예약 상태로 만들어진다 (AC-RESERVATION-014)",
+      "ancestors": [
+        "UC-RESERVATION-003 / BHV-RESERVATION-003 예약 생성과 입력 규칙 확인"
+      ],
+      "file": null,
+      "status": "pass"
+    },
+    {
+      "name": "com.roombook.api.web.ReservationCreateApiTest.TC-RESERVATION-022 — 지난 시각의 예약은 OUT_OF_WINDOW 로 거절한다 (BR-RESERVATION-WINDOW-001 / AC-RESERVATION-022)",
+      "title": "TC-RESERVATION-022 — 지난 시각의 예약은 OUT_OF_WINDOW 로 거절한다 (BR-RESERVATION-WINDOW-001 / AC-RESERVATION-022)",
+      "ancestors": [
+        "UC-RESERVATION-003 / BHV-RESERVATION-003 예약 생성과 입력 규칙 확인"
+      ],
+      "file": null,
+      "status": "pass"
+    },
+    {
+      "name": "com.roombook.api.web.ReservationCreateApiTest.TC-RESERVATION-026 — 참석 인원이 수용 인원을 넘으면 INVALID_ATTENDEES 로 거절한다 (BR-RESERVATION-ATTENDEES-001 / AC-RESERVATION-026)",
+      "title": "TC-RESERVATION-026 — 참석 인원이 수용 인원을 넘으면 INVALID_ATTENDEES 로 거절한다 (BR-RESERVATION-ATTENDEES-001 / AC-RESERVATION-026)",
+      "ancestors": [
+        "UC-RESERVATION-003 / BHV-RESERVATION-003 예약 생성과 입력 규칙 확인"
+      ],
+      "file": null,
+      "status": "pass"
+    },
+    {
+      "name": "com.roombook.api.web.ReservationCreateApiTest.TC-RESERVATION-027 — 참석 인원이 수용 인원과 같은 예약은 받는다 (BR-RESERVATION-ATTENDEES-001 / AC-RESERVATION-027)",
+      "title": "TC-RESERVATION-027 — 참석 인원이 수용 인원과 같은 예약은 받는다 (BR-RESERVATION-ATTENDEES-001 / AC-RESERVATION-027)",
+      "ancestors": [
+        "UC-RESERVATION-003 / BHV-RESERVATION-003 예약 생성과 입력 규칙 확인"
+      ],
+      "file": null,
+      "status": "pass"
+    },
+    {
+      "name": "com.roombook.api.web.ReservationCreateApiTest.TC-RESERVATION-017 — 4시간을 넘는 예약은 INVALID_DURATION 으로 거절한다 (BR-RESERVATION-DURATION-001 / AC-RESERVATION-017)",
+      "title": "TC-RESERVATION-017 — 4시간을 넘는 예약은 INVALID_DURATION 으로 거절한다 (BR-RESERVATION-DURATION-001 / AC-RESERVATION-017)",
+      "ancestors": [
+        "UC-RESERVATION-003 / BHV-RESERVATION-003 예약 생성과 입력 규칙 확인"
+      ],
+      "file": null,
+      "status": "pass"
+    },
+    {
+      "name": "com.roombook.api.web.ReservationCreateApiTest.TC-RESERVATION-019 — 09:00 보다 이른 시작은 OUT_OF_HOURS 로 거절한다 (BR-RESERVATION-HOURS-001 / AC-RESERVATION-019)",
+      "title": "TC-RESERVATION-019 — 09:00 보다 이른 시작은 OUT_OF_HOURS 로 거절한다 (BR-RESERVATION-HOURS-001 / AC-RESERVATION-019)",
+      "ancestors": [
+        "UC-RESERVATION-003 / BHV-RESERVATION-003 예약 생성과 입력 규칙 확인"
+      ],
+      "file": null,
+      "status": "pass"
+    },
+    {
+      "name": "com.roombook.api.web.ReservationCreateApiTest.TC-RESERVATION-023 — 오늘 + 31일의 예약은 OUT_OF_WINDOW 로 거절한다 (BR-RESERVATION-WINDOW-001 / AC-RESERVATION-023)",
+      "title": "TC-RESERVATION-023 — 오늘 + 31일의 예약은 OUT_OF_WINDOW 로 거절한다 (BR-RESERVATION-WINDOW-001 / AC-RESERVATION-023)",
+      "ancestors": [
+        "UC-RESERVATION-003 / BHV-RESERVATION-003 예약 생성과 입력 규칙 확인"
+      ],
+      "file": null,
+      "status": "pass"
+    },
+    {
+      "name": "com.roombook.api.web.ReservationCreateApiTest.TC-RESERVATION-028 — 제목이 비어 있으면 INVALID_TITLE 로 거절한다 (BR-RESERVATION-TITLE-001 / AC-RESERVATION-028)",
+      "title": "TC-RESERVATION-028 — 제목이 비어 있으면 INVALID_TITLE 로 거절한다 (BR-RESERVATION-TITLE-001 / AC-RESERVATION-028)",
+      "ancestors": [
+        "UC-RESERVATION-003 / BHV-RESERVATION-003 예약 생성과 입력 규칙 확인"
+      ],
+      "file": null,
+      "status": "pass"
+    },
+    {
+      "name": "com.roombook.api.web.ReservationCreateApiTest.TC-RESERVATION-015 — 30분 단위가 아닌 시각은 INVALID_SLOT 으로 거절한다 (BR-RESERVATION-SLOT-001 / AC-RESERVATION-015)",
+      "title": "TC-RESERVATION-015 — 30분 단위가 아닌 시각은 INVALID_SLOT 으로 거절한다 (BR-RESERVATION-SLOT-001 / AC-RESERVATION-015)",
+      "ancestors": [
+        "UC-RESERVATION-003 / BHV-RESERVATION-003 예약 생성과 입력 규칙 확인"
+      ],
+      "file": null,
+      "status": "pass"
+    },
+    {
+      "name": "com.roombook.api.web.ReservationCreateApiTest.TC-RESERVATION-020 — 20:00 보다 늦은 끝은 OUT_OF_HOURS 로 거절한다 (BR-RESERVATION-HOURS-001 / AC-RESERVATION-020)",
+      "title": "TC-RESERVATION-020 — 20:00 보다 늦은 끝은 OUT_OF_HOURS 로 거절한다 (BR-RESERVATION-HOURS-001 / AC-RESERVATION-020)",
+      "ancestors": [
+        "UC-RESERVATION-003 / BHV-RESERVATION-003 예약 생성과 입력 규칙 확인"
+      ],
+      "file": null,
+      "status": "pass"
+    },
+    {
+      "name": "com.roombook.api.web.ReservationCreateApiTest.TC-RESERVATION-025 — 참석 인원이 0명이면 INVALID_ATTENDEES 로 거절한다 (BR-RESERVATION-ATTENDEES-001 / AC-RESERVATION-025)",
+      "title": "TC-RESERVATION-025 — 참석 인원이 0명이면 INVALID_ATTENDEES 로 거절한다 (BR-RESERVATION-ATTENDEES-001 / AC-RESERVATION-025)",
+      "ancestors": [
+        "UC-RESERVATION-003 / BHV-RESERVATION-003 예약 생성과 입력 규칙 확인"
+      ],
+      "file": null,
+      "status": "pass"
+    },
+    {
+      "name": "com.roombook.api.web.ReservationCreateApiTest.TC-RESERVATION-029 — 제목이 51자면 INVALID_TITLE 로 거절한다 (BR-RESERVATION-TITLE-001 / AC-RESERVATION-029)",
+      "title": "TC-RESERVATION-029 — 제목이 51자면 INVALID_TITLE 로 거절한다 (BR-RESERVATION-TITLE-001 / AC-RESERVATION-029)",
+      "ancestors": [
+        "UC-RESERVATION-003 / BHV-RESERVATION-003 예약 생성과 입력 규칙 확인"
+      ],
+      "file": null,
+      "status": "pass"
+    },
+    {
+      "name": "com.roombook.api.web.ReservationListApiTest.TC-RESERVATION-005 — 본인 예약이고 취소 기한 안이면 mine 과 cancellable 이 참이다 (AC-RESERVATION-005)",
+      "title": "TC-RESERVATION-005 — 본인 예약이고 취소 기한 안이면 mine 과 cancellable 이 참이다 (AC-RESERVATION-005)",
+      "ancestors": [
+        "UC-RESERVATION-002 / BHV-RESERVATION-002 날짜별 예약 현황 조회"
+      ],
+      "file": null,
+      "status": "pass"
+    },
+    {
+      "name": "com.roombook.api.web.ReservationListApiTest.TC-RESERVATION-009 — 예약 현황 조회는 p95 500ms 안에 응답한다 (AC-RESERVATION-009)",
+      "title": "TC-RESERVATION-009 — 예약 현황 조회는 p95 500ms 안에 응답한다 (AC-RESERVATION-009)",
+      "ancestors": [
+        "UC-RESERVATION-002 / BHV-RESERVATION-002 날짜별 예약 현황 조회"
+      ],
+      "file": null,
+      "status": "pass"
+    },
+    {
+      "name": "com.roombook.api.web.ReservationListApiTest.TC-RESERVATION-008 — 없는 회의실의 현황 조회는 404 로 거절한다 (AC-RESERVATION-008)",
+      "title": "TC-RESERVATION-008 — 없는 회의실의 현황 조회는 404 로 거절한다 (AC-RESERVATION-008)",
+      "ancestors": [
+        "UC-RESERVATION-002 / BHV-RESERVATION-002 날짜별 예약 현황 조회"
+      ],
+      "file": null,
+      "status": "pass"
+    },
+    {
+      "name": "com.roombook.api.web.ReservationListApiTest.TC-RESERVATION-003 — 예약이 없는 날은 빈 배열을 돌려준다 (AC-RESERVATION-003)",
+      "title": "TC-RESERVATION-003 — 예약이 없는 날은 빈 배열을 돌려준다 (AC-RESERVATION-003)",
+      "ancestors": [
+        "UC-RESERVATION-002 / BHV-RESERVATION-002 날짜별 예약 현황 조회"
+      ],
+      "file": null,
+      "status": "pass"
+    },
+    {
+      "name": "com.roombook.api.web.ReservationListApiTest.TC-RESERVATION-006 — 남의 예약은 mine 과 cancellable 이 거짓이다 (AC-RESERVATION-006)",
+      "title": "TC-RESERVATION-006 — 남의 예약은 mine 과 cancellable 이 거짓이다 (AC-RESERVATION-006)",
+      "ancestors": [
+        "UC-RESERVATION-002 / BHV-RESERVATION-002 날짜별 예약 현황 조회"
+      ],
+      "file": null,
+      "status": "pass"
+    },
+    {
+      "name": "com.roombook.api.web.ReservationListApiTest.TC-RESERVATION-007 — 본인 예약이라도 시작 30분 전이 지나면 cancellable 이 거짓이다 (AC-RESERVATION-007)",
+      "title": "TC-RESERVATION-007 — 본인 예약이라도 시작 30분 전이 지나면 cancellable 이 거짓이다 (AC-RESERVATION-007)",
+      "ancestors": [
+        "UC-RESERVATION-002 / BHV-RESERVATION-002 날짜별 예약 현황 조회"
+      ],
+      "file": null,
+      "status": "pass"
+    },
+    {
+      "name": "com.roombook.api.web.ReservationListApiTest.TC-RESERVATION-002 — 그날의 예약을 시작 시각순으로 돌려준다 (AC-RESERVATION-002)",
+      "title": "TC-RESERVATION-002 — 그날의 예약을 시작 시각순으로 돌려준다 (AC-RESERVATION-002)",
+      "ancestors": [
+        "UC-RESERVATION-002 / BHV-RESERVATION-002 날짜별 예약 현황 조회"
+      ],
+      "file": null,
+      "status": "pass"
+    },
+    {
+      "name": "com.roombook.api.web.ReservationListApiTest.TC-RESERVATION-004 — 취소된 예약은 현황 목록에 싣지 않는다 (BR-RESERVATION-RETAIN-001 / AC-RESERVATION-004)",
+      "title": "TC-RESERVATION-004 — 취소된 예약은 현황 목록에 싣지 않는다 (BR-RESERVATION-RETAIN-001 / AC-RESERVATION-004)",
+      "ancestors": [
+        "UC-RESERVATION-002 / BHV-RESERVATION-002 날짜별 예약 현황 조회"
+      ],
+      "file": null,
+      "status": "pass"
+    },
+    {
+      "name": "com.roombook.api.web.ReservationOverlapApiTest.TC-RESERVATION-037 — 기존 예약과 시간이 겹치면 OVERLAP 으로 거절한다 (BR-RESERVATION-OVERLAP-001 / AC-RESERVATION-037)",
+      "title": "TC-RESERVATION-037 — 기존 예약과 시간이 겹치면 OVERLAP 으로 거절한다 (BR-RESERVATION-OVERLAP-001 / AC-RESERVATION-037)",
+      "ancestors": [
+        "UC-RESERVATION-003 / BHV-RESERVATION-004 겹치는 예약 거절"
+      ],
+      "file": null,
+      "status": "pass"
+    },
+    {
+      "name": "com.roombook.api.web.ReservationOverlapApiTest.TC-RESERVATION-041 — 겹치는 예약이 동시에 들어오면 하나만 성공한다 (BR-RESERVATION-OVERLAP-001 / AC-RESERVATION-041)",
+      "title": "TC-RESERVATION-041 — 겹치는 예약이 동시에 들어오면 하나만 성공한다 (BR-RESERVATION-OVERLAP-001 / AC-RESERVATION-041)",
+      "ancestors": [
+        "UC-RESERVATION-003 / BHV-RESERVATION-004 겹치는 예약 거절"
+      ],
+      "file": null,
+      "status": "pass"
+    },
+    {
+      "name": "com.roombook.api.web.ReservationOverlapApiTest.TC-RESERVATION-040 — 다른 회의실의 같은 시간대 예약은 받는다 (BR-RESERVATION-OVERLAP-001 / AC-RESERVATION-040)",
+      "title": "TC-RESERVATION-040 — 다른 회의실의 같은 시간대 예약은 받는다 (BR-RESERVATION-OVERLAP-001 / AC-RESERVATION-040)",
+      "ancestors": [
+        "UC-RESERVATION-003 / BHV-RESERVATION-004 겹치는 예약 거절"
+      ],
+      "file": null,
+      "status": "pass"
+    },
+    {
+      "name": "com.roombook.api.web.ReservationOverlapApiTest.TC-RESERVATION-038 — 기존 예약의 끝과 맞닿은 예약은 받는다 (BR-RESERVATION-OVERLAP-001 / AC-RESERVATION-038)",
+      "title": "TC-RESERVATION-038 — 기존 예약의 끝과 맞닿은 예약은 받는다 (BR-RESERVATION-OVERLAP-001 / AC-RESERVATION-038)",
+      "ancestors": [
+        "UC-RESERVATION-003 / BHV-RESERVATION-004 겹치는 예약 거절"
+      ],
+      "file": null,
+      "status": "pass"
+    },
+    {
+      "name": "com.roombook.api.web.ReservationOverlapApiTest.TC-RESERVATION-039 — 취소된 예약과 같은 시간대의 예약은 받는다 (BR-RESERVATION-RETAIN-001 / AC-RESERVATION-039)",
+      "title": "TC-RESERVATION-039 — 취소된 예약과 같은 시간대의 예약은 받는다 (BR-RESERVATION-RETAIN-001 / AC-RESERVATION-039)",
+      "ancestors": [
+        "UC-RESERVATION-003 / BHV-RESERVATION-004 겹치는 예약 거절"
+      ],
+      "file": null,
+      "status": "pass"
+    },
+    {
+      "name": "com.roombook.api.web.RoomListApiTest.TC-RESERVATION-001 — 회의실 목록을 이름·층·수용 인원과 함께 돌려준다 (AC-RESERVATION-001)",
+      "title": "TC-RESERVATION-001 — 회의실 목록을 이름·층·수용 인원과 함께 돌려준다 (AC-RESERVATION-001)",
+      "ancestors": [
+        "UC-RESERVATION-001 / BHV-RESERVATION-001 회의실 목록 조회"
+      ],
+      "file": null,
+      "status": "pass"
+    },
+    {
+      "name": "src/rejection-messages.test.ts.BHV-RESERVATION-003 · BHV-RESERVATION-005 / UNIT-RESERVATION-016 rejectionMessage &gt; TC-RESERVATION-035 — 거절 코드마다 그 규칙의 문장이 정해져 있다 (AC-RESERVATION-035)",
+      "title": "BHV-RESERVATION-003 · BHV-RESERVATION-005 / UNIT-RESERVATION-016 rejectionMessage > TC-RESERVATION-035 — 거절 코드마다 그 규칙의 문장이 정해져 있다 (AC-RESERVATION-035)",
+      "ancestors": [
+        "src/rejection-messages.test.ts"
+      ],
+      "file": null,
+      "status": "pass"
+    },
+    {
+      "name": "src/rejection-messages.test.ts.BHV-RESERVATION-003 · BHV-RESERVATION-005 / UNIT-RESERVATION-016 rejectionMessage &gt; TC-RESERVATION-141 — 길이 위반과 취소 기한 위반의 문장은 정해진 그대로다",
+      "title": "BHV-RESERVATION-003 · BHV-RESERVATION-005 / UNIT-RESERVATION-016 rejectionMessage > TC-RESERVATION-141 — 길이 위반과 취소 기한 위반의 문장은 정해진 그대로다",
+      "ancestors": [
+        "src/rejection-messages.test.ts"
+      ],
+      "file": null,
+      "status": "pass"
+    },
+    {
+      "name": "src/rejection-messages.test.ts.BHV-RESERVATION-003 · BHV-RESERVATION-005 / UNIT-RESERVATION-016 rejectionMessage &gt; TC-RESERVATION-142 — 취소 거절 코드에도 문장이 있고 모르는 코드는 받은 설명을 그대로 돌려준다",
+      "title": "BHV-RESERVATION-003 · BHV-RESERVATION-005 / UNIT-RESERVATION-016 rejectionMessage > TC-RESERVATION-142 — 취소 거절 코드에도 문장이 있고 모르는 코드는 받은 설명을 그대로 돌려준다",
+      "ancestors": [
+        "src/rejection-messages.test.ts"
+      ],
+      "file": null,
+      "status": "pass"
+    },
+    {
+      "name": "src/time-options.test.ts.BHV-RESERVATION-003 / UNIT-RESERVATION-017 timeOptions &gt; TC-RESERVATION-151 — 09:00 부터 20:00 까지 30분 간격의 시각을 낸다 (BR-RESERVATION-SLOT-001)",
+      "title": "BHV-RESERVATION-003 / UNIT-RESERVATION-017 timeOptions > TC-RESERVATION-151 — 09:00 부터 20:00 까지 30분 간격의 시각을 낸다 (BR-RESERVATION-SLOT-001)",
+      "ancestors": [
+        "src/time-options.test.ts"
+      ],
+      "file": null,
+      "status": "pass"
+    },
+    {
+      "name": "src/components/ReservationBoard.test.tsx.UC-RESERVATION-002 / BHV-RESERVATION-002 예약 현황 화면 &gt; TC-RESERVATION-010 — 첫 화면은 첫 번째 회의실과 오늘의 예약을 시간순으로 보여 준다 (AC-RESERVATION-010)",
+      "title": "UC-RESERVATION-002 / BHV-RESERVATION-002 예약 현황 화면 > TC-RESERVATION-010 — 첫 화면은 첫 번째 회의실과 오늘의 예약을 시간순으로 보여 준다 (AC-RESERVATION-010)",
+      "ancestors": [
+        "src/components/ReservationBoard.test.tsx"
+      ],
+      "file": null,
+      "status": "pass"
+    },
+    {
+      "name": "src/components/ReservationBoard.test.tsx.UC-RESERVATION-002 / BHV-RESERVATION-002 예약 현황 화면 &gt; TC-RESERVATION-011 — 회의실이나 날짜를 바꾸면 그 현황을 다시 불러온다 (AC-RESERVATION-011)",
+      "title": "UC-RESERVATION-002 / BHV-RESERVATION-002 예약 현황 화면 > TC-RESERVATION-011 — 회의실이나 날짜를 바꾸면 그 현황을 다시 불러온다 (AC-RESERVATION-011)",
+      "ancestors": [
+        "src/components/ReservationBoard.test.tsx"
+      ],
+      "file": null,
+      "status": "pass"
+    },
+    {
+      "name": "src/components/ReservationBoard.test.tsx.UC-RESERVATION-002 / BHV-RESERVATION-002 예약 현황 화면 &gt; TC-RESERVATION-012 — 예약이 없으면 &apos;예약이 없습니다&apos; 를 보여 준다 (AC-RESERVATION-012)",
+      "title": "UC-RESERVATION-002 / BHV-RESERVATION-002 예약 현황 화면 > TC-RESERVATION-012 — 예약이 없으면 '예약이 없습니다' 를 보여 준다 (AC-RESERVATION-012)",
+      "ancestors": [
+        "src/components/ReservationBoard.test.tsx"
+      ],
+      "file": null,
+      "status": "pass"
+    },
+    {
+      "name": "src/components/ReservationBoard.test.tsx.UC-RESERVATION-002 / BHV-RESERVATION-002 예약 현황 화면 &gt; TC-RESERVATION-013 — 자기 예약에만 취소 버튼이 있고 취소할 수 없으면 비활성이다 (BR-RESERVATION-CANCEL-001 / AC-RESERVATION-013)",
+      "title": "UC-RESERVATION-002 / BHV-RESERVATION-002 예약 현황 화면 > TC-RESERVATION-013 — 자기 예약에만 취소 버튼이 있고 취소할 수 없으면 비활성이다 (BR-RESERVATION-CANCEL-001 / AC-RESERVATION-013)",
+      "ancestors": [
+        "src/components/ReservationBoard.test.tsx"
+      ],
+      "file": null,
+      "status": "pass"
+    },
+    {
+      "name": "src/components/ReservationBoard.test.tsx.UC-RESERVATION-004 / BHV-RESERVATION-005 화면에서 예약 취소 &gt; TC-RESERVATION-048 — 취소 버튼을 누르면 취소를 요청하고 현황을 다시 불러온다 (BR-RESERVATION-CANCEL-001 / AC-RESERVATION-048)",
+      "title": "UC-RESERVATION-004 / BHV-RESERVATION-005 화면에서 예약 취소 > TC-RESERVATION-048 — 취소 버튼을 누르면 취소를 요청하고 현황을 다시 불러온다 (BR-RESERVATION-CANCEL-001 / AC-RESERVATION-048)",
+      "ancestors": [
+        "src/components/ReservationBoard.test.tsx"
+      ],
+      "file": null,
+      "status": "pass"
+    },
+    {
+      "name": "src/components/ReservationBoard.test.tsx.UC-RESERVATION-004 / BHV-RESERVATION-005 화면에서 예약 취소 &gt; TC-RESERVATION-049 — 취소가 거절되면 걸린 규칙을 현황 화면에 문장으로 보여 준다 (BR-RESERVATION-CANCEL-002 / AC-RESERVATION-049)",
+      "title": "UC-RESERVATION-004 / BHV-RESERVATION-005 화면에서 예약 취소 > TC-RESERVATION-049 — 취소가 거절되면 걸린 규칙을 현황 화면에 문장으로 보여 준다 (BR-RESERVATION-CANCEL-002 / AC-RESERVATION-049)",
+      "ancestors": [
+        "src/components/ReservationBoard.test.tsx"
+      ],
+      "file": null,
+      "status": "pass"
+    },
+    {
+      "name": "src/components/ReservationForm.test.tsx.UC-RESERVATION-003 / BHV-RESERVATION-003 예약 폼 &gt; TC-RESERVATION-032 — 예약하기 버튼을 누르면 예약 폼이 열린다 (AC-RESERVATION-032)",
+      "title": "UC-RESERVATION-003 / BHV-RESERVATION-003 예약 폼 > TC-RESERVATION-032 — 예약하기 버튼을 누르면 예약 폼이 열린다 (AC-RESERVATION-032)",
+      "ancestors": [
+        "src/components/ReservationForm.test.tsx"
+      ],
+      "file": null,
+      "status": "pass"
+    },
+    {
+      "name": "src/components/ReservationForm.test.tsx.UC-RESERVATION-003 / BHV-RESERVATION-003 예약 폼 &gt; TC-RESERVATION-033 — 폼을 제출하면 현황 화면에서 고른 회의실과 날짜로 예약을 요청한다 (AC-RESERVATION-033)",
+      "title": "UC-RESERVATION-003 / BHV-RESERVATION-003 예약 폼 > TC-RESERVATION-033 — 폼을 제출하면 현황 화면에서 고른 회의실과 날짜로 예약을 요청한다 (AC-RESERVATION-033)",
+      "ancestors": [
+        "src/components/ReservationForm.test.tsx"
+      ],
+      "file": null,
+      "status": "pass"
+    },
+    {
+      "name": "src/components/ReservationForm.test.tsx.UC-RESERVATION-003 / BHV-RESERVATION-003 예약 폼 &gt; TC-RESERVATION-034 — 서버가 거절하면 걸린 규칙을 폼 위에 문장으로 보여 준다 (BR-RESERVATION-DURATION-001 / AC-RESERVATION-034)",
+      "title": "UC-RESERVATION-003 / BHV-RESERVATION-003 예약 폼 > TC-RESERVATION-034 — 서버가 거절하면 걸린 규칙을 폼 위에 문장으로 보여 준다 (BR-RESERVATION-DURATION-001 / AC-RESERVATION-034)",
+      "ancestors": [
+        "src/components/ReservationForm.test.tsx"
+      ],
+      "file": null,
+      "status": "pass"
+    },
+    {
+      "name": "src/components/ReservationForm.test.tsx.UC-RESERVATION-003 / BHV-RESERVATION-003 예약 폼 &gt; TC-RESERVATION-036 — 예약에 성공하면 폼을 닫고 현황을 다시 불러온다 (AC-RESERVATION-036)",
+      "title": "UC-RESERVATION-003 / BHV-RESERVATION-003 예약 폼 > TC-RESERVATION-036 — 예약에 성공하면 폼을 닫고 현황을 다시 불러온다 (AC-RESERVATION-036)",
+      "ancestors": [
+        "src/components/ReservationForm.test.tsx"
+      ],
+      "file": null,
+      "status": "pass"
+    }
+  ],
+  "file_failures": []
+}

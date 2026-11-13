@@ -1,0 +1,20 @@
+{
+	"id": "UNIT-RESERVATION-009",
+	"name": "ReservationRepository",
+	"provenance": "designed_from_spec",
+	"kind": "class",
+	"code_pointer": {
+		"anchor_type": "ast_symbol",
+		"path": "apps/api/src/main/java/com/roombook/api/persistence/ReservationRepository.java",
+		"symbol": "ReservationRepository"
+	},
+	"bc_ref": "BC-RESERVATION",
+	"realizes": [
+		"BHV-RESERVATION-002",
+		"BHV-RESERVATION-003",
+		"BHV-RESERVATION-004",
+		"BHV-RESERVATION-005"
+	],
+	"unit_test_obligation": "waived",
+	"waiver_reason": "AC 의 통합 테스트(MockMvc + H2)가 HTTP 요청부터 DB 까지 이 단위를 그대로 지나므로 따로 unit TC 를 두지 않는다"
+}

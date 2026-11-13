@@ -1,0 +1,16 @@
+{
+	"id": "UC-RESERVATION-004",
+	"name": "예약 취소",
+	"description": "직원이 자기 예약을 시작 30분 전까지 취소한다. 취소한 예약은 지워지지 않고 취소 상태로 남는다.",
+	"actors": [
+		"직원"
+	],
+	"bc_ref": "BC-RESERVATION",
+	"preconditions": [
+		"요청자가 예약한 본인이다",
+		"시작 30분 전이 지나지 않았다"
+	],
+	"postconditions": [
+		"예약이 취소 상태가 되고 겹침 판정에서 빠진다"
+	]
+}

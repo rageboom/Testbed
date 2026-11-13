@@ -1,0 +1,10 @@
+{
+	"id": "NFR-RESERVATION-001",
+	"characteristic": "reliability",
+	"statement": "같은 회의실에 겹치는 예약 요청이 동시에 들어와도 둘 다 성공하지 않는다.",
+	"severity": "critical",
+	"measurement": "겹치는 예약 요청을 동시에 여러 건 보냈을 때 성공이 정확히 1건이다",
+	"source_grounded_evidence": [
+		"doc:docs/prd.md:22:1"
+	]
+}

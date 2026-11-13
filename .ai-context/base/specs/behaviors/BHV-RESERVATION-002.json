@@ -1,0 +1,295 @@
+{
+	"id": "BHV-RESERVATION-002",
+	"name": "날짜별 예약 현황 조회",
+	"description": "회의실 하나와 날짜 하나의 취소되지 않은 예약을 시작 시각순으로 돌려주고, 요청자 기준으로 본인 예약 여부와 지금 취소할 수 있는지를 함께 알려 준다. 첫 화면은 첫 번째 회의실과 오늘의 현황을 보여 준다.",
+	"use_case_refs": [
+		"UC-RESERVATION-002"
+	],
+	"br_refs": [
+		"BR-RESERVATION-CANCEL-001",
+		"BR-RESERVATION-CANCEL-002",
+		"BR-RESERVATION-RETAIN-001"
+	],
+	"preconditions": [
+		"조회할 회의실이 있다",
+		"요청에 X-Employee-Id 헤더가 있다"
+	],
+	"postconditions": [
+		"예약 데이터는 바뀌지 않는다"
+	],
+	"source_grounded_evidence": [
+		"doc:docs/prd.md:9:2",
+		"doc:docs/prd.md:16:1",
+		"doc:docs/prd.md:16:2",
+		"doc:docs/prd.md:16:3",
+		"doc:docs/prd.md:22:2"
+	],
+	"acceptance_criteria": [
+		{
+			"id": "AC-RESERVATION-002",
+			"title": "그날의 예약을 시작 시각순으로 돌려준다",
+			"gherkin": {
+				"given": [
+					"수용 인원 6명인 회의실 1 이 있다",
+					"회의실 1 의 2026-11-17 에 예약 A(14:00~15:00, 제목 '주간 회의', 예약자 E200)와 예약 B(10:00~11:00, 제목 '설계 리뷰', 예약자 E100)가 있다"
+				],
+				"when": "직원 E100 이 GET /api/rooms/1/reservations?date=2026-11-17 을 호출한다",
+				"then": [
+					"200 응답",
+					"본문 배열의 순서는 예약 B, 예약 A 다",
+					"항목마다 startTime, endTime, reservedBy, title 이 있다"
+				]
+			},
+			"severity": "must",
+			"verifiable": true,
+			"automated_runnable": true,
+			"layer": "be",
+			"openapi_path": "/api/rooms/{roomId}/reservations",
+			"operationId": "listReservations"
+		},
+		{
+			"id": "AC-RESERVATION-003",
+			"title": "예약이 없는 날은 빈 배열을 돌려준다",
+			"gherkin": {
+				"given": [
+					"수용 인원 6명인 회의실 1 이 있다",
+					"회의실 1 의 2026-11-18 에 예약이 없다"
+				],
+				"when": "직원 E100 이 GET /api/rooms/1/reservations?date=2026-11-18 을 호출한다",
+				"then": [
+					"200 응답",
+					"본문은 빈 배열이다"
+				]
+			},
+			"severity": "must",
+			"verifiable": true,
+			"automated_runnable": true,
+			"layer": "be",
+			"openapi_path": "/api/rooms/{roomId}/reservations",
+			"operationId": "listReservations"
+		},
+		{
+			"id": "AC-RESERVATION-004",
+			"title": "취소된 예약은 현황 목록에 싣지 않는다",
+			"gherkin": {
+				"given": [
+					"수용 인원 6명인 회의실 1 이 있다",
+					"회의실 1 의 2026-11-17 에 취소 상태인 예약 C(10:00~11:00)와 예약 상태인 예약 D(13:00~14:00)가 있다"
+				],
+				"when": "직원 E100 이 GET /api/rooms/1/reservations?date=2026-11-17 을 호출한다",
+				"then": [
+					"200 응답",
+					"본문에는 예약 D 만 있다"
+				]
+			},
+			"severity": "must",
+			"verifiable": true,
+			"automated_runnable": true,
+			"layer": "be",
+			"openapi_path": "/api/rooms/{roomId}/reservations",
+			"operationId": "listReservations",
+			"related_brs": [
+				"BR-RESERVATION-RETAIN-001"
+			]
+		},
+		{
+			"id": "AC-RESERVATION-005",
+			"title": "본인 예약이고 취소 기한 안이면 mine 과 cancellable 이 참이다",
+			"gherkin": {
+				"given": [
+					"서버 현재 시각이 2026-11-16 10:00 (Asia/Seoul) 이다",
+					"회의실 1 의 2026-11-16 에 E100 의 예약(11:00~12:00)이 있다"
+				],
+				"when": "직원 E100 이 GET /api/rooms/1/reservations?date=2026-11-16 을 호출한다",
+				"then": [
+					"200 응답",
+					"그 예약의 mine 이 true 이고 cancellable 이 true 이다"
+				]
+			},
+			"severity": "must",
+			"verifiable": true,
+			"automated_runnable": true,
+			"layer": "be",
+			"openapi_path": "/api/rooms/{roomId}/reservations",
+			"operationId": "listReservations",
+			"related_brs": [
+				"BR-RESERVATION-CANCEL-001",
+				"BR-RESERVATION-CANCEL-002"
+			]
+		},
+		{
+			"id": "AC-RESERVATION-006",
+			"title": "남의 예약은 mine 과 cancellable 이 거짓이다",
+			"gherkin": {
+				"given": [
+					"서버 현재 시각이 2026-11-16 10:00 (Asia/Seoul) 이다",
+					"회의실 1 의 2026-11-16 에 E200 의 예약(11:00~12:00)이 있다"
+				],
+				"when": "직원 E100 이 GET /api/rooms/1/reservations?date=2026-11-16 을 호출한다",
+				"then": [
+					"200 응답",
+					"그 예약의 mine 이 false 이고 cancellable 이 false 이다"
+				]
+			},
+			"severity": "must",
+			"verifiable": true,
+			"automated_runnable": true,
+			"layer": "be",
+			"openapi_path": "/api/rooms/{roomId}/reservations",
+			"operationId": "listReservations",
+			"related_brs": [
+				"BR-RESERVATION-CANCEL-001"
+			]
+		},
+		{
+			"id": "AC-RESERVATION-007",
+			"title": "본인 예약이라도 시작 30분 전이 지나면 cancellable 이 거짓이다",
+			"gherkin": {
+				"given": [
+					"서버 현재 시각이 2026-11-16 10:00 (Asia/Seoul) 이다",
+					"회의실 1 의 2026-11-16 에 E100 의 예약(10:00~11:00)이 있다"
+				],
+				"when": "직원 E100 이 GET /api/rooms/1/reservations?date=2026-11-16 을 호출한다",
+				"then": [
+					"200 응답",
+					"그 예약의 mine 이 true 이고 cancellable 이 false 이다"
+				]
+			},
+			"severity": "must",
+			"verifiable": true,
+			"automated_runnable": true,
+			"layer": "be",
+			"openapi_path": "/api/rooms/{roomId}/reservations",
+			"operationId": "listReservations",
+			"related_brs": [
+				"BR-RESERVATION-CANCEL-002"
+			]
+		},
+		{
+			"id": "AC-RESERVATION-008",
+			"title": "없는 회의실의 현황 조회는 404 로 거절한다",
+			"gherkin": {
+				"given": [
+					"id 가 999 인 회의실이 없다"
+				],
+				"when": "직원 E100 이 GET /api/rooms/999/reservations?date=2026-11-17 을 호출한다",
+				"then": [
+					"404 응답",
+					"응답 본문의 code 가 ROOM_NOT_FOUND 이다"
+				]
+			},
+			"severity": "must",
+			"verifiable": true,
+			"automated_runnable": true,
+			"layer": "be",
+			"openapi_path": "/api/rooms/{roomId}/reservations",
+			"operationId": "listReservations"
+		},
+		{
+			"id": "AC-RESERVATION-009",
+			"title": "예약 현황 조회는 p95 500ms 안에 응답한다",
+			"gherkin": {
+				"given": [
+					"회의실 30개와 오늘부터 30일치 예약 데이터가 있다"
+				],
+				"when": "직원 E100 이 GET /api/rooms/1/reservations?date=<오늘> 을 100번 호출한다",
+				"then": [
+					"서버 응답 시간의 p95 가 500ms 이내다"
+				]
+			},
+			"severity": "should",
+			"verifiable": true,
+			"automated_runnable": true,
+			"layer": "be",
+			"openapi_path": "/api/rooms/{roomId}/reservations",
+			"operationId": "listReservations",
+			"nfr_refs": [
+				"NFR-RESERVATION-002"
+			]
+		},
+		{
+			"id": "AC-RESERVATION-010",
+			"title": "첫 화면은 첫 번째 회의실과 오늘의 예약을 시간순으로 보여 준다",
+			"gherkin": {
+				"given": [
+					"회의실 목록의 첫 항목이 '오로라' 다",
+					"오늘 '오로라' 에 예약 둘(10:00~11:00 '설계 리뷰' E100, 14:00~15:00 '주간 회의' E200)이 있다"
+				],
+				"when": "직원이 예약 현황 화면을 연다",
+				"then": [
+					"회의실 선택의 값이 '오로라' 이고 날짜 선택의 값이 오늘이다",
+					"예약 목록에 두 예약이 시작 시각순으로 나오고 항목마다 시작, 끝, 예약자, 제목이 보인다"
+				]
+			},
+			"severity": "must",
+			"verifiable": true,
+			"automated_runnable": true,
+			"layer": "fe",
+			"state_map_ref": "FSM-FE-BOARD-001.loaded",
+			"dtcg_token_ref": "default"
+		},
+		{
+			"id": "AC-RESERVATION-011",
+			"title": "회의실이나 날짜를 바꾸면 그 현황을 다시 불러온다",
+			"gherkin": {
+				"given": [
+					"예약 현황 화면이 '오로라' 와 오늘로 열려 있다"
+				],
+				"when": "직원이 회의실 선택을 '보리' 로 바꾼다",
+				"then": [
+					"'보리' 의 오늘 예약 현황을 서버에 다시 요청하고 그 결과로 목록을 바꾼다"
+				]
+			},
+			"severity": "must",
+			"verifiable": true,
+			"automated_runnable": true,
+			"layer": "fe",
+			"state_map_ref": "FSM-FE-BOARD-001.loaded",
+			"dtcg_token_ref": "default"
+		},
+		{
+			"id": "AC-RESERVATION-012",
+			"title": "예약이 없으면 '예약이 없습니다' 를 보여 준다",
+			"gherkin": {
+				"given": [
+					"고른 회의실 · 날짜에 예약이 없다"
+				],
+				"when": "직원이 예약 현황 화면을 연다",
+				"then": [
+					"목록 자리에 '예약이 없습니다' 가 보인다"
+				]
+			},
+			"severity": "must",
+			"verifiable": true,
+			"automated_runnable": true,
+			"layer": "fe",
+			"state_map_ref": "FSM-FE-BOARD-001.empty",
+			"dtcg_token_ref": "default"
+		},
+		{
+			"id": "AC-RESERVATION-013",
+			"title": "자기 예약에만 취소 버튼이 있고 취소할 수 없으면 비활성이다",
+			"gherkin": {
+				"given": [
+					"현황 응답에 mine true · cancellable true 인 예약, mine true · cancellable false 인 예약, mine false 인 예약이 하나씩 있다"
+				],
+				"when": "직원이 예약 현황 화면을 연다",
+				"then": [
+					"첫째 예약에는 활성 '취소' 버튼이 있다",
+					"둘째 예약에는 비활성 '취소' 버튼이 있다",
+					"셋째 예약에는 '취소' 버튼이 없다"
+				]
+			},
+			"severity": "must",
+			"verifiable": true,
+			"automated_runnable": true,
+			"layer": "fe",
+			"state_map_ref": "FSM-FE-BOARD-001.loaded",
+			"dtcg_token_ref": "default",
+			"related_brs": [
+				"BR-RESERVATION-CANCEL-001",
+				"BR-RESERVATION-CANCEL-002"
+			]
+		}
+	]
+}

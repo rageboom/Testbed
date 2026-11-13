@@ -1,0 +1,18 @@
+{
+  "machine": "M3",
+  "channel": "cli:next",
+  "from": "IDLE",
+  "input": "next_no_token",
+  "to": "HOLD",
+  "declared": "HOLD",
+  "then": null,
+  "steps": [
+    {
+      "from": "IDLE",
+      "input": "next_no_token",
+      "to": "HOLD"
+    }
+  ],
+  "drift": null,
+  "recorded_at": "2026-11-13T15:13:27.082Z"
+}

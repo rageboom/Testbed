@@ -1,0 +1,234 @@
+{
+  "meta": {
+    "generated_at": "2026-11-13T00:00:00Z",
+    "confidence": 0.7,
+    "inputs_used": [
+      "planning_docs"
+    ],
+    "warnings": [
+      "그린필드(S3): 코드가 없어 FE AC 의 state_map_ref 가 정한 이름으로 plan 이 설계했다."
+    ]
+  },
+  "framework": "react",
+  "state_sources": [
+    {
+      "source_type": "server_cache",
+      "detected": false
+    },
+    {
+      "source_type": "client_state",
+      "detected": true,
+      "library": "react",
+      "scope_files": [
+        "apps/web/src/components/ReservationBoard.tsx"
+      ]
+    },
+    {
+      "source_type": "url_state",
+      "detected": false
+    },
+    {
+      "source_type": "form_state",
+      "detected": true,
+      "library": "react",
+      "scope_files": [
+        "apps/web/src/components/ReservationForm.tsx"
+      ]
+    },
+    {
+      "source_type": "dom_state",
+      "detected": false
+    }
+  ],
+  "machines": [
+    {
+      "id": "FSM-FE-BOARD-001",
+      "name": "예약 현황 화면",
+      "scope": "page",
+      "primary_source_type": "client_state",
+      "initial": "loading",
+      "states": {
+        "loading": {
+          "type": "atomic",
+          "on": {
+            "LOADED": {
+              "target": "loaded",
+              "guard": "예약이 1건 이상이다",
+              "trigger": "system",
+              "api_ref": [
+                "listReservations"
+              ]
+            },
+            "LOADED_EMPTY": {
+              "target": "empty",
+              "guard": "예약이 없다",
+              "trigger": "system",
+              "api_ref": [
+                "listReservations"
+              ]
+            },
+            "LOAD_FAILED": {
+              "target": "failed",
+              "trigger": "system"
+            }
+          }
+        },
+        "loaded": {
+          "type": "atomic",
+          "on": {
+            "SELECT_ROOM": {
+              "target": "loading",
+              "trigger": "user"
+            },
+            "SELECT_DATE": {
+              "target": "loading",
+              "trigger": "user"
+            },
+            "CANCEL_CLICK": {
+              "target": "loading",
+              "trigger": "user",
+              "api_ref": [
+                "cancelReservation"
+              ],
+              "actions": [
+                "취소를 요청하고, 거절되면 걸린 규칙의 문장을 보인다"
+              ]
+            },
+            "RESERVATION_CREATED": {
+              "target": "loading",
+              "trigger": "system"
+            }
+          }
+        },
+        "empty": {
+          "type": "atomic",
+          "on": {
+            "SELECT_ROOM": {
+              "target": "loading",
+              "trigger": "user"
+            },
+            "SELECT_DATE": {
+              "target": "loading",
+              "trigger": "user"
+            },
+            "RESERVATION_CREATED": {
+              "target": "loading",
+              "trigger": "system"
+            }
+          }
+        },
+        "failed": {
+          "type": "atomic",
+          "on": {
+            "SELECT_ROOM": {
+              "target": "loading",
+              "trigger": "user"
+            },
+            "SELECT_DATE": {
+              "target": "loading",
+              "trigger": "user"
+            }
+          }
+        }
+      },
+      "source_files": [
+        "apps/web/src/components/ReservationBoard.tsx"
+      ],
+      "related_components": [
+        "ReservationBoard"
+      ],
+      "related_apis": [
+        "listRooms",
+        "listReservations",
+        "cancelReservation"
+      ],
+      "confidence": 0.7
+    },
+    {
+      "id": "FSM-FE-FORM-001",
+      "name": "예약 폼",
+      "scope": "component",
+      "primary_source_type": "form_state",
+      "initial": "closed",
+      "final_states": [],
+      "states": {
+        "closed": {
+          "type": "atomic",
+          "on": {
+            "OPEN": {
+              "target": "editing",
+              "trigger": "user"
+            }
+          }
+        },
+        "editing": {
+          "type": "atomic",
+          "on": {
+            "SUBMIT": {
+              "target": "submitting",
+              "trigger": "user",
+              "api_ref": [
+                "createReservation"
+              ]
+            },
+            "CLOSE": {
+              "target": "closed",
+              "trigger": "user"
+            }
+          }
+        },
+        "submitting": {
+          "type": "atomic",
+          "on": {
+            "CREATED": {
+              "target": "closed",
+              "trigger": "system",
+              "actions": [
+                "현황 목록을 다시 불러온다"
+              ]
+            },
+            "REJECTED": {
+              "target": "rejected",
+              "trigger": "system"
+            }
+          }
+        },
+        "rejected": {
+          "type": "atomic",
+          "on": {
+            "SUBMIT": {
+              "target": "submitting",
+              "trigger": "user",
+              "api_ref": [
+                "createReservation"
+              ]
+            },
+            "CLOSE": {
+              "target": "closed",
+              "trigger": "user"
+            }
+          }
+        }
+      },
+      "source_files": [
+        "apps/web/src/components/ReservationForm.tsx"
+      ],
+      "related_components": [
+        "ReservationForm"
+      ],
+      "related_apis": [
+        "createReservation"
+      ],
+      "confidence": 0.7
+    }
+  ],
+  "cross_links": [
+    {
+      "from_machine": "FSM-FE-FORM-001",
+      "to_artifact": "state-map",
+      "to_id": "FSM-FE-BOARD-001",
+      "link_type": "triggers",
+      "description": "예약에 성공하면 현황 화면이 목록을 다시 불러온다"
+    }
+  ]
+}

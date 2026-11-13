@@ -1,0 +1,26 @@
+{
+  "meta": {
+    "generated_at": "2026-11-13T00:00:00Z",
+    "confidence": 0.9,
+    "inputs_used": [
+      "planning_docs",
+      "config_files"
+    ],
+    "warnings": [
+      "그린필드(S3): 기획서 §6 의 기술 조건과 이 일감이 만든 빌드 설정(apps/api/build.gradle · apps/web/package.json)에서 적었다."
+    ]
+  },
+  "repo": {
+    "name": "roombook"
+  },
+  "stack": {
+    "backend": {
+      "language": "java",
+      "framework": "spring-boot"
+    },
+    "frontend": {
+      "language": "typescript",
+      "framework": "react"
+    }
+  }
+}

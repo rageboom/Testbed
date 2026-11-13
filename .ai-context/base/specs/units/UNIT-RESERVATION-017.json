@@ -1,0 +1,24 @@
+{
+	"id": "UNIT-RESERVATION-017",
+	"name": "timeOptions",
+	"provenance": "designed_from_spec",
+	"kind": "function",
+	"code_pointer": {
+		"anchor_type": "ast_symbol",
+		"path": "apps/web/src/time-options.ts",
+		"symbol": "timeOptions"
+	},
+	"bc_ref": "BC-RESERVATION",
+	"realizes": [
+		"BHV-RESERVATION-003"
+	],
+	"unit_test_obligation": "required",
+	"interface": {
+		"inputs": [],
+		"output": {
+			"type": "string[]",
+			"description": "09:00 부터 20:00 까지 30분 간격의 HH:mm 목록"
+		}
+	},
+	"oracle_waiver": "걸린 불변식이 없다. oracle 은 AC-RESERVATION-032 와 규칙 BR-RESERVATION-SLOT-001 · HOURS-001 이다"
+}

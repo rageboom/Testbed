@@ -1,0 +1,73 @@
+{
+  "critical": 0,
+  "high": 0,
+  "medium": 2,
+  "low": 0,
+  "info": 0,
+  "evidence_missing": [],
+  "advisories": [],
+  "unseen": [],
+  "sources": {
+    "chain-coverage-validator": {
+      "status": "ok",
+      "findings": {
+        "critical": 0,
+        "high": 0,
+        "medium": 0,
+        "low": 0,
+        "info": 0,
+        "coverage_pct": 1,
+        "coverage_threshold": 0.85,
+        "targets": []
+      }
+    },
+    "drift-validator": {
+      "status": "ok",
+      "findings": {
+        "critical": 0,
+        "high": 0,
+        "medium": 0,
+        "low": 0,
+        "info": 0
+      }
+    },
+    "formal-spec-link-validator": {
+      "status": "ok",
+      "findings": {
+        "critical": 0,
+        "high": 0,
+        "medium": 0,
+        "low": 0,
+        "info": 0,
+        "targets": []
+      }
+    },
+    "schema-validator": {
+      "status": "ok",
+      "findings": {
+        "critical": 0,
+        "high": 0,
+        "medium": 0,
+        "low": 0,
+        "info": 0,
+        "targets": []
+      }
+    },
+    "openapi-spec-validator": {
+      "status": "ok",
+      "findings": {
+        "critical": 0,
+        "high": 0,
+        "medium": 2,
+        "low": 0,
+        "info": 0,
+        "targets": []
+      }
+    }
+  },
+  "coverage_pct": 1,
+  "coverage_threshold": 0.85,
+  "stage": "spec",
+  "scope": "roombook-mvp",
+  "generated_at": "2026-11-13T14:28:10.008Z"
+}

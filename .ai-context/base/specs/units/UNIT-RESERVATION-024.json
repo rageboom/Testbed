@@ -1,0 +1,19 @@
+{
+	"id": "UNIT-RESERVATION-024",
+	"name": "ReservationView",
+	"provenance": "designed_from_spec",
+	"kind": "class",
+	"code_pointer": {
+		"anchor_type": "ast_symbol",
+		"path": "apps/api/src/main/java/com/roombook/api/application/ReservationView.java",
+		"symbol": "ReservationView"
+	},
+	"bc_ref": "BC-RESERVATION",
+	"realizes": [
+		"BHV-RESERVATION-002",
+		"BHV-RESERVATION-003",
+		"BHV-RESERVATION-005"
+	],
+	"unit_test_obligation": "waived",
+	"waiver_reason": "예약과 본인 · 취소 가능 여부를 묶은 데이터다"
+}

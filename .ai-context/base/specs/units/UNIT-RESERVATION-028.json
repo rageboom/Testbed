@@ -1,0 +1,17 @@
+{
+	"id": "UNIT-RESERVATION-028",
+	"name": "RoomResponse",
+	"provenance": "designed_from_spec",
+	"kind": "class",
+	"code_pointer": {
+		"anchor_type": "ast_symbol",
+		"path": "apps/api/src/main/java/com/roombook/api/web/RoomResponse.java",
+		"symbol": "RoomResponse"
+	},
+	"bc_ref": "BC-RESERVATION",
+	"realizes": [
+		"BHV-RESERVATION-001"
+	],
+	"unit_test_obligation": "waived",
+	"waiver_reason": "응답 본문 데이터다"
+}

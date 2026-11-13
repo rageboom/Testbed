@@ -1,0 +1,51 @@
+{
+  "critical": 0,
+  "high": 0,
+  "medium": 0,
+  "low": 1,
+  "info": 0,
+  "evidence_missing": [],
+  "advisories": [],
+  "unseen": [],
+  "sources": {
+    "discovery-extraction-validator": {
+      "status": "ok",
+      "findings": {
+        "critical": 0,
+        "high": 0,
+        "medium": 0,
+        "low": 0,
+        "info": 0,
+        "targets": []
+      }
+    },
+    "schema-validator": {
+      "status": "ok",
+      "findings": {
+        "critical": 0,
+        "high": 0,
+        "medium": 0,
+        "low": 0,
+        "info": 0,
+        "targets": []
+      }
+    },
+    "br-cross-consistency-validator": {
+      "status": "ok",
+      "findings": {
+        "critical": 0,
+        "high": 0,
+        "medium": 0,
+        "low": 1,
+        "info": 0,
+        "br_overall_score": 0.985,
+        "br_overall_threshold": 0.85,
+        "br_gate_status": "pass",
+        "targets": []
+      }
+    }
+  },
+  "stage": "discovery",
+  "scope": "roombook-mvp",
+  "generated_at": "2026-11-13T14:24:27.736Z"
+}

@@ -1,0 +1,148 @@
+{
+  "meta": {
+    "generated_at": "2026-11-13T14:40:31Z",
+    "confidence": 0.3,
+    "inputs_used": [
+      "planning_docs"
+    ],
+    "warnings": [
+      "시험용 키: TEST-1 ~ TEST-26 은 실제 Jira 티켓이 아니다. 사내 Jira 에 닿을 수 없는 시험 프로젝트라 사용자가 2026-11-13 대화에서 일감 카드에 선언하라고 정했다(카드 결단 D-001). Jira MCP 는 한 번도 부르지 않았고 발급 · 조회한 티켓이 없다."
+    ]
+  },
+  "$schema_ref": "ticket-sync-evidence.schema.json",
+  "stage": "plan",
+  "phase": "exit",
+  "scope": "roombook-mvp",
+  "mcp_invocations": [],
+  "confirmation_gate": {
+    "user_response": "delegated",
+    "user_response_timestamp": "2026-11-13T14:40:31Z",
+    "preview_md_digest": "0d65bbe2259334f7c4dff09528072d905ca840960ed29bb5cf0783b1c3f846ed"
+  },
+  "confirmation_log_ref": ".ai-context/local/evidence/intervention-log.jsonl",
+  "search_first_idempotency": {
+    "enabled": true,
+    "skip_count": 0,
+    "prebound_reused_count": 26
+  },
+  "graceful_mcp_missing": {
+    "mcp_available": false,
+    "skip_reason": "시험용 키: TEST-1 ~ TEST-26 은 실제 Jira 티켓이 아니다. 사내 Jira 에 닿을 수 없는 시험 프로젝트라 사용자가 2026-11-13 대화에서 일감 카드에 선언하라고 정했다(카드 결단 D-001). Jira MCP 는 한 번도 부르지 않았고 발급 · 조회한 티켓이 없다.",
+    "finding_emitted": true
+  },
+  "dry_run": false,
+  "ticket_cascade": {
+    "epics": [
+      {
+        "jira_id": "TEST-1",
+        "screen_id": "reservation-board"
+      }
+    ],
+    "stories": [
+      {
+        "jira_id": "TEST-2",
+        "behavior_ref": "BHV-RESERVATION-001"
+      },
+      {
+        "jira_id": "TEST-3",
+        "behavior_ref": "BHV-RESERVATION-003"
+      },
+      {
+        "jira_id": "TEST-4",
+        "behavior_ref": "BHV-RESERVATION-005"
+      }
+    ],
+    "op_tasks": [
+      {
+        "jira_id": "TEST-5",
+        "op_task_id": "OP-RESERVATION-001"
+      },
+      {
+        "jira_id": "TEST-6",
+        "op_task_id": "OP-RESERVATION-002"
+      },
+      {
+        "jira_id": "TEST-7",
+        "op_task_id": "OP-RESERVATION-003"
+      }
+    ],
+    "subtasks": [
+      {
+        "jira_id": "TEST-8",
+        "task_id": "TASK-RESERVATION-001"
+      },
+      {
+        "jira_id": "TEST-9",
+        "task_id": "TASK-RESERVATION-002"
+      },
+      {
+        "jira_id": "TEST-10",
+        "task_id": "TASK-RESERVATION-003"
+      },
+      {
+        "jira_id": "TEST-11",
+        "task_id": "TASK-RESERVATION-004"
+      },
+      {
+        "jira_id": "TEST-12",
+        "task_id": "TASK-RESERVATION-005"
+      },
+      {
+        "jira_id": "TEST-13",
+        "task_id": "TASK-RESERVATION-006"
+      },
+      {
+        "jira_id": "TEST-14",
+        "task_id": "TASK-RESERVATION-007"
+      },
+      {
+        "jira_id": "TEST-15",
+        "task_id": "TASK-RESERVATION-008"
+      },
+      {
+        "jira_id": "TEST-16",
+        "task_id": "TASK-RESERVATION-009"
+      },
+      {
+        "jira_id": "TEST-17",
+        "task_id": "TASK-RESERVATION-010"
+      },
+      {
+        "jira_id": "TEST-18",
+        "task_id": "TASK-RESERVATION-011"
+      },
+      {
+        "jira_id": "TEST-19",
+        "task_id": "TASK-RESERVATION-012"
+      },
+      {
+        "jira_id": "TEST-20",
+        "task_id": "TASK-RESERVATION-013"
+      },
+      {
+        "jira_id": "TEST-21",
+        "task_id": "TASK-RESERVATION-014"
+      },
+      {
+        "jira_id": "TEST-22",
+        "task_id": "TASK-RESERVATION-015"
+      },
+      {
+        "jira_id": "TEST-23",
+        "task_id": "TASK-RESERVATION-016"
+      },
+      {
+        "jira_id": "TEST-24",
+        "task_id": "TASK-RESERVATION-017"
+      },
+      {
+        "jira_id": "TEST-25",
+        "task_id": "TASK-RESERVATION-018"
+      },
+      {
+        "jira_id": "TEST-26",
+        "task_id": "TASK-RESERVATION-019"
+      }
+    ]
+  }
+}

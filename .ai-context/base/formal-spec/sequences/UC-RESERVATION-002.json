@@ -1,0 +1,85 @@
+{
+	"uc_id": "UC-RESERVATION-002",
+	"actors": [
+		{
+			"id": "직원",
+			"type": "user"
+		},
+		{
+			"id": "ReservationBoard",
+			"type": "system",
+			"unit_ref": "UNIT-RESERVATION-018"
+		},
+		{
+			"id": "ReservationController",
+			"type": "controller",
+			"unit_ref": "UNIT-RESERVATION-002"
+		},
+		{
+			"id": "ReservationService",
+			"type": "service",
+			"unit_ref": "UNIT-RESERVATION-003"
+		},
+		{
+			"id": "RoomRepository",
+			"type": "repository",
+			"unit_ref": "UNIT-RESERVATION-008"
+		},
+		{
+			"id": "ReservationRepository",
+			"type": "repository",
+			"unit_ref": "UNIT-RESERVATION-009"
+		},
+		{
+			"id": "Reservation",
+			"type": "domain",
+			"unit_ref": "UNIT-RESERVATION-007"
+		}
+	],
+	"messages": [
+		{
+			"from": "직원",
+			"to": "ReservationBoard",
+			"label": "회의실과 날짜를 고른다"
+		},
+		{
+			"from": "ReservationBoard",
+			"to": "ReservationController",
+			"label": "GET /api/rooms/{roomId}/reservations?date="
+		},
+		{
+			"from": "ReservationController",
+			"to": "ReservationService",
+			"label": "listReservations(roomId, date, employeeId)"
+		},
+		{
+			"from": "ReservationService",
+			"to": "RoomRepository",
+			"label": "existsById(roomId)",
+			"sync": "sync",
+			"guard": "없으면 ROOM_NOT_FOUND"
+		},
+		{
+			"from": "ReservationService",
+			"to": "ReservationRepository",
+			"label": "예약 상태인 예약을 시작 시각순으로 읽는다"
+		},
+		{
+			"from": "ReservationService",
+			"to": "Reservation",
+			"label": "isCancellableBy(employeeId, now)"
+		},
+		{
+			"from": "ReservationService",
+			"to": "ReservationController",
+			"label": "List<ReservationView>",
+			"sync": "return"
+		},
+		{
+			"from": "ReservationController",
+			"to": "ReservationBoard",
+			"label": "200 Reservation[]",
+			"sync": "return"
+		}
+	]
+}

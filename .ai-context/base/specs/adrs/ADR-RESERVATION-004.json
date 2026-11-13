@@ -1,0 +1,35 @@
+{
+	"id": "ADR-RESERVATION-004",
+	"title": "프론트엔드 상태는 컴포넌트 지역 상태와 fetch 로만 다룬다",
+	"status": "accepted",
+	"trigger_category": "dependencies",
+	"decision": "화면은 예약 현황 하나와 그 안의 예약 폼뿐이므로 React 의 useState · useEffect 와 fetch 를 감싼 roombookApi 모듈만 쓴다. 라우터, 전역 상태 라이브러리, 서버 캐시 라이브러리는 넣지 않는다. 개발 서버는 Vite 프록시로 /api 를 백엔드에 넘긴다.",
+	"alternatives": [
+		{
+			"option": "TanStack Query 로 서버 상태를 관리한다",
+			"rejection_reason": "조회 둘과 변경 둘뿐이라 캐시 무효화의 이득보다 의존성과 설정이 더 크다"
+		},
+		{
+			"option": "Redux 나 Zustand 같은 전역 상태",
+			"rejection_reason": "상태를 나눠 쓰는 화면이 하나뿐이다"
+		}
+	],
+	"consequences": {
+		"positive": [
+			"의존성이 React 와 테스트 도구뿐이다"
+		],
+		"negative": [
+			"화면이 늘어 같은 데이터를 여러 곳에서 쓰게 되면 서버 캐시 계층을 다시 검토해야 한다"
+		]
+	},
+	"integration_points": [
+		"apps/web/src/api/client.ts",
+		"apps/web/src/components/ReservationBoard.tsx"
+	],
+	"behavior_refs": [
+		"BHV-RESERVATION-001",
+		"BHV-RESERVATION-002",
+		"BHV-RESERVATION-003",
+		"BHV-RESERVATION-005"
+	]
+}

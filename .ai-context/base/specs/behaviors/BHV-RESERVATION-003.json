@@ -1,0 +1,587 @@
+{
+	"id": "BHV-RESERVATION-003",
+	"name": "예약 생성과 입력 규칙 확인",
+	"description": "회의실 · 날짜 · 시작 시각 · 끝 시각 · 제목 · 참석 인원으로 예약을 만든다. 30분 단위, 길이, 시간대, 예약 가능 기간, 참석 인원, 제목 규칙에 걸리면 걸린 규칙의 코드와 함께 거절하고, 예약 폼은 그 코드를 문장으로 보여 준다.",
+	"use_case_refs": [
+		"UC-RESERVATION-003"
+	],
+	"br_refs": [
+		"BR-RESERVATION-SLOT-001",
+		"BR-RESERVATION-DURATION-001",
+		"BR-RESERVATION-HOURS-001",
+		"BR-RESERVATION-WINDOW-001",
+		"BR-RESERVATION-ATTENDEES-001",
+		"BR-RESERVATION-TITLE-001"
+	],
+	"preconditions": [
+		"예약할 회의실이 있다",
+		"요청에 X-Employee-Id 헤더가 있다"
+	],
+	"postconditions": [
+		"성공하면 예약이 예약 상태로 저장되고 예약자는 X-Employee-Id 값이다",
+		"거절하면 아무것도 저장되지 않는다"
+	],
+	"source_grounded_evidence": [
+		"doc:docs/prd.md:9:3",
+		"doc:docs/prd.md:13:4",
+		"doc:docs/prd.md:13:5",
+		"doc:docs/prd.md:13:6",
+		"doc:docs/prd.md:13:7",
+		"doc:docs/prd.md:13:8",
+		"doc:docs/prd.md:18:1",
+		"doc:docs/prd.md:18:3",
+		"doc:docs/prd.md:18:4",
+		"doc:docs/prd.md:20:4"
+	],
+	"property_tests": [
+		{
+			"property": "시작과 끝이 30분 단위이고 09:00 이상 20:00 이하이며 길이가 30분 이상 4시간 이하일 때에만 시간 규칙(SLOT · DURATION · HOURS)을 통과한다",
+			"framework": "jqwik",
+			"framework_status": "active",
+			"arbitrary_stub": "@ForAll @IntRange(min=0,max=1439) int startMinute, @ForAll @IntRange(min=0,max=1439) int endMinute"
+		}
+	],
+	"acceptance_criteria": [
+		{
+			"id": "AC-RESERVATION-014",
+			"title": "규칙을 지킨 예약은 예약 상태로 만들어진다",
+			"gherkin": {
+				"given": [
+					"서버 현재 시각이 2026-11-16 10:00 (Asia/Seoul) 이다",
+					"수용 인원 6명인 회의실 1 이 있다"
+				],
+				"when": "직원 E100 이 POST /api/rooms/1/reservations 를 {date:'2026-11-17', startTime:'10:00', endTime:'11:00', title:'설계 리뷰', attendeeCount:4} 로 호출한다",
+				"then": [
+					"201 응답",
+					"응답 본문의 status 가 RESERVED 이고 reservedBy 가 E100 이다",
+					"그 예약이 2026-11-17 의 현황 조회에 나온다"
+				]
+			},
+			"severity": "must",
+			"verifiable": true,
+			"automated_runnable": true,
+			"layer": "be",
+			"openapi_path": "/api/rooms/{roomId}/reservations",
+			"operationId": "createReservation"
+		},
+		{
+			"id": "AC-RESERVATION-015",
+			"title": "30분 단위가 아닌 시각은 INVALID_SLOT 으로 거절한다",
+			"gherkin": {
+				"given": [
+					"서버 현재 시각이 2026-11-16 10:00 (Asia/Seoul) 이다",
+					"수용 인원 6명인 회의실 1 이 있다"
+				],
+				"when": "직원 E100 이 POST /api/rooms/1/reservations 를 {date:'2026-11-17', startTime:'10:15', endTime:'11:00', title:'회의', attendeeCount:2} 로 호출한다",
+				"then": [
+					"422 응답",
+					"응답 본문의 code 가 INVALID_SLOT 이다",
+					"예약이 저장되지 않는다"
+				]
+			},
+			"severity": "must",
+			"verifiable": true,
+			"automated_runnable": true,
+			"layer": "be",
+			"openapi_path": "/api/rooms/{roomId}/reservations",
+			"operationId": "createReservation",
+			"related_brs": [
+				"BR-RESERVATION-SLOT-001"
+			]
+		},
+		{
+			"id": "AC-RESERVATION-016",
+			"title": "끝 시각이 시작 시각과 같거나 이르면 INVALID_DURATION 으로 거절한다",
+			"gherkin": {
+				"given": [
+					"서버 현재 시각이 2026-11-16 10:00 (Asia/Seoul) 이다",
+					"수용 인원 6명인 회의실 1 이 있다"
+				],
+				"when": "직원 E100 이 POST /api/rooms/1/reservations 를 {date:'2026-11-17', startTime:'10:00', endTime:'10:00', title:'회의', attendeeCount:2} 로 호출한다",
+				"then": [
+					"422 응답",
+					"응답 본문의 code 가 INVALID_DURATION 이다",
+					"예약이 저장되지 않는다"
+				]
+			},
+			"severity": "must",
+			"verifiable": true,
+			"automated_runnable": true,
+			"layer": "be",
+			"openapi_path": "/api/rooms/{roomId}/reservations",
+			"operationId": "createReservation",
+			"related_brs": [
+				"BR-RESERVATION-DURATION-001"
+			]
+		},
+		{
+			"id": "AC-RESERVATION-017",
+			"title": "4시간을 넘는 예약은 INVALID_DURATION 으로 거절한다",
+			"gherkin": {
+				"given": [
+					"서버 현재 시각이 2026-11-16 10:00 (Asia/Seoul) 이다",
+					"수용 인원 6명인 회의실 1 이 있다"
+				],
+				"when": "직원 E100 이 POST /api/rooms/1/reservations 를 {date:'2026-11-17', startTime:'10:00', endTime:'14:30', title:'회의', attendeeCount:2} 로 호출한다",
+				"then": [
+					"422 응답",
+					"응답 본문의 code 가 INVALID_DURATION 이다",
+					"예약이 저장되지 않는다"
+				]
+			},
+			"severity": "must",
+			"verifiable": true,
+			"automated_runnable": true,
+			"layer": "be",
+			"openapi_path": "/api/rooms/{roomId}/reservations",
+			"operationId": "createReservation",
+			"related_brs": [
+				"BR-RESERVATION-DURATION-001"
+			]
+		},
+		{
+			"id": "AC-RESERVATION-018",
+			"title": "정확히 4시간인 예약은 받는다",
+			"gherkin": {
+				"given": [
+					"서버 현재 시각이 2026-11-16 10:00 (Asia/Seoul) 이다",
+					"수용 인원 6명인 회의실 1 이 있다"
+				],
+				"when": "직원 E100 이 POST /api/rooms/1/reservations 를 {date:'2026-11-17', startTime:'10:00', endTime:'14:00', title:'워크숍', attendeeCount:2} 로 호출한다",
+				"then": [
+					"201 응답",
+					"응답 본문의 status 가 RESERVED 이다"
+				]
+			},
+			"severity": "must",
+			"verifiable": true,
+			"automated_runnable": true,
+			"layer": "be",
+			"openapi_path": "/api/rooms/{roomId}/reservations",
+			"operationId": "createReservation",
+			"related_brs": [
+				"BR-RESERVATION-DURATION-001"
+			]
+		},
+		{
+			"id": "AC-RESERVATION-019",
+			"title": "09:00 보다 이른 시작은 OUT_OF_HOURS 로 거절한다",
+			"gherkin": {
+				"given": [
+					"서버 현재 시각이 2026-11-16 10:00 (Asia/Seoul) 이다",
+					"수용 인원 6명인 회의실 1 이 있다"
+				],
+				"when": "직원 E100 이 POST /api/rooms/1/reservations 를 {date:'2026-11-17', startTime:'08:30', endTime:'09:30', title:'회의', attendeeCount:2} 로 호출한다",
+				"then": [
+					"422 응답",
+					"응답 본문의 code 가 OUT_OF_HOURS 이다",
+					"예약이 저장되지 않는다"
+				]
+			},
+			"severity": "must",
+			"verifiable": true,
+			"automated_runnable": true,
+			"layer": "be",
+			"openapi_path": "/api/rooms/{roomId}/reservations",
+			"operationId": "createReservation",
+			"related_brs": [
+				"BR-RESERVATION-HOURS-001"
+			]
+		},
+		{
+			"id": "AC-RESERVATION-020",
+			"title": "20:00 보다 늦은 끝은 OUT_OF_HOURS 로 거절한다",
+			"gherkin": {
+				"given": [
+					"서버 현재 시각이 2026-11-16 10:00 (Asia/Seoul) 이다",
+					"수용 인원 6명인 회의실 1 이 있다"
+				],
+				"when": "직원 E100 이 POST /api/rooms/1/reservations 를 {date:'2026-11-17', startTime:'19:30', endTime:'20:30', title:'회의', attendeeCount:2} 로 호출한다",
+				"then": [
+					"422 응답",
+					"응답 본문의 code 가 OUT_OF_HOURS 이다",
+					"예약이 저장되지 않는다"
+				]
+			},
+			"severity": "must",
+			"verifiable": true,
+			"automated_runnable": true,
+			"layer": "be",
+			"openapi_path": "/api/rooms/{roomId}/reservations",
+			"operationId": "createReservation",
+			"related_brs": [
+				"BR-RESERVATION-HOURS-001"
+			]
+		},
+		{
+			"id": "AC-RESERVATION-021",
+			"title": "끝 시각이 정확히 20:00 인 예약은 받는다",
+			"gherkin": {
+				"given": [
+					"서버 현재 시각이 2026-11-16 10:00 (Asia/Seoul) 이다",
+					"수용 인원 6명인 회의실 1 이 있다"
+				],
+				"when": "직원 E100 이 POST /api/rooms/1/reservations 를 {date:'2026-11-17', startTime:'19:00', endTime:'20:00', title:'회의', attendeeCount:2} 로 호출한다",
+				"then": [
+					"201 응답",
+					"응답 본문의 status 가 RESERVED 이다"
+				]
+			},
+			"severity": "must",
+			"verifiable": true,
+			"automated_runnable": true,
+			"layer": "be",
+			"openapi_path": "/api/rooms/{roomId}/reservations",
+			"operationId": "createReservation",
+			"related_brs": [
+				"BR-RESERVATION-HOURS-001"
+			]
+		},
+		{
+			"id": "AC-RESERVATION-022",
+			"title": "지난 시각의 예약은 OUT_OF_WINDOW 로 거절한다",
+			"gherkin": {
+				"given": [
+					"서버 현재 시각이 2026-11-16 10:00 (Asia/Seoul) 이다",
+					"수용 인원 6명인 회의실 1 이 있다"
+				],
+				"when": "직원 E100 이 POST /api/rooms/1/reservations 를 {date:'2026-11-16', startTime:'09:30', endTime:'10:30', title:'회의', attendeeCount:2} 로 호출한다",
+				"then": [
+					"422 응답",
+					"응답 본문의 code 가 OUT_OF_WINDOW 이다",
+					"예약이 저장되지 않는다"
+				]
+			},
+			"severity": "must",
+			"verifiable": true,
+			"automated_runnable": true,
+			"layer": "be",
+			"openapi_path": "/api/rooms/{roomId}/reservations",
+			"operationId": "createReservation",
+			"related_brs": [
+				"BR-RESERVATION-WINDOW-001"
+			]
+		},
+		{
+			"id": "AC-RESERVATION-023",
+			"title": "오늘 + 31일의 예약은 OUT_OF_WINDOW 로 거절한다",
+			"gherkin": {
+				"given": [
+					"서버 현재 시각이 2026-11-16 10:00 (Asia/Seoul) 이다",
+					"수용 인원 6명인 회의실 1 이 있다"
+				],
+				"when": "직원 E100 이 POST /api/rooms/1/reservations 를 {date:'2026-12-17', startTime:'10:00', endTime:'11:00', title:'회의', attendeeCount:2} 로 호출한다",
+				"then": [
+					"422 응답",
+					"응답 본문의 code 가 OUT_OF_WINDOW 이다",
+					"예약이 저장되지 않는다"
+				]
+			},
+			"severity": "must",
+			"verifiable": true,
+			"automated_runnable": true,
+			"layer": "be",
+			"openapi_path": "/api/rooms/{roomId}/reservations",
+			"operationId": "createReservation",
+			"related_brs": [
+				"BR-RESERVATION-WINDOW-001"
+			]
+		},
+		{
+			"id": "AC-RESERVATION-024",
+			"title": "오늘 + 30일의 예약은 받는다",
+			"gherkin": {
+				"given": [
+					"서버 현재 시각이 2026-11-16 10:00 (Asia/Seoul) 이다",
+					"수용 인원 6명인 회의실 1 이 있다"
+				],
+				"when": "직원 E100 이 POST /api/rooms/1/reservations 를 {date:'2026-12-16', startTime:'10:00', endTime:'11:00', title:'회의', attendeeCount:2} 로 호출한다",
+				"then": [
+					"201 응답",
+					"응답 본문의 status 가 RESERVED 이다"
+				]
+			},
+			"severity": "must",
+			"verifiable": true,
+			"automated_runnable": true,
+			"layer": "be",
+			"openapi_path": "/api/rooms/{roomId}/reservations",
+			"operationId": "createReservation",
+			"related_brs": [
+				"BR-RESERVATION-WINDOW-001"
+			]
+		},
+		{
+			"id": "AC-RESERVATION-025",
+			"title": "참석 인원이 0명이면 INVALID_ATTENDEES 로 거절한다",
+			"gherkin": {
+				"given": [
+					"서버 현재 시각이 2026-11-16 10:00 (Asia/Seoul) 이다",
+					"수용 인원 6명인 회의실 1 이 있다"
+				],
+				"when": "직원 E100 이 POST /api/rooms/1/reservations 를 {date:'2026-11-17', startTime:'10:00', endTime:'11:00', title:'회의', attendeeCount:0} 로 호출한다",
+				"then": [
+					"422 응답",
+					"응답 본문의 code 가 INVALID_ATTENDEES 이다",
+					"예약이 저장되지 않는다"
+				]
+			},
+			"severity": "must",
+			"verifiable": true,
+			"automated_runnable": true,
+			"layer": "be",
+			"openapi_path": "/api/rooms/{roomId}/reservations",
+			"operationId": "createReservation",
+			"related_brs": [
+				"BR-RESERVATION-ATTENDEES-001"
+			]
+		},
+		{
+			"id": "AC-RESERVATION-026",
+			"title": "참석 인원이 수용 인원을 넘으면 INVALID_ATTENDEES 로 거절한다",
+			"gherkin": {
+				"given": [
+					"서버 현재 시각이 2026-11-16 10:00 (Asia/Seoul) 이다",
+					"수용 인원 6명인 회의실 1 이 있다"
+				],
+				"when": "직원 E100 이 POST /api/rooms/1/reservations 를 {date:'2026-11-17', startTime:'10:00', endTime:'11:00', title:'회의', attendeeCount:7} 로 호출한다",
+				"then": [
+					"422 응답",
+					"응답 본문의 code 가 INVALID_ATTENDEES 이다",
+					"예약이 저장되지 않는다"
+				]
+			},
+			"severity": "must",
+			"verifiable": true,
+			"automated_runnable": true,
+			"layer": "be",
+			"openapi_path": "/api/rooms/{roomId}/reservations",
+			"operationId": "createReservation",
+			"related_brs": [
+				"BR-RESERVATION-ATTENDEES-001"
+			]
+		},
+		{
+			"id": "AC-RESERVATION-027",
+			"title": "참석 인원이 수용 인원과 같은 예약은 받는다",
+			"gherkin": {
+				"given": [
+					"서버 현재 시각이 2026-11-16 10:00 (Asia/Seoul) 이다",
+					"수용 인원 6명인 회의실 1 이 있다"
+				],
+				"when": "직원 E100 이 POST /api/rooms/1/reservations 를 {date:'2026-11-17', startTime:'10:00', endTime:'11:00', title:'회의', attendeeCount:6} 로 호출한다",
+				"then": [
+					"201 응답",
+					"응답 본문의 status 가 RESERVED 이다"
+				]
+			},
+			"severity": "must",
+			"verifiable": true,
+			"automated_runnable": true,
+			"layer": "be",
+			"openapi_path": "/api/rooms/{roomId}/reservations",
+			"operationId": "createReservation",
+			"related_brs": [
+				"BR-RESERVATION-ATTENDEES-001"
+			]
+		},
+		{
+			"id": "AC-RESERVATION-028",
+			"title": "제목이 비어 있으면 INVALID_TITLE 로 거절한다",
+			"gherkin": {
+				"given": [
+					"서버 현재 시각이 2026-11-16 10:00 (Asia/Seoul) 이다",
+					"수용 인원 6명인 회의실 1 이 있다"
+				],
+				"when": "직원 E100 이 POST /api/rooms/1/reservations 를 {date:'2026-11-17', startTime:'10:00', endTime:'11:00', title:'  ', attendeeCount:2} 로 호출한다",
+				"then": [
+					"422 응답",
+					"응답 본문의 code 가 INVALID_TITLE 이다",
+					"예약이 저장되지 않는다"
+				]
+			},
+			"severity": "should",
+			"verifiable": true,
+			"automated_runnable": true,
+			"layer": "be",
+			"openapi_path": "/api/rooms/{roomId}/reservations",
+			"operationId": "createReservation",
+			"related_brs": [
+				"BR-RESERVATION-TITLE-001"
+			]
+		},
+		{
+			"id": "AC-RESERVATION-029",
+			"title": "제목이 51자면 INVALID_TITLE 로 거절한다",
+			"gherkin": {
+				"given": [
+					"서버 현재 시각이 2026-11-16 10:00 (Asia/Seoul) 이다",
+					"수용 인원 6명인 회의실 1 이 있다"
+				],
+				"when": "직원 E100 이 POST /api/rooms/1/reservations 를 {date:'2026-11-17', startTime:'10:00', endTime:'11:00', title:<51자 문자열>, attendeeCount:2} 로 호출한다",
+				"then": [
+					"422 응답",
+					"응답 본문의 code 가 INVALID_TITLE 이다",
+					"예약이 저장되지 않는다"
+				]
+			},
+			"severity": "should",
+			"verifiable": true,
+			"automated_runnable": true,
+			"layer": "be",
+			"openapi_path": "/api/rooms/{roomId}/reservations",
+			"operationId": "createReservation",
+			"related_brs": [
+				"BR-RESERVATION-TITLE-001"
+			]
+		},
+		{
+			"id": "AC-RESERVATION-030",
+			"title": "없는 회의실의 예약은 404 로 거절한다",
+			"gherkin": {
+				"given": [
+					"서버 현재 시각이 2026-11-16 10:00 (Asia/Seoul) 이다",
+					"id 가 999 인 회의실이 없다"
+				],
+				"when": "직원 E100 이 POST /api/rooms/999/reservations 를 {date:'2026-11-17', startTime:'10:00', endTime:'11:00', title:'회의', attendeeCount:2} 로 호출한다",
+				"then": [
+					"404 응답",
+					"응답 본문의 code 가 ROOM_NOT_FOUND 이다"
+				]
+			},
+			"severity": "must",
+			"verifiable": true,
+			"automated_runnable": true,
+			"layer": "be",
+			"openapi_path": "/api/rooms/{roomId}/reservations",
+			"operationId": "createReservation"
+		},
+		{
+			"id": "AC-RESERVATION-031",
+			"title": "X-Employee-Id 헤더가 없는 예약 요청은 400 으로 거절한다",
+			"gherkin": {
+				"given": [
+					"서버 현재 시각이 2026-11-16 10:00 (Asia/Seoul) 이다",
+					"수용 인원 6명인 회의실 1 이 있다"
+				],
+				"when": "X-Employee-Id 헤더 없이 POST /api/rooms/1/reservations 를 {date:'2026-11-17', startTime:'10:00', endTime:'11:00', title:'회의', attendeeCount:2} 로 호출한다",
+				"then": [
+					"400 응답",
+					"응답 본문의 code 가 INVALID_REQUEST 이다",
+					"예약이 저장되지 않는다"
+				]
+			},
+			"severity": "must",
+			"verifiable": true,
+			"automated_runnable": true,
+			"layer": "be",
+			"openapi_path": "/api/rooms/{roomId}/reservations",
+			"operationId": "createReservation"
+		},
+		{
+			"id": "AC-RESERVATION-032",
+			"title": "예약하기 버튼을 누르면 예약 폼이 열린다",
+			"gherkin": {
+				"given": [
+					"예약 현황 화면이 '오로라' 와 2026-11-17 로 열려 있다"
+				],
+				"when": "직원이 '예약하기' 버튼을 누른다",
+				"then": [
+					"시작 시각 · 끝 시각(30분 단위 선택) · 제목 · 참석 인원 입력이 있는 예약 폼이 보인다",
+					"폼에 회의실과 날짜 입력은 없다"
+				]
+			},
+			"severity": "must",
+			"verifiable": true,
+			"automated_runnable": true,
+			"layer": "fe",
+			"state_map_ref": "FSM-FE-FORM-001.editing",
+			"dtcg_token_ref": "default"
+		},
+		{
+			"id": "AC-RESERVATION-033",
+			"title": "폼을 제출하면 현황 화면에서 고른 회의실과 날짜로 예약을 요청한다",
+			"gherkin": {
+				"given": [
+					"예약 현황 화면이 '오로라'(id 1)와 2026-11-17 로 열려 있고 예약 폼이 열려 있다",
+					"시작 10:00, 끝 11:00, 제목 '설계 리뷰', 참석 인원 4 를 넣었다"
+				],
+				"when": "직원이 폼을 제출한다",
+				"then": [
+					"POST /api/rooms/1/reservations 를 {date:'2026-11-17', startTime:'10:00', endTime:'11:00', title:'설계 리뷰', attendeeCount:4} 로 요청한다"
+				]
+			},
+			"severity": "must",
+			"verifiable": true,
+			"automated_runnable": true,
+			"layer": "fe",
+			"state_map_ref": "FSM-FE-FORM-001.submitting",
+			"dtcg_token_ref": "default"
+		},
+		{
+			"id": "AC-RESERVATION-034",
+			"title": "서버가 거절하면 걸린 규칙을 폼 위에 문장으로 보여 준다",
+			"gherkin": {
+				"given": [
+					"예약 폼이 열려 있다",
+					"서버가 422 와 code OVERLAP 이 아닌 규칙 코드 INVALID_DURATION 으로 거절한다"
+				],
+				"when": "직원이 폼을 제출한다",
+				"then": [
+					"폼 위에 '예약은 30분 이상 4시간 이하여야 합니다.' 가 보인다",
+					"폼은 닫히지 않고 입력 값이 남는다"
+				]
+			},
+			"severity": "must",
+			"verifiable": true,
+			"automated_runnable": true,
+			"layer": "fe",
+			"state_map_ref": "FSM-FE-FORM-001.rejected",
+			"dtcg_token_ref": "default",
+			"related_brs": [
+				"BR-RESERVATION-DURATION-001"
+			]
+		},
+		{
+			"id": "AC-RESERVATION-035",
+			"title": "거절 코드마다 그 규칙의 문장이 정해져 있다",
+			"gherkin": {
+				"given": [
+					"예약 폼이 거절 코드를 문장으로 바꾼다"
+				],
+				"when": "코드 OVERLAP, INVALID_SLOT, INVALID_DURATION, OUT_OF_HOURS, OUT_OF_WINDOW, INVALID_ATTENDEES, INVALID_TITLE 을 각각 문장으로 바꾼다",
+				"then": [
+					"코드마다 비어 있지 않은 서로 다른 한국어 문장이 나온다",
+					"모르는 코드는 서버가 준 message 를 그대로 보여 준다"
+				]
+			},
+			"severity": "must",
+			"verifiable": true,
+			"automated_runnable": true,
+			"layer": "fe",
+			"state_map_ref": "FSM-FE-FORM-001.rejected",
+			"dtcg_token_ref": "default"
+		},
+		{
+			"id": "AC-RESERVATION-036",
+			"title": "예약에 성공하면 폼을 닫고 현황을 다시 불러온다",
+			"gherkin": {
+				"given": [
+					"예약 폼이 열려 있다",
+					"서버가 201 로 응답한다"
+				],
+				"when": "직원이 폼을 제출한다",
+				"then": [
+					"폼이 닫힌다",
+					"예약 현황 목록을 다시 요청하고 새 예약이 목록에 보인다"
+				]
+			},
+			"severity": "must",
+			"verifiable": true,
+			"automated_runnable": true,
+			"layer": "fe",
+			"state_map_ref": "FSM-FE-FORM-001.closed",
+			"dtcg_token_ref": "default"
+		}
+	]
+}

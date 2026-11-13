@@ -1,0 +1,18 @@
+{
+	"id": "UNIT-RESERVATION-021",
+	"name": "Room",
+	"provenance": "designed_from_spec",
+	"kind": "class",
+	"code_pointer": {
+		"anchor_type": "ast_symbol",
+		"path": "apps/api/src/main/java/com/roombook/api/domain/Room.java",
+		"symbol": "Room"
+	},
+	"bc_ref": "BC-RESERVATION",
+	"realizes": [
+		"BHV-RESERVATION-001",
+		"BHV-RESERVATION-003"
+	],
+	"unit_test_obligation": "waived",
+	"waiver_reason": "회의실 데이터를 담는 엔티티다. 분기 로직이 없다"
+}

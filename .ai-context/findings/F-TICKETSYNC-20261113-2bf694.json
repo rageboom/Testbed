@@ -1,0 +1,12 @@
+{
+  "finding_id": "F-TICKETSYNC-20261113-2bf694",
+  "phase": "plan",
+  "discovered_at": "2026-11-13",
+  "discoverer": "ticket-sync (main thread, phase=exit)",
+  "description": "티켓 키 TEST-1 ~ TEST-26 은 실제 Jira 티켓이 아니라 시험용 키다. 사내 Jira 에 닿을 수 없는 시험 프로젝트라 사용자가 2026-11-13 대화에서 상위 티켓부터 순서대로 카드에 선언하라고 정했다(카드 결단 D-001). Jira MCP 는 한 번도 부르지 않았다. 물증 ticket-sync-plan-exit-20261113T144031Z.json 은 그 사실대로 mcp_invocations 가 비어 있고 evidence_trust 가 없어 물증 스키마 검사에 떨어진다(지어내지 않았다).",
+  "context": "클라우드 세션. Jira MCP 도구가 없다(F-TICKETSYNC-20261113-aa8ac2).",
+  "spec_gap": "skills/ticket-sync/SKILL.md · schemas/ticket-sync-evidence.schema.json: Jira 없이 굴리는 시험 프로젝트에서 사람이 정한 시험용 키를 정직하게 적는 물증 모양과 통과 경로가 없다.",
+  "decision_made": "카드의 epics · stories · op_tasks · tasks 에 jira_id 와 pre_existing 으로 선언하고(skip_prebound), 호출 기록 없는 물증을 남겨 plan 게이트를 넘었다. Jira 관측 기록(runtime/jira-observed.json)은 만들지 않았다. 실제 Jira 로 옮길 때는 이 키들을 지우고 ticket-sync 를 다시 돌린다.",
+  "severity": "medium",
+  "status": "open"
+}

@@ -1,0 +1,17 @@
+{
+	"id": "UNIT-RESERVATION-033",
+	"name": "data.sql (회의실 초기 데이터)",
+	"provenance": "designed_from_spec",
+	"kind": "module",
+	"code_pointer": {
+		"anchor_type": "ast_symbol",
+		"path": "apps/api/src/main/resources/data.sql",
+		"symbol": "data"
+	},
+	"bc_ref": "BC-RESERVATION",
+	"realizes": [
+		"BHV-RESERVATION-001"
+	],
+	"unit_test_obligation": "waived",
+	"waiver_reason": "초기 데이터다. 분기 로직이 없다"
+}

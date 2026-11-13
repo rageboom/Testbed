@@ -1,0 +1,18 @@
+{
+  "machine": "M9",
+  "picker": "gate",
+  "channel": "hook:PostToolUse(AskUserQuestion)",
+  "from": "offered",
+  "event": "present",
+  "to": "answered",
+  "declared": "answered",
+  "effects": [
+    "record_mark",
+    "issue_value",
+    "resolve_guard",
+    "log"
+  ],
+  "exit": 0,
+  "drift": null,
+  "recorded_at": "2026-11-13T14:55:25.213Z"
+}

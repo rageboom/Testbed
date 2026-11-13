@@ -1,0 +1,10 @@
+{
+	"id": "NFR-RESERVATION-002",
+	"characteristic": "performance_efficiency",
+	"statement": "예약 현황 조회는 평소 500ms 안에 응답한다.",
+	"severity": "medium",
+	"measurement": "회의실 30개와 30일치 예약 데이터가 있을 때 예약 현황 조회의 서버 응답 시간 p95 가 500ms 이내다",
+	"source_grounded_evidence": [
+		"doc:docs/prd.md:22:2"
+	]
+}

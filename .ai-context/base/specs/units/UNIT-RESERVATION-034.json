@@ -1,0 +1,24 @@
+{
+	"id": "UNIT-RESERVATION-034",
+	"name": "viteConfig (빌드 · 개발 프록시 · 테스트 설정)",
+	"provenance": "designed_from_spec",
+	"kind": "function",
+	"code_pointer": {
+		"anchor_type": "ast_symbol",
+		"path": "apps/web/vite.config.ts",
+		"symbol": "viteConfig"
+	},
+	"bc_ref": "BC-RESERVATION",
+	"realizes": [
+		"BHV-RESERVATION-002",
+		"BHV-RESERVATION-003"
+	],
+	"unit_test_obligation": "waived",
+	"waiver_reason": "빌드 · 개발 서버 · 테스트 러너 설정이다(ADR-RESERVATION-004). 분기 로직이 없다",
+	"interface": {
+		"inputs": [],
+		"output": {
+			"type": "UserConfig"
+		}
+	}
+}

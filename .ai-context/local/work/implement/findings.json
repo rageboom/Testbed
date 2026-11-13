@@ -1,0 +1,306 @@
+{
+  "critical": 0,
+  "high": 0,
+  "medium": 0,
+  "low": 0,
+  "info": 0,
+  "evidence_missing": [],
+  "advisories": [],
+  "unseen": [],
+  "sources": {
+    "test-impl-pass-validator": {
+      "status": "ok",
+      "findings": {
+        "critical": 0,
+        "high": 0,
+        "medium": 0,
+        "low": 0,
+        "info": 0,
+        "tests_total": 72,
+        "tests_passed": 72,
+        "tests_failed": 0,
+        "failed_tests": [],
+        "passed_tests": [
+          {
+            "name": "com.roombook.api.domain.ReservationPolicyPropertiesTest.TC-RESERVATION-109 — 시간 규칙은 30분 단위 · 길이 · 시간대를 모두 지킬 때에만 통과한다",
+            "file": null
+          },
+          {
+            "name": "com.roombook.api.domain.ReservationPolicyTest.TC-RESERVATION-103 — 길이가 30분 미만이거나 4시간을 넘으면 INVALID_DURATION 이다 (BR-RESERVATION-DURATION-001)",
+            "file": null
+          },
+          {
+            "name": "com.roombook.api.domain.ReservationPolicyTest.TC-RESERVATION-105 — 지난 시각이나 오늘 + 30일을 넘는 날짜는 OUT_OF_WINDOW 다 (BR-RESERVATION-WINDOW-001)",
+            "file": null
+          },
+          {
+            "name": "com.roombook.api.domain.ReservationPolicyTest.TC-RESERVATION-101 — 규칙을 모두 지킨 예약은 통과한다",
+            "file": null
+          },
+          {
+            "name": "com.roombook.api.domain.ReservationPolicyTest.TC-RESERVATION-102 — 시작이나 끝이 30분 단위가 아니면 INVALID_SLOT 이다 (BR-RESERVATION-SLOT-001)",
+            "file": null
+          },
+          {
+            "name": "com.roombook.api.domain.ReservationPolicyTest.TC-RESERVATION-106 — 참석 인원이 1명 미만이거나 수용 인원을 넘으면 INVALID_ATTENDEES 다 (BR-RESERVATION-ATTENDEES-001)",
+            "file": null
+          },
+          {
+            "name": "com.roombook.api.domain.ReservationPolicyTest.TC-RESERVATION-104 — 09:00 이전 시작이나 20:00 이후 끝은 OUT_OF_HOURS 다 (BR-RESERVATION-HOURS-001)",
+            "file": null
+          },
+          {
+            "name": "com.roombook.api.domain.ReservationPolicyTest.TC-RESERVATION-108 — 여러 규칙에 걸리면 정해진 순서의 첫 위반을 알린다",
+            "file": null
+          },
+          {
+            "name": "com.roombook.api.domain.ReservationPolicyTest.TC-RESERVATION-107 — 제목이 비었거나 50자를 넘으면 INVALID_TITLE 이다 (BR-RESERVATION-TITLE-001)",
+            "file": null
+          },
+          {
+            "name": "com.roombook.api.domain.ReservationPropertiesTest.TC-RESERVATION-126 — 취소된 예약은 다시 예약 상태로 돌아가지 않는다",
+            "file": null
+          },
+          {
+            "name": "com.roombook.api.domain.ReservationTest.TC-RESERVATION-124 — 이미 취소된 예약의 취소는 ALREADY_CANCELLED 다 (BR-RESERVATION-RETAIN-001)",
+            "file": null
+          },
+          {
+            "name": "com.roombook.api.domain.ReservationTest.TC-RESERVATION-121 — 새 예약은 예약 상태이고 본인이 기한 안에 취소하면 취소 상태가 된다 (BR-RESERVATION-RETAIN-001)",
+            "file": null
+          },
+          {
+            "name": "com.roombook.api.domain.ReservationTest.TC-RESERVATION-125 — 본인 확인이 기한 확인보다 먼저다",
+            "file": null
+          },
+          {
+            "name": "com.roombook.api.domain.ReservationTest.TC-RESERVATION-131 — 본인 예약이고 예약 상태이며 시작 30분 전 이내가 아닐 때만 취소할 수 있다고 답한다 (BR-RESERVATION-CANCEL-002)",
+            "file": null
+          },
+          {
+            "name": "com.roombook.api.domain.ReservationTest.TC-RESERVATION-123 — 시작 30분 전까지는 취소되고 그 뒤에는 CANCEL_TOO_LATE 다 (BR-RESERVATION-CANCEL-002)",
+            "file": null
+          },
+          {
+            "name": "com.roombook.api.domain.ReservationTest.TC-RESERVATION-122 — 예약한 본인이 아니면 NOT_OWNER 이고 상태는 그대로다 (BR-RESERVATION-CANCEL-001)",
+            "file": null
+          },
+          {
+            "name": "com.roombook.api.domain.TimeRangePropertiesTest.TC-RESERVATION-114 — 맞닿은 두 구간은 겹치지 않는다",
+            "file": null
+          },
+          {
+            "name": "com.roombook.api.domain.TimeRangePropertiesTest.TC-RESERVATION-113 — 겹침 판정은 대칭이고 구간 산술과 같다",
+            "file": null
+          },
+          {
+            "name": "com.roombook.api.domain.TimeRangeTest.TC-RESERVATION-112 — 맞닿기만 하거나 떨어진 구간은 겹침이 아니다 (BR-RESERVATION-OVERLAP-001)",
+            "file": null
+          },
+          {
+            "name": "com.roombook.api.domain.TimeRangeTest.TC-RESERVATION-111 — 시간이 겹치는 두 구간은 겹침이다 (BR-RESERVATION-OVERLAP-001)",
+            "file": null
+          }
+        ],
+        "passed_tests_more": 52,
+        "test_scope": {
+          "source": "runner",
+          "files": null,
+          "file_list": []
+        },
+        "test_result_hash": "sha256:d3886775663a6bf926e8f4933decaf5c220d08704175dbdc3b3f118e8f599baa"
+      }
+    },
+    "static-runner": {
+      "status": "ok",
+      "findings": {
+        "critical": 0,
+        "high": 0,
+        "medium": 0,
+        "low": 0,
+        "info": 0,
+        "static_analysis": {
+          "ok": true,
+          "reason": null,
+          "mode": "ratchet",
+          "findings_total": 65,
+          "counted": "novel",
+          "baseline_present": true,
+          "baseline_missing": false,
+          "baseline_path": ".ai-context/config/static-baseline-pmd.json",
+          "novel": 0,
+          "grandfathered": 65,
+          "environment_missing": [],
+          "scan_failed": [],
+          "scan_timeout": [],
+          "probe_timeout": []
+        },
+        "targets": []
+      }
+    },
+    "traceability-matrix-builder": {
+      "status": "ok",
+      "findings": {
+        "critical": 0,
+        "high": 0,
+        "medium": 0,
+        "low": 0,
+        "info": 0,
+        "traceability_forward_coverage": 1,
+        "traceability_threshold": 0.85,
+        "traceability_unit_obligation_ratio": 1,
+        "traceability_unit_total": 34,
+        "traceability_unit_tested": 6,
+        "traceability_unit_method_axis_corroboration": null,
+        "traceability_unit_mutation_score": null,
+        "targets": []
+      }
+    },
+    "graph-integrity-validator": {
+      "status": "ok",
+      "findings": {
+        "critical": 0,
+        "high": 0,
+        "medium": 0,
+        "low": 0,
+        "info": 0,
+        "graph_integrity_passed": true,
+        "targets": []
+      }
+    },
+    "code-pointer-validator": {
+      "status": "ok",
+      "findings": {
+        "critical": 0,
+        "high": 0,
+        "medium": 0,
+        "low": 0,
+        "info": 0,
+        "targets": []
+      }
+    },
+    "schema-validator": {
+      "status": "ok",
+      "findings": {
+        "critical": 0,
+        "high": 0,
+        "medium": 0,
+        "low": 0,
+        "info": 0,
+        "targets": []
+      }
+    }
+  },
+  "static_analysis": {
+    "ok": true,
+    "reason": null,
+    "mode": "ratchet",
+    "findings_total": 65,
+    "counted": "novel",
+    "baseline_present": true,
+    "baseline_missing": false,
+    "baseline_path": ".ai-context/config/static-baseline-pmd.json",
+    "novel": 0,
+    "grandfathered": 65,
+    "environment_missing": [],
+    "scan_failed": [],
+    "scan_timeout": [],
+    "probe_timeout": []
+  },
+  "test_scope": {
+    "source": "runner",
+    "files": null,
+    "file_list": []
+  },
+  "tests_total": 72,
+  "tests_passed": 72,
+  "tests_failed": 0,
+  "test_result_hash": "sha256:d3886775663a6bf926e8f4933decaf5c220d08704175dbdc3b3f118e8f599baa",
+  "failed_tests": [],
+  "passed_tests": [
+    {
+      "name": "com.roombook.api.domain.ReservationPolicyPropertiesTest.TC-RESERVATION-109 — 시간 규칙은 30분 단위 · 길이 · 시간대를 모두 지킬 때에만 통과한다",
+      "file": null
+    },
+    {
+      "name": "com.roombook.api.domain.ReservationPolicyTest.TC-RESERVATION-103 — 길이가 30분 미만이거나 4시간을 넘으면 INVALID_DURATION 이다 (BR-RESERVATION-DURATION-001)",
+      "file": null
+    },
+    {
+      "name": "com.roombook.api.domain.ReservationPolicyTest.TC-RESERVATION-105 — 지난 시각이나 오늘 + 30일을 넘는 날짜는 OUT_OF_WINDOW 다 (BR-RESERVATION-WINDOW-001)",
+      "file": null
+    },
+    {
+      "name": "com.roombook.api.domain.ReservationPolicyTest.TC-RESERVATION-101 — 규칙을 모두 지킨 예약은 통과한다",
+      "file": null
+    },
+    {
+      "name": "com.roombook.api.domain.ReservationPolicyTest.TC-RESERVATION-102 — 시작이나 끝이 30분 단위가 아니면 INVALID_SLOT 이다 (BR-RESERVATION-SLOT-001)",
+      "file": null
+    },
+    {
+      "name": "com.roombook.api.domain.ReservationPolicyTest.TC-RESERVATION-106 — 참석 인원이 1명 미만이거나 수용 인원을 넘으면 INVALID_ATTENDEES 다 (BR-RESERVATION-ATTENDEES-001)",
+      "file": null
+    },
+    {
+      "name": "com.roombook.api.domain.ReservationPolicyTest.TC-RESERVATION-104 — 09:00 이전 시작이나 20:00 이후 끝은 OUT_OF_HOURS 다 (BR-RESERVATION-HOURS-001)",
+      "file": null
+    },
+    {
+      "name": "com.roombook.api.domain.ReservationPolicyTest.TC-RESERVATION-108 — 여러 규칙에 걸리면 정해진 순서의 첫 위반을 알린다",
+      "file": null
+    },
+    {
+      "name": "com.roombook.api.domain.ReservationPolicyTest.TC-RESERVATION-107 — 제목이 비었거나 50자를 넘으면 INVALID_TITLE 이다 (BR-RESERVATION-TITLE-001)",
+      "file": null
+    },
+    {
+      "name": "com.roombook.api.domain.ReservationPropertiesTest.TC-RESERVATION-126 — 취소된 예약은 다시 예약 상태로 돌아가지 않는다",
+      "file": null
+    },
+    {
+      "name": "com.roombook.api.domain.ReservationTest.TC-RESERVATION-124 — 이미 취소된 예약의 취소는 ALREADY_CANCELLED 다 (BR-RESERVATION-RETAIN-001)",
+      "file": null
+    },
+    {
+      "name": "com.roombook.api.domain.ReservationTest.TC-RESERVATION-121 — 새 예약은 예약 상태이고 본인이 기한 안에 취소하면 취소 상태가 된다 (BR-RESERVATION-RETAIN-001)",
+      "file": null
+    },
+    {
+      "name": "com.roombook.api.domain.ReservationTest.TC-RESERVATION-125 — 본인 확인이 기한 확인보다 먼저다",
+      "file": null
+    },
+    {
+      "name": "com.roombook.api.domain.ReservationTest.TC-RESERVATION-131 — 본인 예약이고 예약 상태이며 시작 30분 전 이내가 아닐 때만 취소할 수 있다고 답한다 (BR-RESERVATION-CANCEL-002)",
+      "file": null
+    },
+    {
+      "name": "com.roombook.api.domain.ReservationTest.TC-RESERVATION-123 — 시작 30분 전까지는 취소되고 그 뒤에는 CANCEL_TOO_LATE 다 (BR-RESERVATION-CANCEL-002)",
+      "file": null
+    },
+    {
+      "name": "com.roombook.api.domain.ReservationTest.TC-RESERVATION-122 — 예약한 본인이 아니면 NOT_OWNER 이고 상태는 그대로다 (BR-RESERVATION-CANCEL-001)",
+      "file": null
+    },
+    {
+      "name": "com.roombook.api.domain.TimeRangePropertiesTest.TC-RESERVATION-114 — 맞닿은 두 구간은 겹치지 않는다",
+      "file": null
+    },
+    {
+      "name": "com.roombook.api.domain.TimeRangePropertiesTest.TC-RESERVATION-113 — 겹침 판정은 대칭이고 구간 산술과 같다",
+      "file": null
+    },
+    {
+      "name": "com.roombook.api.domain.TimeRangeTest.TC-RESERVATION-112 — 맞닿기만 하거나 떨어진 구간은 겹침이 아니다 (BR-RESERVATION-OVERLAP-001)",
+      "file": null
+    },
+    {
+      "name": "com.roombook.api.domain.TimeRangeTest.TC-RESERVATION-111 — 시간이 겹치는 두 구간은 겹침이다 (BR-RESERVATION-OVERLAP-001)",
+      "file": null
+    }
+  ],
+  "passed_tests_more": 52,
+  "stage": "implement",
+  "scope": "roombook-mvp",
+  "generated_at": "2026-11-13T15:12:45.090Z"
+}

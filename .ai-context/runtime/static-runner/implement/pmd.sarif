@@ -1,0 +1,1736 @@
+{
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "PMD",
+          "version": "7.0.0",
+          "informationUri": "https://docs.pmd-code.org/latest/",
+          "rules": [
+            {
+              "id": "UnnecessaryImport",
+              "shortDescription": {
+                "text": "Unused static import 'org.assertj.core.api.Assertions.assertThat'"
+              },
+              "fullDescription": {
+                "text": "\n            Reports import statements that can be removed. They are either unused,\n            duplicated, or the members they import are already implicitly in scope,\n            because they're in java.lang, or the current package.\n        "
+              },
+              "helpUri": "https://docs.pmd-code.org/pmd-doc-7.0.0/pmd_rules_java_codestyle.html#unnecessaryimport",
+              "help": {
+                "text": "\n            Reports import statements that can be removed. They are either unused,\n            duplicated, or the members they import are already implicitly in scope,\n            because they're in java.lang, or the current package.\n        "
+              },
+              "properties": {
+                "ruleset": "Code Style",
+                "priority": 4,
+                "tags": [
+                  "Code Style"
+                ]
+              }
+            },
+            {
+              "id": "MethodNamingConventions",
+              "shortDescription": {
+                "text": "The instance method name 'TC_RESERVATION_109_time_rules_pass_exactly_when_slot_duration_hours_hold' doesn't match '[a-z][a-zA-Z0-9]*'"
+              },
+              "fullDescription": {
+                "text": "\n            Configurable naming conventions for method declarations. This rule reports\n            method declarations which do not match the regex that applies to their\n            specific kind (e.g. JUnit test or native method). Each regex can be\n            configured through properties.\n\n            By default this rule uses the standard Java naming convention (Camel case).\n        "
+              },
+              "helpUri": "https://docs.pmd-code.org/pmd-doc-7.0.0/pmd_rules_java_codestyle.html#methodnamingconventions",
+              "help": {
+                "text": "\n            Configurable naming conventions for method declarations. This rule reports\n            method declarations which do not match the regex that applies to their\n            specific kind (e.g. JUnit test or native method). Each regex can be\n            configured through properties.\n\n            By default this rule uses the standard Java naming convention (Camel case).\n        "
+              },
+              "properties": {
+                "ruleset": "Code Style",
+                "priority": 1,
+                "tags": [
+                  "Code Style"
+                ]
+              }
+            },
+            {
+              "id": "MethodNamingConventions",
+              "shortDescription": {
+                "text": "The instance method name 'TC_RESERVATION_126_cancelled_reservation_never_returns_to_reserved' doesn't match '[a-z][a-zA-Z0-9]*'"
+              },
+              "fullDescription": {
+                "text": "\n            Configurable naming conventions for method declarations. This rule reports\n            method declarations which do not match the regex that applies to their\n            specific kind (e.g. JUnit test or native method). Each regex can be\n            configured through properties.\n\n            By default this rule uses the standard Java naming convention (Camel case).\n        "
+              },
+              "helpUri": "https://docs.pmd-code.org/pmd-doc-7.0.0/pmd_rules_java_codestyle.html#methodnamingconventions",
+              "help": {
+                "text": "\n            Configurable naming conventions for method declarations. This rule reports\n            method declarations which do not match the regex that applies to their\n            specific kind (e.g. JUnit test or native method). Each regex can be\n            configured through properties.\n\n            By default this rule uses the standard Java naming convention (Camel case).\n        "
+              },
+              "properties": {
+                "ruleset": "Code Style",
+                "priority": 1,
+                "tags": [
+                  "Code Style"
+                ]
+              }
+            },
+            {
+              "id": "MethodNamingConventions",
+              "shortDescription": {
+                "text": "The instance method name 'TC_RESERVATION_113_overlap_is_symmetric_and_matches_interval_arithmetic' doesn't match '[a-z][a-zA-Z0-9]*'"
+              },
+              "fullDescription": {
+                "text": "\n            Configurable naming conventions for method declarations. This rule reports\n            method declarations which do not match the regex that applies to their\n            specific kind (e.g. JUnit test or native method). Each regex can be\n            configured through properties.\n\n            By default this rule uses the standard Java naming convention (Camel case).\n        "
+              },
+              "helpUri": "https://docs.pmd-code.org/pmd-doc-7.0.0/pmd_rules_java_codestyle.html#methodnamingconventions",
+              "help": {
+                "text": "\n            Configurable naming conventions for method declarations. This rule reports\n            method declarations which do not match the regex that applies to their\n            specific kind (e.g. JUnit test or native method). Each regex can be\n            configured through properties.\n\n            By default this rule uses the standard Java naming convention (Camel case).\n        "
+              },
+              "properties": {
+                "ruleset": "Code Style",
+                "priority": 1,
+                "tags": [
+                  "Code Style"
+                ]
+              }
+            },
+            {
+              "id": "MethodNamingConventions",
+              "shortDescription": {
+                "text": "The instance method name 'TC_RESERVATION_114_adjacent_ranges_never_overlap' doesn't match '[a-z][a-zA-Z0-9]*'"
+              },
+              "fullDescription": {
+                "text": "\n            Configurable naming conventions for method declarations. This rule reports\n            method declarations which do not match the regex that applies to their\n            specific kind (e.g. JUnit test or native method). Each regex can be\n            configured through properties.\n\n            By default this rule uses the standard Java naming convention (Camel case).\n        "
+              },
+              "helpUri": "https://docs.pmd-code.org/pmd-doc-7.0.0/pmd_rules_java_codestyle.html#methodnamingconventions",
+              "help": {
+                "text": "\n            Configurable naming conventions for method declarations. This rule reports\n            method declarations which do not match the regex that applies to their\n            specific kind (e.g. JUnit test or native method). Each regex can be\n            configured through properties.\n\n            By default this rule uses the standard Java naming convention (Camel case).\n        "
+              },
+              "properties": {
+                "ruleset": "Code Style",
+                "priority": 1,
+                "tags": [
+                  "Code Style"
+                ]
+              }
+            },
+            {
+              "id": "UnnecessaryImport",
+              "shortDescription": {
+                "text": "Unused static import 'org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath'"
+              },
+              "fullDescription": {
+                "text": "\n            Reports import statements that can be removed. They are either unused,\n            duplicated, or the members they import are already implicitly in scope,\n            because they're in java.lang, or the current package.\n        "
+              },
+              "helpUri": "https://docs.pmd-code.org/pmd-doc-7.0.0/pmd_rules_java_codestyle.html#unnecessaryimport",
+              "help": {
+                "text": "\n            Reports import statements that can be removed. They are either unused,\n            duplicated, or the members they import are already implicitly in scope,\n            because they're in java.lang, or the current package.\n        "
+              },
+              "properties": {
+                "ruleset": "Code Style",
+                "priority": 4,
+                "tags": [
+                  "Code Style"
+                ]
+              }
+            },
+            {
+              "id": "UnnecessaryImport",
+              "shortDescription": {
+                "text": "Unused static import 'org.springframework.test.web.servlet.result.MockMvcResultMatchers.status'"
+              },
+              "fullDescription": {
+                "text": "\n            Reports import statements that can be removed. They are either unused,\n            duplicated, or the members they import are already implicitly in scope,\n            because they're in java.lang, or the current package.\n        "
+              },
+              "helpUri": "https://docs.pmd-code.org/pmd-doc-7.0.0/pmd_rules_java_codestyle.html#unnecessaryimport",
+              "help": {
+                "text": "\n            Reports import statements that can be removed. They are either unused,\n            duplicated, or the members they import are already implicitly in scope,\n            because they're in java.lang, or the current package.\n        "
+              },
+              "properties": {
+                "ruleset": "Code Style",
+                "priority": 4,
+                "tags": [
+                  "Code Style"
+                ]
+              }
+            },
+            {
+              "id": "UnnecessaryImport",
+              "shortDescription": {
+                "text": "Unused static import 'org.hamcrest.Matchers.hasSize'"
+              },
+              "fullDescription": {
+                "text": "\n            Reports import statements that can be removed. They are either unused,\n            duplicated, or the members they import are already implicitly in scope,\n            because they're in java.lang, or the current package.\n        "
+              },
+              "helpUri": "https://docs.pmd-code.org/pmd-doc-7.0.0/pmd_rules_java_codestyle.html#unnecessaryimport",
+              "help": {
+                "text": "\n            Reports import statements that can be removed. They are either unused,\n            duplicated, or the members they import are already implicitly in scope,\n            because they're in java.lang, or the current package.\n        "
+              },
+              "properties": {
+                "ruleset": "Code Style",
+                "priority": 4,
+                "tags": [
+                  "Code Style"
+                ]
+              }
+            },
+            {
+              "id": "UnnecessaryImport",
+              "shortDescription": {
+                "text": "Unused static import 'org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post'"
+              },
+              "fullDescription": {
+                "text": "\n            Reports import statements that can be removed. They are either unused,\n            duplicated, or the members they import are already implicitly in scope,\n            because they're in java.lang, or the current package.\n        "
+              },
+              "helpUri": "https://docs.pmd-code.org/pmd-doc-7.0.0/pmd_rules_java_codestyle.html#unnecessaryimport",
+              "help": {
+                "text": "\n            Reports import statements that can be removed. They are either unused,\n            duplicated, or the members they import are already implicitly in scope,\n            because they're in java.lang, or the current package.\n        "
+              },
+              "properties": {
+                "ruleset": "Code Style",
+                "priority": 4,
+                "tags": [
+                  "Code Style"
+                ]
+              }
+            },
+            {
+              "id": "CloseResource",
+              "shortDescription": {
+                "text": "Ensure that resources like this ExecutorService object are closed after use"
+              },
+              "fullDescription": {
+                "text": "\nEnsure that resources (like `java.sql.Connection`, `java.sql.Statement`, and `java.sql.ResultSet` objects\nand any subtype of `java.lang.AutoCloseable`) are always closed after use.\nFailing to do so might result in resource leaks.\n\nNote: It suffices to configure the super type, e.g. `java.lang.AutoCloseable`, so that this rule automatically triggers\non any subtype (e.g. `java.io.FileInputStream`). Additionally specifying `java.sql.Connection` helps in detecting\nthe types, if the type resolution / auxclasspath is not correctly setup.\n\nNote: Since PMD 6.16.0 the default value for the property `types` contains `java.lang.AutoCloseable` and detects\nnow cases where the standard `java.io.*Stream` classes are involved. In order to restore the old behaviour,\njust remove \"AutoCloseable\" from the types.\n        "
+              },
+              "helpUri": "https://docs.pmd-code.org/pmd-doc-7.0.0/pmd_rules_java_errorprone.html#closeresource",
+              "help": {
+                "text": "\nEnsure that resources (like `java.sql.Connection`, `java.sql.Statement`, and `java.sql.ResultSet` objects\nand any subtype of `java.lang.AutoCloseable`) are always closed after use.\nFailing to do so might result in resource leaks.\n\nNote: It suffices to configure the super type, e.g. `java.lang.AutoCloseable`, so that this rule automatically triggers\non any subtype (e.g. `java.io.FileInputStream`). Additionally specifying `java.sql.Connection` helps in detecting\nthe types, if the type resolution / auxclasspath is not correctly setup.\n\nNote: Since PMD 6.16.0 the default value for the property `types` contains `java.lang.AutoCloseable` and detects\nnow cases where the standard `java.io.*Stream` classes are involved. In order to restore the old behaviour,\njust remove \"AutoCloseable\" from the types.\n        "
+              },
+              "properties": {
+                "ruleset": "Error Prone",
+                "priority": 3,
+                "tags": [
+                  "Error Prone"
+                ]
+              }
+            },
+            {
+              "id": "UnnecessaryImport",
+              "shortDescription": {
+                "text": "Unused static import 'org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get'"
+              },
+              "fullDescription": {
+                "text": "\n            Reports import statements that can be removed. They are either unused,\n            duplicated, or the members they import are already implicitly in scope,\n            because they're in java.lang, or the current package.\n        "
+              },
+              "helpUri": "https://docs.pmd-code.org/pmd-doc-7.0.0/pmd_rules_java_codestyle.html#unnecessaryimport",
+              "help": {
+                "text": "\n            Reports import statements that can be removed. They are either unused,\n            duplicated, or the members they import are already implicitly in scope,\n            because they're in java.lang, or the current package.\n        "
+              },
+              "properties": {
+                "ruleset": "Code Style",
+                "priority": 4,
+                "tags": [
+                  "Code Style"
+                ]
+              }
+            },
+            {
+              "id": "UseUtilityClass",
+              "shortDescription": {
+                "text": "This utility class has a non-private constructor"
+              },
+              "fullDescription": {
+                "text": "\nFor classes that only have static methods, consider making them utility classes.\nNote that this doesn't apply to abstract classes, since their subclasses may\nwell include non-static methods.  Also, if you want this class to be a utility class,\nremember to add a private constructor to prevent instantiation.\n(Note, that this use was known before PMD 5.1.0 as UseSingleton).\n        "
+              },
+              "helpUri": "https://docs.pmd-code.org/pmd-doc-7.0.0/pmd_rules_java_design.html#useutilityclass",
+              "help": {
+                "text": "\nFor classes that only have static methods, consider making them utility classes.\nNote that this doesn't apply to abstract classes, since their subclasses may\nwell include non-static methods.  Also, if you want this class to be a utility class,\nremember to add a private constructor to prevent instantiation.\n(Note, that this use was known before PMD 5.1.0 as UseSingleton).\n        "
+              },
+              "properties": {
+                "ruleset": "Design",
+                "priority": 3,
+                "tags": [
+                  "Design"
+                ]
+              }
+            },
+            {
+              "id": "AvoidUsingVolatile",
+              "shortDescription": {
+                "text": "Use of modifier volatile is not recommended."
+              },
+              "fullDescription": {
+                "text": "\nUse of the keyword 'volatile' is generally used to fine tune a Java application, and therefore, requires\na good expertise of the Java Memory Model. Moreover, its range of action is somewhat misknown. Therefore,\nthe volatile keyword should not be used for maintenance purpose and portability.\n        "
+              },
+              "helpUri": "https://docs.pmd-code.org/pmd-doc-7.0.0/pmd_rules_java_multithreading.html#avoidusingvolatile",
+              "help": {
+                "text": "\nUse of the keyword 'volatile' is generally used to fine tune a Java application, and therefore, requires\na good expertise of the Java Memory Model. Moreover, its range of action is somewhat misknown. Therefore,\nthe volatile keyword should not be used for maintenance purpose and portability.\n        "
+              },
+              "properties": {
+                "ruleset": "Multithreading",
+                "priority": 2,
+                "tags": [
+                  "Multithreading"
+                ]
+              }
+            },
+            {
+              "id": "UnnecessaryFullyQualifiedName",
+              "shortDescription": {
+                "text": "Unnecessary qualifier 'Clock': 'fixed' is already in scope"
+              },
+              "fullDescription": {
+                "text": "\nImport statements allow the use of non-fully qualified names.  The use of a fully qualified name\nwhich is covered by an import statement is redundant.  Consider using the non-fully qualified name.\n        "
+              },
+              "helpUri": "https://docs.pmd-code.org/pmd-doc-7.0.0/pmd_rules_java_codestyle.html#unnecessaryfullyqualifiedname",
+              "help": {
+                "text": "\nImport statements allow the use of non-fully qualified names.  The use of a fully qualified name\nwhich is covered by an import statement is redundant.  Consider using the non-fully qualified name.\n        "
+              },
+              "properties": {
+                "ruleset": "Code Style",
+                "priority": 4,
+                "tags": [
+                  "Code Style"
+                ]
+              }
+            }
+          ]
+        }
+      },
+      "results": [
+        {
+          "ruleId": "UnnecessaryImport",
+          "ruleIndex": 0,
+          "message": {
+            "text": "Unused static import 'org.assertj.core.api.Assertions.assertThat'"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///home/user/testbed/.ai-context/runtime/approved-tests/roombook-mvp/apps/api/src/test/java/com/roombook/api/domain/ReservationPolicyPropertiesTest.java"
+                },
+                "region": {
+                  "startLine": 3,
+                  "startColumn": 1,
+                  "endLine": 3,
+                  "endColumn": 58
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "MethodNamingConventions",
+          "ruleIndex": 1,
+          "message": {
+            "text": "The instance method name 'TC_RESERVATION_109_time_rules_pass_exactly_when_slot_duration_hours_hold' doesn't match '[a-z][a-zA-Z0-9]*'"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///home/user/testbed/.ai-context/runtime/approved-tests/roombook-mvp/apps/api/src/test/java/com/roombook/api/domain/ReservationPolicyPropertiesTest.java"
+                },
+                "region": {
+                  "startLine": 27,
+                  "startColumn": 10,
+                  "endLine": 27,
+                  "endColumn": 82
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UnnecessaryImport",
+          "ruleIndex": 0,
+          "message": {
+            "text": "Unused static import 'org.assertj.core.api.Assertions.assertThat'"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///home/user/testbed/.ai-context/runtime/approved-tests/roombook-mvp/apps/api/src/test/java/com/roombook/api/domain/ReservationPolicyTest.java"
+                },
+                "region": {
+                  "startLine": 3,
+                  "startColumn": 1,
+                  "endLine": 3,
+                  "endColumn": 58
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UnnecessaryImport",
+          "ruleIndex": 0,
+          "message": {
+            "text": "Unused static import 'org.assertj.core.api.Assertions.assertThat'"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///home/user/testbed/.ai-context/runtime/approved-tests/roombook-mvp/apps/api/src/test/java/com/roombook/api/domain/ReservationPropertiesTest.java"
+                },
+                "region": {
+                  "startLine": 3,
+                  "startColumn": 1,
+                  "endLine": 3,
+                  "endColumn": 58
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "MethodNamingConventions",
+          "ruleIndex": 2,
+          "message": {
+            "text": "The instance method name 'TC_RESERVATION_126_cancelled_reservation_never_returns_to_reserved' doesn't match '[a-z][a-zA-Z0-9]*'"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///home/user/testbed/.ai-context/runtime/approved-tests/roombook-mvp/apps/api/src/test/java/com/roombook/api/domain/ReservationPropertiesTest.java"
+                },
+                "region": {
+                  "startLine": 26,
+                  "startColumn": 10,
+                  "endLine": 26,
+                  "endColumn": 76
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UnnecessaryImport",
+          "ruleIndex": 0,
+          "message": {
+            "text": "Unused static import 'org.assertj.core.api.Assertions.assertThat'"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///home/user/testbed/.ai-context/runtime/approved-tests/roombook-mvp/apps/api/src/test/java/com/roombook/api/domain/ReservationTest.java"
+                },
+                "region": {
+                  "startLine": 3,
+                  "startColumn": 1,
+                  "endLine": 3,
+                  "endColumn": 58
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UnnecessaryImport",
+          "ruleIndex": 0,
+          "message": {
+            "text": "Unused static import 'org.assertj.core.api.Assertions.assertThat'"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///home/user/testbed/.ai-context/runtime/approved-tests/roombook-mvp/apps/api/src/test/java/com/roombook/api/domain/TimeRangePropertiesTest.java"
+                },
+                "region": {
+                  "startLine": 3,
+                  "startColumn": 1,
+                  "endLine": 3,
+                  "endColumn": 58
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "MethodNamingConventions",
+          "ruleIndex": 3,
+          "message": {
+            "text": "The instance method name 'TC_RESERVATION_113_overlap_is_symmetric_and_matches_interval_arithmetic' doesn't match '[a-z][a-zA-Z0-9]*'"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///home/user/testbed/.ai-context/runtime/approved-tests/roombook-mvp/apps/api/src/test/java/com/roombook/api/domain/TimeRangePropertiesTest.java"
+                },
+                "region": {
+                  "startLine": 27,
+                  "startColumn": 10,
+                  "endLine": 27,
+                  "endColumn": 81
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "MethodNamingConventions",
+          "ruleIndex": 4,
+          "message": {
+            "text": "The instance method name 'TC_RESERVATION_114_adjacent_ranges_never_overlap' doesn't match '[a-z][a-zA-Z0-9]*'"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///home/user/testbed/.ai-context/runtime/approved-tests/roombook-mvp/apps/api/src/test/java/com/roombook/api/domain/TimeRangePropertiesTest.java"
+                },
+                "region": {
+                  "startLine": 45,
+                  "startColumn": 10,
+                  "endLine": 45,
+                  "endColumn": 58
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UnnecessaryImport",
+          "ruleIndex": 0,
+          "message": {
+            "text": "Unused static import 'org.assertj.core.api.Assertions.assertThat'"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///home/user/testbed/.ai-context/runtime/approved-tests/roombook-mvp/apps/api/src/test/java/com/roombook/api/domain/TimeRangeTest.java"
+                },
+                "region": {
+                  "startLine": 3,
+                  "startColumn": 1,
+                  "endLine": 3,
+                  "endColumn": 58
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UnnecessaryImport",
+          "ruleIndex": 0,
+          "message": {
+            "text": "Unused static import 'org.assertj.core.api.Assertions.assertThat'"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///home/user/testbed/.ai-context/runtime/approved-tests/roombook-mvp/apps/api/src/test/java/com/roombook/api/web/ReservationCancelApiTest.java"
+                },
+                "region": {
+                  "startLine": 3,
+                  "startColumn": 1,
+                  "endLine": 3,
+                  "endColumn": 58
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UnnecessaryImport",
+          "ruleIndex": 5,
+          "message": {
+            "text": "Unused static import 'org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath'"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///home/user/testbed/.ai-context/runtime/approved-tests/roombook-mvp/apps/api/src/test/java/com/roombook/api/web/ReservationCancelApiTest.java"
+                },
+                "region": {
+                  "startLine": 4,
+                  "startColumn": 1,
+                  "endLine": 4,
+                  "endColumn": 90
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UnnecessaryImport",
+          "ruleIndex": 6,
+          "message": {
+            "text": "Unused static import 'org.springframework.test.web.servlet.result.MockMvcResultMatchers.status'"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///home/user/testbed/.ai-context/runtime/approved-tests/roombook-mvp/apps/api/src/test/java/com/roombook/api/web/ReservationCancelApiTest.java"
+                },
+                "region": {
+                  "startLine": 5,
+                  "startColumn": 1,
+                  "endLine": 5,
+                  "endColumn": 88
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UnnecessaryImport",
+          "ruleIndex": 0,
+          "message": {
+            "text": "Unused static import 'org.assertj.core.api.Assertions.assertThat'"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///home/user/testbed/.ai-context/runtime/approved-tests/roombook-mvp/apps/api/src/test/java/com/roombook/api/web/ReservationCreateApiTest.java"
+                },
+                "region": {
+                  "startLine": 3,
+                  "startColumn": 1,
+                  "endLine": 3,
+                  "endColumn": 58
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UnnecessaryImport",
+          "ruleIndex": 7,
+          "message": {
+            "text": "Unused static import 'org.hamcrest.Matchers.hasSize'"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///home/user/testbed/.ai-context/runtime/approved-tests/roombook-mvp/apps/api/src/test/java/com/roombook/api/web/ReservationCreateApiTest.java"
+                },
+                "region": {
+                  "startLine": 4,
+                  "startColumn": 1,
+                  "endLine": 4,
+                  "endColumn": 45
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UnnecessaryImport",
+          "ruleIndex": 8,
+          "message": {
+            "text": "Unused static import 'org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post'"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///home/user/testbed/.ai-context/runtime/approved-tests/roombook-mvp/apps/api/src/test/java/com/roombook/api/web/ReservationCreateApiTest.java"
+                },
+                "region": {
+                  "startLine": 5,
+                  "startColumn": 1,
+                  "endLine": 5,
+                  "endColumn": 88
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UnnecessaryImport",
+          "ruleIndex": 5,
+          "message": {
+            "text": "Unused static import 'org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath'"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///home/user/testbed/.ai-context/runtime/approved-tests/roombook-mvp/apps/api/src/test/java/com/roombook/api/web/ReservationCreateApiTest.java"
+                },
+                "region": {
+                  "startLine": 6,
+                  "startColumn": 1,
+                  "endLine": 6,
+                  "endColumn": 90
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UnnecessaryImport",
+          "ruleIndex": 6,
+          "message": {
+            "text": "Unused static import 'org.springframework.test.web.servlet.result.MockMvcResultMatchers.status'"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///home/user/testbed/.ai-context/runtime/approved-tests/roombook-mvp/apps/api/src/test/java/com/roombook/api/web/ReservationCreateApiTest.java"
+                },
+                "region": {
+                  "startLine": 7,
+                  "startColumn": 1,
+                  "endLine": 7,
+                  "endColumn": 88
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UnnecessaryImport",
+          "ruleIndex": 0,
+          "message": {
+            "text": "Unused static import 'org.assertj.core.api.Assertions.assertThat'"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///home/user/testbed/.ai-context/runtime/approved-tests/roombook-mvp/apps/api/src/test/java/com/roombook/api/web/ReservationListApiTest.java"
+                },
+                "region": {
+                  "startLine": 3,
+                  "startColumn": 1,
+                  "endLine": 3,
+                  "endColumn": 58
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UnnecessaryImport",
+          "ruleIndex": 7,
+          "message": {
+            "text": "Unused static import 'org.hamcrest.Matchers.hasSize'"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///home/user/testbed/.ai-context/runtime/approved-tests/roombook-mvp/apps/api/src/test/java/com/roombook/api/web/ReservationListApiTest.java"
+                },
+                "region": {
+                  "startLine": 4,
+                  "startColumn": 1,
+                  "endLine": 4,
+                  "endColumn": 45
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UnnecessaryImport",
+          "ruleIndex": 5,
+          "message": {
+            "text": "Unused static import 'org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath'"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///home/user/testbed/.ai-context/runtime/approved-tests/roombook-mvp/apps/api/src/test/java/com/roombook/api/web/ReservationListApiTest.java"
+                },
+                "region": {
+                  "startLine": 5,
+                  "startColumn": 1,
+                  "endLine": 5,
+                  "endColumn": 90
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UnnecessaryImport",
+          "ruleIndex": 6,
+          "message": {
+            "text": "Unused static import 'org.springframework.test.web.servlet.result.MockMvcResultMatchers.status'"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///home/user/testbed/.ai-context/runtime/approved-tests/roombook-mvp/apps/api/src/test/java/com/roombook/api/web/ReservationListApiTest.java"
+                },
+                "region": {
+                  "startLine": 6,
+                  "startColumn": 1,
+                  "endLine": 6,
+                  "endColumn": 88
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UnnecessaryImport",
+          "ruleIndex": 0,
+          "message": {
+            "text": "Unused static import 'org.assertj.core.api.Assertions.assertThat'"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///home/user/testbed/.ai-context/runtime/approved-tests/roombook-mvp/apps/api/src/test/java/com/roombook/api/web/ReservationOverlapApiTest.java"
+                },
+                "region": {
+                  "startLine": 3,
+                  "startColumn": 1,
+                  "endLine": 3,
+                  "endColumn": 58
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UnnecessaryImport",
+          "ruleIndex": 5,
+          "message": {
+            "text": "Unused static import 'org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath'"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///home/user/testbed/.ai-context/runtime/approved-tests/roombook-mvp/apps/api/src/test/java/com/roombook/api/web/ReservationOverlapApiTest.java"
+                },
+                "region": {
+                  "startLine": 4,
+                  "startColumn": 1,
+                  "endLine": 4,
+                  "endColumn": 90
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UnnecessaryImport",
+          "ruleIndex": 6,
+          "message": {
+            "text": "Unused static import 'org.springframework.test.web.servlet.result.MockMvcResultMatchers.status'"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///home/user/testbed/.ai-context/runtime/approved-tests/roombook-mvp/apps/api/src/test/java/com/roombook/api/web/ReservationOverlapApiTest.java"
+                },
+                "region": {
+                  "startLine": 5,
+                  "startColumn": 1,
+                  "endLine": 5,
+                  "endColumn": 88
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CloseResource",
+          "ruleIndex": 9,
+          "message": {
+            "text": "Ensure that resources like this ExecutorService object are closed after use"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///home/user/testbed/.ai-context/runtime/approved-tests/roombook-mvp/apps/api/src/test/java/com/roombook/api/web/ReservationOverlapApiTest.java"
+                },
+                "region": {
+                  "startLine": 79,
+                  "startColumn": 25,
+                  "endLine": 79,
+                  "endColumn": 29
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UnnecessaryImport",
+          "ruleIndex": 7,
+          "message": {
+            "text": "Unused static import 'org.hamcrest.Matchers.hasSize'"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///home/user/testbed/.ai-context/runtime/approved-tests/roombook-mvp/apps/api/src/test/java/com/roombook/api/web/RoomListApiTest.java"
+                },
+                "region": {
+                  "startLine": 3,
+                  "startColumn": 1,
+                  "endLine": 3,
+                  "endColumn": 45
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UnnecessaryImport",
+          "ruleIndex": 10,
+          "message": {
+            "text": "Unused static import 'org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get'"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///home/user/testbed/.ai-context/runtime/approved-tests/roombook-mvp/apps/api/src/test/java/com/roombook/api/web/RoomListApiTest.java"
+                },
+                "region": {
+                  "startLine": 4,
+                  "startColumn": 1,
+                  "endLine": 4,
+                  "endColumn": 87
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UnnecessaryImport",
+          "ruleIndex": 5,
+          "message": {
+            "text": "Unused static import 'org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath'"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///home/user/testbed/.ai-context/runtime/approved-tests/roombook-mvp/apps/api/src/test/java/com/roombook/api/web/RoomListApiTest.java"
+                },
+                "region": {
+                  "startLine": 5,
+                  "startColumn": 1,
+                  "endLine": 5,
+                  "endColumn": 90
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UnnecessaryImport",
+          "ruleIndex": 6,
+          "message": {
+            "text": "Unused static import 'org.springframework.test.web.servlet.result.MockMvcResultMatchers.status'"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///home/user/testbed/.ai-context/runtime/approved-tests/roombook-mvp/apps/api/src/test/java/com/roombook/api/web/RoomListApiTest.java"
+                },
+                "region": {
+                  "startLine": 6,
+                  "startColumn": 1,
+                  "endLine": 6,
+                  "endColumn": 88
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UseUtilityClass",
+          "ruleIndex": 11,
+          "message": {
+            "text": "This utility class has a non-private constructor"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///home/user/testbed/apps/api/src/main/java/com/roombook/api/RoombookApplication.java"
+                },
+                "region": {
+                  "startLine": 7,
+                  "startColumn": 8,
+                  "endLine": 7,
+                  "endColumn": 13
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UnnecessaryImport",
+          "ruleIndex": 0,
+          "message": {
+            "text": "Unused static import 'org.assertj.core.api.Assertions.assertThat'"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///home/user/testbed/apps/api/src/test/java/com/roombook/api/domain/ReservationPolicyPropertiesTest.java"
+                },
+                "region": {
+                  "startLine": 3,
+                  "startColumn": 1,
+                  "endLine": 3,
+                  "endColumn": 58
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "MethodNamingConventions",
+          "ruleIndex": 1,
+          "message": {
+            "text": "The instance method name 'TC_RESERVATION_109_time_rules_pass_exactly_when_slot_duration_hours_hold' doesn't match '[a-z][a-zA-Z0-9]*'"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///home/user/testbed/apps/api/src/test/java/com/roombook/api/domain/ReservationPolicyPropertiesTest.java"
+                },
+                "region": {
+                  "startLine": 27,
+                  "startColumn": 10,
+                  "endLine": 27,
+                  "endColumn": 82
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UnnecessaryImport",
+          "ruleIndex": 0,
+          "message": {
+            "text": "Unused static import 'org.assertj.core.api.Assertions.assertThat'"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///home/user/testbed/apps/api/src/test/java/com/roombook/api/domain/ReservationPolicyTest.java"
+                },
+                "region": {
+                  "startLine": 3,
+                  "startColumn": 1,
+                  "endLine": 3,
+                  "endColumn": 58
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UnnecessaryImport",
+          "ruleIndex": 0,
+          "message": {
+            "text": "Unused static import 'org.assertj.core.api.Assertions.assertThat'"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///home/user/testbed/apps/api/src/test/java/com/roombook/api/domain/ReservationPropertiesTest.java"
+                },
+                "region": {
+                  "startLine": 3,
+                  "startColumn": 1,
+                  "endLine": 3,
+                  "endColumn": 58
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "MethodNamingConventions",
+          "ruleIndex": 2,
+          "message": {
+            "text": "The instance method name 'TC_RESERVATION_126_cancelled_reservation_never_returns_to_reserved' doesn't match '[a-z][a-zA-Z0-9]*'"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///home/user/testbed/apps/api/src/test/java/com/roombook/api/domain/ReservationPropertiesTest.java"
+                },
+                "region": {
+                  "startLine": 26,
+                  "startColumn": 10,
+                  "endLine": 26,
+                  "endColumn": 76
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UnnecessaryImport",
+          "ruleIndex": 0,
+          "message": {
+            "text": "Unused static import 'org.assertj.core.api.Assertions.assertThat'"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///home/user/testbed/apps/api/src/test/java/com/roombook/api/domain/ReservationTest.java"
+                },
+                "region": {
+                  "startLine": 3,
+                  "startColumn": 1,
+                  "endLine": 3,
+                  "endColumn": 58
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UnnecessaryImport",
+          "ruleIndex": 0,
+          "message": {
+            "text": "Unused static import 'org.assertj.core.api.Assertions.assertThat'"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///home/user/testbed/apps/api/src/test/java/com/roombook/api/domain/TimeRangePropertiesTest.java"
+                },
+                "region": {
+                  "startLine": 3,
+                  "startColumn": 1,
+                  "endLine": 3,
+                  "endColumn": 58
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "MethodNamingConventions",
+          "ruleIndex": 3,
+          "message": {
+            "text": "The instance method name 'TC_RESERVATION_113_overlap_is_symmetric_and_matches_interval_arithmetic' doesn't match '[a-z][a-zA-Z0-9]*'"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///home/user/testbed/apps/api/src/test/java/com/roombook/api/domain/TimeRangePropertiesTest.java"
+                },
+                "region": {
+                  "startLine": 27,
+                  "startColumn": 10,
+                  "endLine": 27,
+                  "endColumn": 81
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "MethodNamingConventions",
+          "ruleIndex": 4,
+          "message": {
+            "text": "The instance method name 'TC_RESERVATION_114_adjacent_ranges_never_overlap' doesn't match '[a-z][a-zA-Z0-9]*'"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///home/user/testbed/apps/api/src/test/java/com/roombook/api/domain/TimeRangePropertiesTest.java"
+                },
+                "region": {
+                  "startLine": 45,
+                  "startColumn": 10,
+                  "endLine": 45,
+                  "endColumn": 58
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UnnecessaryImport",
+          "ruleIndex": 0,
+          "message": {
+            "text": "Unused static import 'org.assertj.core.api.Assertions.assertThat'"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///home/user/testbed/apps/api/src/test/java/com/roombook/api/domain/TimeRangeTest.java"
+                },
+                "region": {
+                  "startLine": 3,
+                  "startColumn": 1,
+                  "endLine": 3,
+                  "endColumn": 58
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UnnecessaryImport",
+          "ruleIndex": 10,
+          "message": {
+            "text": "Unused static import 'org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get'"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///home/user/testbed/apps/api/src/test/java/com/roombook/api/support/ApiTestBase.java"
+                },
+                "region": {
+                  "startLine": 3,
+                  "startColumn": 1,
+                  "endLine": 3,
+                  "endColumn": 87
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UnnecessaryImport",
+          "ruleIndex": 8,
+          "message": {
+            "text": "Unused static import 'org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post'"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///home/user/testbed/apps/api/src/test/java/com/roombook/api/support/ApiTestBase.java"
+                },
+                "region": {
+                  "startLine": 4,
+                  "startColumn": 1,
+                  "endLine": 4,
+                  "endColumn": 88
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "AvoidUsingVolatile",
+          "ruleIndex": 12,
+          "message": {
+            "text": "Use of modifier volatile is not recommended."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///home/user/testbed/apps/api/src/test/java/com/roombook/api/support/MutableClock.java"
+                },
+                "region": {
+                  "startLine": 13,
+                  "startColumn": 30,
+                  "endLine": 13,
+                  "endColumn": 37
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UnnecessaryFullyQualifiedName",
+          "ruleIndex": 13,
+          "message": {
+            "text": "Unnecessary qualifier 'Clock': 'fixed' is already in scope"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///home/user/testbed/apps/api/src/test/java/com/roombook/api/support/MutableClock.java"
+                },
+                "region": {
+                  "startLine": 26,
+                  "startColumn": 16,
+                  "endLine": 26,
+                  "endColumn": 21
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UnnecessaryImport",
+          "ruleIndex": 0,
+          "message": {
+            "text": "Unused static import 'org.assertj.core.api.Assertions.assertThat'"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///home/user/testbed/apps/api/src/test/java/com/roombook/api/web/ReservationCancelApiTest.java"
+                },
+                "region": {
+                  "startLine": 3,
+                  "startColumn": 1,
+                  "endLine": 3,
+                  "endColumn": 58
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UnnecessaryImport",
+          "ruleIndex": 5,
+          "message": {
+            "text": "Unused static import 'org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath'"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///home/user/testbed/apps/api/src/test/java/com/roombook/api/web/ReservationCancelApiTest.java"
+                },
+                "region": {
+                  "startLine": 4,
+                  "startColumn": 1,
+                  "endLine": 4,
+                  "endColumn": 90
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UnnecessaryImport",
+          "ruleIndex": 6,
+          "message": {
+            "text": "Unused static import 'org.springframework.test.web.servlet.result.MockMvcResultMatchers.status'"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///home/user/testbed/apps/api/src/test/java/com/roombook/api/web/ReservationCancelApiTest.java"
+                },
+                "region": {
+                  "startLine": 5,
+                  "startColumn": 1,
+                  "endLine": 5,
+                  "endColumn": 88
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UnnecessaryImport",
+          "ruleIndex": 0,
+          "message": {
+            "text": "Unused static import 'org.assertj.core.api.Assertions.assertThat'"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///home/user/testbed/apps/api/src/test/java/com/roombook/api/web/ReservationCreateApiTest.java"
+                },
+                "region": {
+                  "startLine": 3,
+                  "startColumn": 1,
+                  "endLine": 3,
+                  "endColumn": 58
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UnnecessaryImport",
+          "ruleIndex": 7,
+          "message": {
+            "text": "Unused static import 'org.hamcrest.Matchers.hasSize'"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///home/user/testbed/apps/api/src/test/java/com/roombook/api/web/ReservationCreateApiTest.java"
+                },
+                "region": {
+                  "startLine": 4,
+                  "startColumn": 1,
+                  "endLine": 4,
+                  "endColumn": 45
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UnnecessaryImport",
+          "ruleIndex": 8,
+          "message": {
+            "text": "Unused static import 'org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post'"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///home/user/testbed/apps/api/src/test/java/com/roombook/api/web/ReservationCreateApiTest.java"
+                },
+                "region": {
+                  "startLine": 5,
+                  "startColumn": 1,
+                  "endLine": 5,
+                  "endColumn": 88
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UnnecessaryImport",
+          "ruleIndex": 5,
+          "message": {
+            "text": "Unused static import 'org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath'"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///home/user/testbed/apps/api/src/test/java/com/roombook/api/web/ReservationCreateApiTest.java"
+                },
+                "region": {
+                  "startLine": 6,
+                  "startColumn": 1,
+                  "endLine": 6,
+                  "endColumn": 90
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UnnecessaryImport",
+          "ruleIndex": 6,
+          "message": {
+            "text": "Unused static import 'org.springframework.test.web.servlet.result.MockMvcResultMatchers.status'"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///home/user/testbed/apps/api/src/test/java/com/roombook/api/web/ReservationCreateApiTest.java"
+                },
+                "region": {
+                  "startLine": 7,
+                  "startColumn": 1,
+                  "endLine": 7,
+                  "endColumn": 88
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UnnecessaryImport",
+          "ruleIndex": 0,
+          "message": {
+            "text": "Unused static import 'org.assertj.core.api.Assertions.assertThat'"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///home/user/testbed/apps/api/src/test/java/com/roombook/api/web/ReservationListApiTest.java"
+                },
+                "region": {
+                  "startLine": 3,
+                  "startColumn": 1,
+                  "endLine": 3,
+                  "endColumn": 58
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UnnecessaryImport",
+          "ruleIndex": 7,
+          "message": {
+            "text": "Unused static import 'org.hamcrest.Matchers.hasSize'"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///home/user/testbed/apps/api/src/test/java/com/roombook/api/web/ReservationListApiTest.java"
+                },
+                "region": {
+                  "startLine": 4,
+                  "startColumn": 1,
+                  "endLine": 4,
+                  "endColumn": 45
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UnnecessaryImport",
+          "ruleIndex": 5,
+          "message": {
+            "text": "Unused static import 'org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath'"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///home/user/testbed/apps/api/src/test/java/com/roombook/api/web/ReservationListApiTest.java"
+                },
+                "region": {
+                  "startLine": 5,
+                  "startColumn": 1,
+                  "endLine": 5,
+                  "endColumn": 90
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UnnecessaryImport",
+          "ruleIndex": 6,
+          "message": {
+            "text": "Unused static import 'org.springframework.test.web.servlet.result.MockMvcResultMatchers.status'"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///home/user/testbed/apps/api/src/test/java/com/roombook/api/web/ReservationListApiTest.java"
+                },
+                "region": {
+                  "startLine": 6,
+                  "startColumn": 1,
+                  "endLine": 6,
+                  "endColumn": 88
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UnnecessaryImport",
+          "ruleIndex": 0,
+          "message": {
+            "text": "Unused static import 'org.assertj.core.api.Assertions.assertThat'"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///home/user/testbed/apps/api/src/test/java/com/roombook/api/web/ReservationOverlapApiTest.java"
+                },
+                "region": {
+                  "startLine": 3,
+                  "startColumn": 1,
+                  "endLine": 3,
+                  "endColumn": 58
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UnnecessaryImport",
+          "ruleIndex": 5,
+          "message": {
+            "text": "Unused static import 'org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath'"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///home/user/testbed/apps/api/src/test/java/com/roombook/api/web/ReservationOverlapApiTest.java"
+                },
+                "region": {
+                  "startLine": 4,
+                  "startColumn": 1,
+                  "endLine": 4,
+                  "endColumn": 90
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UnnecessaryImport",
+          "ruleIndex": 6,
+          "message": {
+            "text": "Unused static import 'org.springframework.test.web.servlet.result.MockMvcResultMatchers.status'"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///home/user/testbed/apps/api/src/test/java/com/roombook/api/web/ReservationOverlapApiTest.java"
+                },
+                "region": {
+                  "startLine": 5,
+                  "startColumn": 1,
+                  "endLine": 5,
+                  "endColumn": 88
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CloseResource",
+          "ruleIndex": 9,
+          "message": {
+            "text": "Ensure that resources like this ExecutorService object are closed after use"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///home/user/testbed/apps/api/src/test/java/com/roombook/api/web/ReservationOverlapApiTest.java"
+                },
+                "region": {
+                  "startLine": 79,
+                  "startColumn": 25,
+                  "endLine": 79,
+                  "endColumn": 29
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UnnecessaryImport",
+          "ruleIndex": 7,
+          "message": {
+            "text": "Unused static import 'org.hamcrest.Matchers.hasSize'"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///home/user/testbed/apps/api/src/test/java/com/roombook/api/web/RoomListApiTest.java"
+                },
+                "region": {
+                  "startLine": 3,
+                  "startColumn": 1,
+                  "endLine": 3,
+                  "endColumn": 45
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UnnecessaryImport",
+          "ruleIndex": 10,
+          "message": {
+            "text": "Unused static import 'org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get'"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///home/user/testbed/apps/api/src/test/java/com/roombook/api/web/RoomListApiTest.java"
+                },
+                "region": {
+                  "startLine": 4,
+                  "startColumn": 1,
+                  "endLine": 4,
+                  "endColumn": 87
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UnnecessaryImport",
+          "ruleIndex": 5,
+          "message": {
+            "text": "Unused static import 'org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath'"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///home/user/testbed/apps/api/src/test/java/com/roombook/api/web/RoomListApiTest.java"
+                },
+                "region": {
+                  "startLine": 5,
+                  "startColumn": 1,
+                  "endLine": 5,
+                  "endColumn": 90
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "UnnecessaryImport",
+          "ruleIndex": 6,
+          "message": {
+            "text": "Unused static import 'org.springframework.test.web.servlet.result.MockMvcResultMatchers.status'"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///home/user/testbed/apps/api/src/test/java/com/roombook/api/web/RoomListApiTest.java"
+                },
+                "region": {
+                  "startLine": 6,
+                  "startColumn": 1,
+                  "endLine": 6,
+                  "endColumn": 88
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "invocations": [
+        {
+          "executionSuccessful": true,
+          "toolConfigurationNotifications": [],
+          "toolExecutionNotifications": []
+        }
+      ]
+    }
+  ]
+}

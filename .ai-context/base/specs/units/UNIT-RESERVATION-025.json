@@ -1,0 +1,17 @@
+{
+	"id": "UNIT-RESERVATION-025",
+	"name": "ReservationCommand",
+	"provenance": "designed_from_spec",
+	"kind": "class",
+	"code_pointer": {
+		"anchor_type": "ast_symbol",
+		"path": "apps/api/src/main/java/com/roombook/api/application/ReservationCommand.java",
+		"symbol": "ReservationCommand"
+	},
+	"bc_ref": "BC-RESERVATION",
+	"realizes": [
+		"BHV-RESERVATION-003"
+	],
+	"unit_test_obligation": "waived",
+	"waiver_reason": "예약 생성 입력을 담는 데이터다"
+}

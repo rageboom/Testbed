@@ -1,0 +1,42 @@
+{
+  "cross_validation": {
+    "real_tool": true,
+    "imported_sarif": false,
+    "simulation_only": false,
+    "runs": [
+      {
+        "plugin": "pmd",
+        "exit_code": 4,
+        "scan_status": "ok",
+        "sarif_path": ".ai-context/runtime/static-runner/implement/pmd.sarif",
+        "evidence": {
+          "tool_stdout_path": ".ai-context/runtime/static-runner/implement/pmd.stdout.log",
+          "tool_stderr_path": ".ai-context/runtime/static-runner/implement/pmd.stderr.log",
+          "tool_version": "PMD 7.0.0",
+          "invocation_timestamp": "2026-11-13T15:12:37.493Z",
+          "duration_ms": 3687,
+          "result_hash": "6caaffdba60ff1cd7c2e33afcbed8cc7e24a5a2630639d3b282379589031544a",
+          "reproduction_command": "pmd check -d . -R rulesets/java/quickstart.xml -f sarif -r .ai-context/runtime/static-runner/implement/pmd.sarif --no-progress",
+          "evidence_trust": "real_tool",
+          "scan_timeout_ms": 600000
+        }
+      }
+    ],
+    "environment_missing": [],
+    "probe_timeout": [],
+    "scan_failed_count": 0,
+    "scan_timeout_count": 0,
+    "findings_count": 65,
+    "baseline_report": {
+      "mode": "ratchet",
+      "baseline_path": ".ai-context/config/static-baseline-pmd.json",
+      "baseline_present": true,
+      "grandfathered_count": 65,
+      "novel_count": 0,
+      "blocked_count": 0,
+      "pass": true,
+      "blocked": [],
+      "novel": []
+    }
+  }
+}

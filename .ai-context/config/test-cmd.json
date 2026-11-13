@@ -1,0 +1,12 @@
+{
+  "framework": "junit5",
+  "test_cmd": "node",
+  "test_cmd_args": ["scripts/test/run-tests.mjs"],
+  "task_files": "none",
+  "timeout_ms": 1500000,
+  "flaky_retry_per_test": 0,
+  "report_format": "junit-xml",
+  "report_path": "build/test-reports",
+  "allow_execute": true,
+  "working_directory": "."
+}

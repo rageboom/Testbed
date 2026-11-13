@@ -1,0 +1,58 @@
+{
+	"id": "UNIT-RESERVATION-006",
+	"name": "Reservation (cancel 과 생성 · 상태)",
+	"provenance": "designed_from_spec",
+	"kind": "class",
+	"code_pointer": {
+		"anchor_type": "ast_symbol",
+		"path": "apps/api/src/main/java/com/roombook/api/domain/Reservation.java",
+		"symbol": "Reservation"
+	},
+	"bc_ref": "BC-RESERVATION",
+	"realizes": [
+		"BHV-RESERVATION-003",
+		"BHV-RESERVATION-004",
+		"BHV-RESERVATION-005"
+	],
+	"unit_test_obligation": "required",
+	"collaborators": [
+		"UNIT-RESERVATION-010"
+	],
+	"interface": {
+		"inputs": [
+			{
+				"name": "employeeId",
+				"type": "String"
+			},
+			{
+				"name": "now",
+				"type": "LocalDateTime"
+			}
+		],
+		"output": {
+			"type": "void"
+		},
+		"errors": [
+			{
+				"type": "RejectionException(NOT_OWNER)",
+				"when": "employeeId 가 예약자와 다르다"
+			},
+			{
+				"type": "RejectionException(ALREADY_CANCELLED)",
+				"when": "이미 취소 상태다"
+			},
+			{
+				"type": "RejectionException(CANCEL_TOO_LATE)",
+				"when": "now 가 시작 30분 전을 지났다"
+			}
+		],
+		"side_effects": [
+			"status 가 CANCELLED 가 되고 cancelledAt 이 now 가 된다"
+		]
+	},
+	"invariant_refs": [
+		"INV-RESERVATION-002"
+	],
+	"behavior_method_ref": "cancel",
+	"domain_ref": "E-RESERVATION-Reservation"
+}

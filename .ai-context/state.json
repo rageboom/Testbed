@@ -1,0 +1,3678 @@
+{
+  "$schema_ref": "schemas/state.schema.json",
+  "version": "6.84",
+  "project_id": "testbed",
+  "current_chain": "implement",
+  "current_phase": "input.0",
+  "current_scope": "roombook-mvp",
+  "stage_progress": {
+    "analysis": {
+      "status": "complete"
+    },
+    "discovery": {
+      "status": "complete",
+      "agent_required": null,
+      "agent_required_at": null,
+      "stage_agent_available": "context-ops:discovery-agent",
+      "agent_dispatch_attempts": 0,
+      "agent_dispatched_at": null,
+      "artifact_view_plan": null,
+      "stage_kit": {
+        "outputs": [
+          {
+            "artifact": "task-card",
+            "part": "discovery",
+            "schema_path": "schemas/task-card.schema.json",
+            "skeleton": {
+              "top_required": [],
+              "arrays": [
+                {
+                  "key": "scope",
+                  "required": [
+                    "target",
+                    "disposition",
+                    "reason"
+                  ],
+                  "field_count": 8
+                },
+                {
+                  "key": "drafts",
+                  "required": [
+                    "kind",
+                    "props"
+                  ],
+                  "field_count": 3
+                },
+                {
+                  "key": "questions",
+                  "required": [
+                    "id",
+                    "kind",
+                    "text"
+                  ],
+                  "field_count": 4
+                }
+              ],
+              "enums": {
+                "discovery_status": [
+                  "draft",
+                  "confirmed",
+                  "final"
+                ],
+                "scope[].disposition": [
+                  "add",
+                  "modify",
+                  "deprecate",
+                  "keep",
+                  "unrelated"
+                ],
+                "scope[].certainty": [
+                  "observed",
+                  "inferred-consequence",
+                  "unverified-intent",
+                  "source-refuted"
+                ],
+                "drafts[].kind": [
+                  "use_case",
+                  "risk",
+                  "nfr"
+                ],
+                "questions[].kind": [
+                  "question",
+                  "conflict",
+                  "decision"
+                ]
+              }
+            },
+            "example_path": "testbed/fixtures/bookmark-node/.ai-context/local/task/card.json"
+          }
+        ],
+        "validators": [
+          "discovery-extraction-validator",
+          "schema-validator",
+          "br-cross-consistency-validator"
+        ],
+        "degraded": null
+      },
+      "reading_plan": null,
+      "completed_at": "2026-11-13T14:25:35.904Z",
+      "gate_decision": "go",
+      "metrics": {
+        "time": {
+          "wall_ms": 522905,
+          "last_pass_ms": 522905,
+          "first_started_at": "2026-11-13T14:16:52.999Z",
+          "last_completed_at": "2026-11-13T14:25:35.904Z",
+          "passes": 1
+        },
+        "cost": {
+          "main_usd": 0,
+          "subagent_usd": 0,
+          "background_usd": 0,
+          "total_usd": 0,
+          "samples": 0,
+          "source": "transcript",
+          "includes_subagents": true,
+          "lower_bound": true,
+          "attribution": "transcript-estimate",
+          "unpriced_models": [
+            "claude-fable-5-2"
+          ]
+        },
+        "tokens": {
+          "input": 52,
+          "output": 33720,
+          "cache_read": 3232328,
+          "cache_creation": 114016,
+          "billable": 147788,
+          "background_billable": 0,
+          "samples": 26,
+          "requests": 26,
+          "background_requests": 0,
+          "cache_read_per_request": 124320,
+          "source": "transcript",
+          "attribution": "transcript-estimate"
+        }
+      }
+    },
+    "spec": {
+      "status": "complete",
+      "started_at": "2026-11-13T14:25:35.904Z",
+      "agent_required": null,
+      "agent_required_at": null,
+      "stage_agent_available": "context-ops:spec-agent",
+      "agent_dispatch_attempts": 0,
+      "agent_dispatched_at": null,
+      "artifact_view_plan": [
+        {
+          "artifact": "task-card",
+          "for_stage": "spec",
+          "context": "mid",
+          "uc_ids": [
+            "UC-RESERVATION-001",
+            "UC-RESERVATION-002",
+            "UC-RESERVATION-003",
+            "UC-RESERVATION-004"
+          ]
+        },
+        {
+          "artifact": "business-rules",
+          "for_stage": "spec",
+          "context": "mid",
+          "uc_ids": [
+            "UC-RESERVATION-001",
+            "UC-RESERVATION-002",
+            "UC-RESERVATION-003",
+            "UC-RESERVATION-004"
+          ]
+        }
+      ],
+      "stage_kit": {
+        "outputs": [
+          {
+            "artifact": "use-case",
+            "schema_path": "schemas/elements/use-case.schema.json",
+            "skeleton": {
+              "top_required": [
+                "id",
+                "description"
+              ],
+              "arrays": [
+                {
+                  "key": "actors",
+                  "required": [],
+                  "field_count": 0
+                },
+                {
+                  "key": "preconditions",
+                  "required": [],
+                  "field_count": 0
+                },
+                {
+                  "key": "postconditions",
+                  "required": [],
+                  "field_count": 0
+                }
+              ],
+              "enums": {
+                "status": [
+                  "active",
+                  "deprecated"
+                ]
+              }
+            },
+            "example_path": "testbed/fixtures/bookmark-node/.ai-context/base/specs/use-cases/UC-BOOKMARK-001.json"
+          },
+          {
+            "artifact": "behavior",
+            "schema_path": "schemas/elements/behavior.schema.json",
+            "skeleton": {
+              "top_required": [
+                "id",
+                "use_case_refs"
+              ],
+              "arrays": [
+                {
+                  "key": "use_case_refs",
+                  "required": [],
+                  "field_count": 0
+                },
+                {
+                  "key": "br_refs",
+                  "required": [],
+                  "field_count": 0
+                },
+                {
+                  "key": "preconditions",
+                  "required": [],
+                  "field_count": 0
+                },
+                {
+                  "key": "postconditions",
+                  "required": [],
+                  "field_count": 0
+                },
+                {
+                  "key": "invariants",
+                  "required": [],
+                  "field_count": 0
+                },
+                {
+                  "key": "property_tests",
+                  "required": [
+                    "property",
+                    "framework"
+                  ],
+                  "field_count": 4
+                },
+                {
+                  "key": "source_grounded_evidence",
+                  "required": [],
+                  "field_count": 0
+                },
+                {
+                  "key": "acceptance_criteria",
+                  "required": [
+                    "id",
+                    "gherkin",
+                    "severity",
+                    "verifiable"
+                  ],
+                  "field_count": 21
+                }
+              ],
+              "enums": {
+                "status": [
+                  "active",
+                  "deprecated"
+                ],
+                "property_tests[].framework": [
+                  "fast-check",
+                  "hypothesis",
+                  "jqwik",
+                  "quickcheck",
+                  "proptest",
+                  "other"
+                ],
+                "property_tests[].framework_status": [
+                  "active",
+                  "maintenance",
+                  "deprecated"
+                ],
+                "acceptance_criteria[].status": [
+                  "active",
+                  "deprecated"
+                ],
+                "acceptance_criteria[].severity": [
+                  "must",
+                  "should",
+                  "nice"
+                ],
+                "acceptance_criteria[].layer": [
+                  "be",
+                  "fe",
+                  "fe-legacy",
+                  "db",
+                  "e2e",
+                  "infra",
+                  "cross-cut"
+                ]
+              }
+            },
+            "example_path": "testbed/fixtures/bookmark-node/.ai-context/base/specs/behaviors/BHV-BOOKMARK-001.json"
+          },
+          {
+            "artifact": "risk",
+            "schema_path": "schemas/elements/risk.schema.json",
+            "skeleton": {
+              "top_required": [
+                "id",
+                "severity",
+                "description"
+              ],
+              "arrays": [],
+              "enums": {
+                "status": [
+                  "active",
+                  "deprecated"
+                ],
+                "severity": [
+                  "critical",
+                  "high",
+                  "medium",
+                  "low"
+                ]
+              }
+            },
+            "example_path": "testbed/fixtures/bookmark-node/.ai-context/base/specs/risks/RISK-BOOKMARK-001.json"
+          },
+          {
+            "artifact": "nfr",
+            "schema_path": "schemas/elements/nfr.schema.json",
+            "skeleton": {
+              "top_required": [
+                "id",
+                "characteristic",
+                "statement",
+                "severity"
+              ],
+              "arrays": [
+                {
+                  "key": "source_grounded_evidence",
+                  "required": [],
+                  "field_count": 0
+                }
+              ],
+              "enums": {
+                "status": [
+                  "active",
+                  "deprecated"
+                ],
+                "characteristic": [
+                  "functional_suitability",
+                  "performance_efficiency",
+                  "compatibility",
+                  "usability",
+                  "reliability",
+                  "security",
+                  "maintainability",
+                  "portability",
+                  "safety"
+                ],
+                "severity": [
+                  "critical",
+                  "high",
+                  "medium",
+                  "low"
+                ]
+              }
+            },
+            "example_path": "testbed/fixtures/bookmark-node/.ai-context/base/specs/qualities/NFR-BOOKMARK-001.json"
+          }
+        ],
+        "validators": [
+          "chain-coverage-validator",
+          "drift-validator (chain mode)",
+          "formal-spec-link-validator (--mode=chain)",
+          "schema-validator",
+          "openapi-spec-validator (계약 문서를 고쳤을 때)"
+        ],
+        "degraded": null
+      },
+      "reading_plan": {
+        "protocol": "methodology-spec/policies/artifact-reading-protocol.md",
+        "index_cmd": "chain-driver index <project> --scope roombook-mvp",
+        "closure_cmd": "chain-driver closure <project> --scope roombook-mvp --seed UC-RESERVATION-001,UC-RESERVATION-002,UC-RESERVATION-003,UC-RESERVATION-004",
+        "seed_ids": [
+          "UC-RESERVATION-001",
+          "UC-RESERVATION-002",
+          "UC-RESERVATION-003",
+          "UC-RESERVATION-004"
+        ],
+        "seed_kinds": [
+          "UC"
+        ],
+        "engraved_at": "2026-11-13T14:25:36.133Z",
+        "items": [],
+        "parts": 0
+      },
+      "completed_at": "2026-11-13T14:28:10.549Z",
+      "gate_decision": "go",
+      "metrics": {
+        "time": {
+          "wall_ms": 154645,
+          "last_pass_ms": 154645,
+          "first_started_at": "2026-11-13T14:25:35.904Z",
+          "last_completed_at": "2026-11-13T14:28:10.549Z",
+          "passes": 1
+        },
+        "cost": {
+          "main_usd": 0,
+          "subagent_usd": 0,
+          "background_usd": 0,
+          "total_usd": 0,
+          "samples": 0,
+          "source": "transcript",
+          "includes_subagents": true,
+          "lower_bound": true,
+          "attribution": "transcript-estimate",
+          "unpriced_models": [
+            "claude-fable-5-2"
+          ]
+        },
+        "tokens": {
+          "input": 14,
+          "output": 18167,
+          "cache_read": 1309962,
+          "cache_creation": 44414,
+          "billable": 62595,
+          "background_billable": 0,
+          "samples": 7,
+          "requests": 7,
+          "background_requests": 0,
+          "cache_read_per_request": 187137,
+          "source": "transcript",
+          "attribution": "transcript-estimate"
+        }
+      }
+    },
+    "plan": {
+      "status": "complete",
+      "started_at": "2026-11-13T15:11:48.390Z",
+      "agent_required": null,
+      "agent_required_at": null,
+      "stage_agent_available": "context-ops:plan-agent",
+      "agent_dispatch_attempts": 0,
+      "agent_dispatched_at": null,
+      "artifact_view_plan": [
+        {
+          "artifact": "task-card",
+          "for_stage": "plan",
+          "context": "mid",
+          "uc_ids": [
+            "UC-RESERVATION-001",
+            "UC-RESERVATION-002",
+            "UC-RESERVATION-003",
+            "UC-RESERVATION-004"
+          ]
+        },
+        {
+          "artifact": "behaviors",
+          "for_stage": "plan",
+          "context": "mid",
+          "uc_ids": [
+            "UC-RESERVATION-001",
+            "UC-RESERVATION-002",
+            "UC-RESERVATION-003",
+            "UC-RESERVATION-004"
+          ]
+        },
+        {
+          "artifact": "criteria",
+          "for_stage": "plan",
+          "context": "mid",
+          "uc_ids": [
+            "UC-RESERVATION-001",
+            "UC-RESERVATION-002",
+            "UC-RESERVATION-003",
+            "UC-RESERVATION-004"
+          ]
+        }
+      ],
+      "stage_kit": {
+        "outputs": [
+          {
+            "artifact": "task-card",
+            "part": "plan",
+            "schema_path": "schemas/task-card.schema.json",
+            "skeleton": {
+              "top_required": [],
+              "arrays": [
+                {
+                  "key": "epics",
+                  "required": [],
+                  "field_count": 6
+                },
+                {
+                  "key": "stories",
+                  "required": [],
+                  "field_count": 8
+                },
+                {
+                  "key": "op_tasks",
+                  "required": [
+                    "op_task_id"
+                  ],
+                  "field_count": 9
+                },
+                {
+                  "key": "tasks",
+                  "required": [
+                    "id",
+                    "ac_refs",
+                    "behavior_ref",
+                    "execution_order"
+                  ],
+                  "field_count": 23
+                },
+                {
+                  "key": "risk_responses",
+                  "required": [
+                    "id"
+                  ],
+                  "field_count": 6
+                },
+                {
+                  "key": "nfr_allocations",
+                  "required": [
+                    "id"
+                  ],
+                  "field_count": 3
+                },
+                {
+                  "key": "sp_conversions",
+                  "required": [
+                    "sp_id",
+                    "sp_conversion_class",
+                    "rationale"
+                  ],
+                  "field_count": 9
+                },
+                {
+                  "key": "regression_tests",
+                  "required": [],
+                  "field_count": 0
+                }
+              ],
+              "enums": {
+                "op_tasks[].category": [
+                  "migration",
+                  "cron",
+                  "health-check",
+                  "refactor",
+                  "infra",
+                  "ops",
+                  "monitoring",
+                  "security-patch",
+                  "dependency-upgrade"
+                ],
+                "tasks[].layer": [
+                  "domain",
+                  "application",
+                  "infrastructure",
+                  "presentation",
+                  "cross-cutting",
+                  "be",
+                  "fe",
+                  "fe-legacy",
+                  "db",
+                  "e2e",
+                  "infra"
+                ],
+                "tasks[].unit_test_obligation": [
+                  "required",
+                  "characterization_only",
+                  "waived"
+                ],
+                "sp_conversions[].sp_conversion_class": [
+                  "alpha",
+                  "beta",
+                  "gamma",
+                  "delta"
+                ],
+                "sp_conversions[].implementation": [
+                  "code",
+                  "orm",
+                  "criteria",
+                  "native"
+                ]
+              }
+            },
+            "example_path": "testbed/fixtures/bookmark-node/.ai-context/local/task/card.json"
+          },
+          {
+            "artifact": "unit",
+            "schema_path": "schemas/elements/unit.schema.json",
+            "skeleton": {
+              "top_required": [
+                "id",
+                "provenance",
+                "kind",
+                "code_pointer",
+                "unit_test_obligation"
+              ],
+              "arrays": [
+                {
+                  "key": "invariant_refs",
+                  "required": [],
+                  "field_count": 0
+                },
+                {
+                  "key": "property_test_refs",
+                  "required": [],
+                  "field_count": 0
+                },
+                {
+                  "key": "collaborators",
+                  "required": [],
+                  "field_count": 0
+                },
+                {
+                  "key": "realizes",
+                  "required": [],
+                  "field_count": 0
+                },
+                {
+                  "key": "characterization_snapshot_refs",
+                  "required": [],
+                  "field_count": 0
+                }
+              ],
+              "enums": {
+                "status": [
+                  "active",
+                  "deprecated"
+                ],
+                "provenance": [
+                  "characterized_from_code",
+                  "designed_from_spec"
+                ],
+                "kind": [
+                  "class",
+                  "function",
+                  "module",
+                  "component",
+                  "config",
+                  "sql",
+                  "schema"
+                ],
+                "unit_test_obligation": [
+                  "required",
+                  "characterization_only",
+                  "waived"
+                ]
+              }
+            },
+            "example_path": "testbed/fixtures/bookmark-node/.ai-context/base/specs/units/UNIT-BOOKMARK-001.json"
+          },
+          {
+            "artifact": "adr",
+            "schema_path": "schemas/elements/adr.schema.json",
+            "skeleton": {
+              "top_required": [
+                "id",
+                "title",
+                "status",
+                "decision",
+                "alternatives",
+                "consequences"
+              ],
+              "arrays": [
+                {
+                  "key": "alternatives",
+                  "required": [
+                    "option",
+                    "rejection_reason"
+                  ],
+                  "field_count": 2
+                },
+                {
+                  "key": "integration_points",
+                  "required": [],
+                  "field_count": 0
+                },
+                {
+                  "key": "behavior_refs",
+                  "required": [],
+                  "field_count": 0
+                }
+              ],
+              "enums": {
+                "status": [
+                  "proposed",
+                  "accepted",
+                  "deprecated",
+                  "superseded"
+                ],
+                "trigger_category": [
+                  "structure",
+                  "non_functional_requirements",
+                  "dependencies",
+                  "interfaces",
+                  "construction_techniques",
+                  "security_compliance"
+                ]
+              }
+            },
+            "example_path": "testbed/fixtures/bookmark-node/.ai-context/base/specs/adrs/ADR-BOOKMARK-001.json"
+          },
+          {
+            "artifact": "risk",
+            "schema_path": "schemas/elements/risk.schema.json",
+            "skeleton": {
+              "top_required": [
+                "id",
+                "severity",
+                "description"
+              ],
+              "arrays": [],
+              "enums": {
+                "status": [
+                  "active",
+                  "deprecated"
+                ],
+                "severity": [
+                  "critical",
+                  "high",
+                  "medium",
+                  "low"
+                ]
+              }
+            },
+            "example_path": "testbed/fixtures/bookmark-node/.ai-context/base/specs/risks/RISK-BOOKMARK-001.json"
+          }
+        ],
+        "validators": [
+          "plan-coverage-validator",
+          "schema-validator",
+          "unit-spec-oracle-validator (required UNIT oracle≥1)",
+          "formal-spec-link-validator (--mode=chain · 이 브랜치가 손댄 formal-spec 한 건짜리 파일의 참조 무결성 · plan 이 쓰는 시퀀스)"
+        ],
+        "degraded": null
+      },
+      "reading_plan": null,
+      "completed_at": "2026-11-13T15:12:02.559Z",
+      "gate_decision": "go",
+      "metrics": {
+        "time": {
+          "wall_ms": 771197,
+          "last_pass_ms": 14169,
+          "first_started_at": "2026-11-13T14:28:10.549Z",
+          "last_completed_at": "2026-11-13T15:12:02.559Z",
+          "passes": 3
+        },
+        "cost": {
+          "main_usd": 0,
+          "subagent_usd": 0,
+          "background_usd": 0,
+          "total_usd": 0,
+          "duration_ms": 0,
+          "samples": 0,
+          "source": "transcript",
+          "includes_subagents": true,
+          "lower_bound": true
+        },
+        "tokens": {
+          "input": 66,
+          "output": 39607,
+          "cache_read": 9396748,
+          "cache_creation": 134514,
+          "billable": 174187,
+          "background_billable": 0,
+          "samples": 31,
+          "requests": 31,
+          "background_requests": 0,
+          "source": "transcript",
+          "cache_read_per_request": 303121
+        }
+      },
+      "revisit_count": 2
+    },
+    "test": {
+      "status": "complete",
+      "started_at": "2026-11-13T15:12:02.559Z",
+      "agent_required": null,
+      "agent_required_at": null,
+      "stage_agent_available": "context-ops:test-agent",
+      "agent_dispatch_attempts": 0,
+      "agent_dispatched_at": null,
+      "artifact_view_plan": [
+        {
+          "artifact": "behaviors",
+          "for_stage": "test",
+          "context": "mid",
+          "uc_ids": [
+            "UC-RESERVATION-001",
+            "UC-RESERVATION-002",
+            "UC-RESERVATION-003",
+            "UC-RESERVATION-004"
+          ]
+        },
+        {
+          "artifact": "criteria",
+          "for_stage": "test",
+          "context": "mid",
+          "uc_ids": [
+            "UC-RESERVATION-001",
+            "UC-RESERVATION-002",
+            "UC-RESERVATION-003",
+            "UC-RESERVATION-004"
+          ]
+        },
+        {
+          "artifact": "task-card",
+          "for_stage": "test",
+          "context": "mid",
+          "uc_ids": [
+            "UC-RESERVATION-001",
+            "UC-RESERVATION-002",
+            "UC-RESERVATION-003",
+            "UC-RESERVATION-004"
+          ]
+        }
+      ],
+      "stage_kit": {
+        "outputs": [],
+        "validators": [
+          "test-impl-pass-validator",
+          "spec-test-link-validator",
+          "schema-validator",
+          "lint-no-simulation (chain-strict)"
+        ],
+        "degraded": null
+      },
+      "reading_plan": {
+        "protocol": "methodology-spec/policies/artifact-reading-protocol.md",
+        "index_cmd": "chain-driver index <project> --scope roombook-mvp",
+        "closure_cmd": "chain-driver closure <project> --scope roombook-mvp --seed UC-RESERVATION-001,UC-RESERVATION-002,UC-RESERVATION-003,UC-RESERVATION-004",
+        "seed_ids": [
+          "UC-RESERVATION-001",
+          "UC-RESERVATION-002",
+          "UC-RESERVATION-003",
+          "UC-RESERVATION-004"
+        ],
+        "seed_kinds": [
+          "AC",
+          "TASK"
+        ],
+        "engraved_at": "2026-11-13T15:12:04.309Z",
+        "items": [
+          {
+            "kind": "element",
+            "id": null,
+            "path": ".ai-context/base/specs",
+            "range": null,
+            "read": null,
+            "part": 1
+          },
+          {
+            "kind": "unit_body",
+            "id": "UNIT-RESERVATION-020",
+            "path": "apps/api/src/main/java/com/roombook/api/RoombookApplication.java",
+            "range": [
+              6,
+              12
+            ],
+            "read": {
+              "offset": 1,
+              "limit": 12
+            },
+            "part": 1
+          },
+          {
+            "kind": "unit_body",
+            "id": "UNIT-RESERVATION-025",
+            "path": "apps/api/src/main/java/com/roombook/api/application/ReservationCommand.java",
+            "range": [
+              6,
+              9
+            ],
+            "read": null,
+            "part": 1
+          },
+          {
+            "kind": "unit_body",
+            "id": "UNIT-RESERVATION-003",
+            "path": "apps/api/src/main/java/com/roombook/api/application/ReservationService.java",
+            "range": [
+              19,
+              89
+            ],
+            "read": {
+              "offset": 1,
+              "limit": 89
+            },
+            "part": 1
+          },
+          {
+            "kind": "unit_body",
+            "id": "UNIT-RESERVATION-024",
+            "path": "apps/api/src/main/java/com/roombook/api/application/ReservationView.java",
+            "range": [
+              5,
+              7
+            ],
+            "read": null,
+            "part": 1
+          },
+          {
+            "kind": "unit_body",
+            "id": "UNIT-RESERVATION-012",
+            "path": "apps/api/src/main/java/com/roombook/api/config/ClockConfig.java",
+            "range": [
+              8,
+              18
+            ],
+            "read": {
+              "offset": 1,
+              "limit": 18
+            },
+            "part": 1
+          },
+          {
+            "kind": "unit_body",
+            "id": "UNIT-RESERVATION-010",
+            "path": "apps/api/src/main/java/com/roombook/api/domain/RejectionCode.java",
+            "range": [
+              3,
+              34
+            ],
+            "read": {
+              "offset": 1,
+              "limit": 34
+            },
+            "part": 1
+          },
+          {
+            "kind": "unit_body",
+            "id": "UNIT-RESERVATION-022",
+            "path": "apps/api/src/main/java/com/roombook/api/domain/RejectionException.java",
+            "range": [
+              3,
+              16
+            ],
+            "read": {
+              "offset": 1,
+              "limit": 16
+            },
+            "part": 1
+          },
+          {
+            "kind": "unit_body",
+            "id": "UNIT-RESERVATION-006",
+            "path": "apps/api/src/main/java/com/roombook/api/domain/Reservation.java",
+            "range": [
+              15,
+              156
+            ],
+            "read": {
+              "offset": 1,
+              "limit": 156
+            },
+            "part": 1
+          },
+          {
+            "kind": "unit_body",
+            "id": "UNIT-RESERVATION-007",
+            "path": "apps/api/src/main/java/com/roombook/api/domain/Reservation.java",
+            "range": [
+              96,
+              99
+            ],
+            "read": null,
+            "part": 1
+          },
+          {
+            "kind": "unit_body",
+            "id": "UNIT-RESERVATION-004",
+            "path": "apps/api/src/main/java/com/roombook/api/domain/ReservationPolicy.java",
+            "range": [
+              8,
+              54
+            ],
+            "read": {
+              "offset": 1,
+              "limit": 54
+            },
+            "part": 1
+          },
+          {
+            "kind": "unit_body",
+            "id": "UNIT-RESERVATION-023",
+            "path": "apps/api/src/main/java/com/roombook/api/domain/ReservationStatus.java",
+            "range": [
+              3,
+              6
+            ],
+            "read": {
+              "offset": 1,
+              "limit": 6
+            },
+            "part": 1
+          },
+          {
+            "kind": "unit_body",
+            "id": "UNIT-RESERVATION-021",
+            "path": "apps/api/src/main/java/com/roombook/api/domain/Room.java",
+            "range": [
+              8,
+              45
+            ],
+            "read": {
+              "offset": 1,
+              "limit": 45
+            },
+            "part": 1
+          },
+          {
+            "kind": "unit_body",
+            "id": "UNIT-RESERVATION-005",
+            "path": "apps/api/src/main/java/com/roombook/api/domain/TimeRange.java",
+            "range": [
+              5,
+              12
+            ],
+            "read": {
+              "offset": 1,
+              "limit": 12
+            },
+            "part": 1
+          },
+          {
+            "kind": "unit_body",
+            "id": "UNIT-RESERVATION-009",
+            "path": "apps/api/src/main/java/com/roombook/api/persistence/ReservationRepository.java",
+            "range": [
+              9,
+              13
+            ],
+            "read": null,
+            "part": 1
+          },
+          {
+            "kind": "unit_body",
+            "id": "UNIT-RESERVATION-008",
+            "path": "apps/api/src/main/java/com/roombook/api/persistence/RoomRepository.java",
+            "range": [
+              12,
+              23
+            ],
+            "read": {
+              "offset": 1,
+              "limit": 23
+            },
+            "part": 1
+          },
+          {
+            "kind": "unit_body",
+            "id": "UNIT-RESERVATION-011",
+            "path": "apps/api/src/main/java/com/roombook/api/web/ApiExceptionHandler.java",
+            "range": [
+              13,
+              35
+            ],
+            "read": {
+              "offset": 1,
+              "limit": 35
+            },
+            "part": 1
+          },
+          {
+            "kind": "unit_body",
+            "id": "UNIT-RESERVATION-026",
+            "path": "apps/api/src/main/java/com/roombook/api/web/CreateReservationRequest.java",
+            "range": [
+              9,
+              19
+            ],
+            "read": {
+              "offset": 1,
+              "limit": 19
+            },
+            "part": 1
+          },
+          {
+            "kind": "unit_body",
+            "id": "UNIT-RESERVATION-029",
+            "path": "apps/api/src/main/java/com/roombook/api/web/RejectionResponse.java",
+            "range": [
+              5,
+              10
+            ],
+            "read": {
+              "offset": 1,
+              "limit": 10
+            },
+            "part": 1
+          },
+          {
+            "kind": "unit_body",
+            "id": "UNIT-RESERVATION-002",
+            "path": "apps/api/src/main/java/com/roombook/api/web/ReservationController.java",
+            "range": [
+              17,
+              48
+            ],
+            "read": {
+              "offset": 1,
+              "limit": 48
+            },
+            "part": 1
+          },
+          {
+            "kind": "unit_body",
+            "id": "UNIT-RESERVATION-027",
+            "path": "apps/api/src/main/java/com/roombook/api/web/ReservationResponse.java",
+            "range": [
+              9,
+              29
+            ],
+            "read": {
+              "offset": 1,
+              "limit": 29
+            },
+            "part": 1
+          },
+          {
+            "kind": "unit_body",
+            "id": "UNIT-RESERVATION-001",
+            "path": "apps/api/src/main/java/com/roombook/api/web/RoomController.java",
+            "range": [
+              8,
+              21
+            ],
+            "read": {
+              "offset": 1,
+              "limit": 21
+            },
+            "part": 1
+          },
+          {
+            "kind": "unit_body",
+            "id": "UNIT-RESERVATION-028",
+            "path": "apps/api/src/main/java/com/roombook/api/web/RoomResponse.java",
+            "range": [
+              5,
+              10
+            ],
+            "read": {
+              "offset": 1,
+              "limit": 10
+            },
+            "part": 1
+          },
+          {
+            "kind": "unit_body",
+            "id": "UNIT-RESERVATION-033",
+            "path": "apps/api/src/main/resources/data.sql",
+            "range": null,
+            "read": null,
+            "part": 1
+          },
+          {
+            "kind": "unit_body",
+            "id": "UNIT-RESERVATION-013",
+            "path": "apps/api/src/main/resources/schema.sql",
+            "range": [
+              1,
+              7
+            ],
+            "read": null,
+            "part": 1
+          },
+          {
+            "kind": "unit_body",
+            "id": "UNIT-RESERVATION-014",
+            "path": "apps/api/src/main/resources/schema.sql",
+            "range": [
+              9,
+              24
+            ],
+            "read": {
+              "offset": 1,
+              "limit": 26
+            },
+            "part": 1
+          },
+          {
+            "kind": "unit_body",
+            "id": "UNIT-RESERVATION-032",
+            "path": "apps/api/src/main/resources/schema.sql",
+            "range": null,
+            "read": null,
+            "part": 1
+          },
+          {
+            "kind": "unit_body",
+            "id": "UNIT-RESERVATION-030",
+            "path": "apps/web/src/App.tsx",
+            "range": [
+              3,
+              10
+            ],
+            "read": {
+              "offset": 1,
+              "limit": 10
+            },
+            "part": 1
+          },
+          {
+            "kind": "unit_body",
+            "id": "UNIT-RESERVATION-015",
+            "path": "apps/web/src/api/client.ts",
+            "range": null,
+            "read": null,
+            "part": 1
+          },
+          {
+            "kind": "unit_body",
+            "id": "UNIT-RESERVATION-018",
+            "path": "apps/web/src/components/ReservationBoard.tsx",
+            "range": [
+              13,
+              149
+            ],
+            "read": {
+              "offset": 1,
+              "limit": 149
+            },
+            "part": 1
+          },
+          {
+            "kind": "unit_body",
+            "id": "UNIT-RESERVATION-019",
+            "path": "apps/web/src/components/ReservationForm.tsx",
+            "range": [
+              19,
+              97
+            ],
+            "read": {
+              "offset": 1,
+              "limit": 97
+            },
+            "part": 1
+          },
+          {
+            "kind": "unit_body",
+            "id": "UNIT-RESERVATION-031",
+            "path": "apps/web/src/main.tsx",
+            "range": null,
+            "read": null,
+            "part": 1
+          },
+          {
+            "kind": "unit_body",
+            "id": "UNIT-RESERVATION-016",
+            "path": "apps/web/src/rejection-messages.ts",
+            "range": [
+              1,
+              18
+            ],
+            "read": {
+              "offset": 1,
+              "limit": 18
+            },
+            "part": 1
+          },
+          {
+            "kind": "unit_body",
+            "id": "UNIT-RESERVATION-017",
+            "path": "apps/web/src/time-options.ts",
+            "range": [
+              1,
+              13
+            ],
+            "read": {
+              "offset": 1,
+              "limit": 13
+            },
+            "part": 1
+          },
+          {
+            "kind": "unit_body",
+            "id": "UNIT-RESERVATION-034",
+            "path": "apps/web/vite.config.ts",
+            "range": [
+              5,
+              20
+            ],
+            "read": {
+              "offset": 1,
+              "limit": 20
+            },
+            "part": 1
+          },
+          {
+            "kind": "collaborator_signature",
+            "id": "UNIT-RESERVATION-003",
+            "path": "apps/api/src/main/java/com/roombook/api/application/ReservationService.java",
+            "range": [
+              19,
+              20
+            ],
+            "read": null,
+            "part": 1
+          },
+          {
+            "kind": "collaborator_signature",
+            "id": "UNIT-RESERVATION-012",
+            "path": "apps/api/src/main/java/com/roombook/api/config/ClockConfig.java",
+            "range": [
+              9,
+              10
+            ],
+            "read": null,
+            "part": 1
+          },
+          {
+            "kind": "collaborator_signature",
+            "id": "UNIT-RESERVATION-010",
+            "path": "apps/api/src/main/java/com/roombook/api/domain/RejectionCode.java",
+            "range": [
+              4,
+              4
+            ],
+            "read": null,
+            "part": 1
+          },
+          {
+            "kind": "collaborator_signature",
+            "id": "UNIT-RESERVATION-006",
+            "path": "apps/api/src/main/java/com/roombook/api/domain/Reservation.java",
+            "range": [
+              16,
+              18
+            ],
+            "read": null,
+            "part": 1
+          },
+          {
+            "kind": "collaborator_signature",
+            "id": "UNIT-RESERVATION-007",
+            "path": "apps/api/src/main/java/com/roombook/api/domain/Reservation.java",
+            "range": [
+              97,
+              97
+            ],
+            "read": null,
+            "part": 1
+          },
+          {
+            "kind": "collaborator_signature",
+            "id": "UNIT-RESERVATION-004",
+            "path": "apps/api/src/main/java/com/roombook/api/domain/ReservationPolicy.java",
+            "range": [
+              13,
+              13
+            ],
+            "read": null,
+            "part": 1
+          },
+          {
+            "kind": "collaborator_signature",
+            "id": "UNIT-RESERVATION-005",
+            "path": "apps/api/src/main/java/com/roombook/api/domain/TimeRange.java",
+            "range": [
+              6,
+              6
+            ],
+            "read": null,
+            "part": 1
+          },
+          {
+            "kind": "collaborator_signature",
+            "id": "UNIT-RESERVATION-009",
+            "path": "apps/api/src/main/java/com/roombook/api/persistence/ReservationRepository.java",
+            "range": [
+              9,
+              9
+            ],
+            "read": null,
+            "part": 1
+          },
+          {
+            "kind": "collaborator_signature",
+            "id": "UNIT-RESERVATION-008",
+            "path": "apps/api/src/main/java/com/roombook/api/persistence/RoomRepository.java",
+            "range": [
+              12,
+              12
+            ],
+            "read": null,
+            "part": 1
+          },
+          {
+            "kind": "collaborator_signature",
+            "id": "UNIT-RESERVATION-015",
+            "path": "apps/web/src/api/client.ts",
+            "range": null,
+            "read": null,
+            "part": 1
+          },
+          {
+            "kind": "collaborator_signature",
+            "id": "UNIT-RESERVATION-019",
+            "path": "apps/web/src/components/ReservationForm.tsx",
+            "range": [
+              19,
+              19
+            ],
+            "read": null,
+            "part": 1
+          },
+          {
+            "kind": "collaborator_signature",
+            "id": "UNIT-RESERVATION-016",
+            "path": "apps/web/src/rejection-messages.ts",
+            "range": [
+              2,
+              2
+            ],
+            "read": null,
+            "part": 1
+          },
+          {
+            "kind": "collaborator_signature",
+            "id": "UNIT-RESERVATION-017",
+            "path": "apps/web/src/time-options.ts",
+            "range": [
+              2,
+              2
+            ],
+            "read": null,
+            "part": 1
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-109",
+            "path": "apps/api/src/test/java/com/roombook/api/domain/ReservationPolicyPropertiesTest.java",
+            "range": null,
+            "read": null,
+            "part": 1
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-101",
+            "path": "apps/api/src/test/java/com/roombook/api/domain/ReservationPolicyTest.java",
+            "range": null,
+            "read": null,
+            "part": 1
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-102",
+            "path": "apps/api/src/test/java/com/roombook/api/domain/ReservationPolicyTest.java",
+            "range": null,
+            "read": null,
+            "part": 1
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-103",
+            "path": "apps/api/src/test/java/com/roombook/api/domain/ReservationPolicyTest.java",
+            "range": null,
+            "read": null,
+            "part": 1
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-104",
+            "path": "apps/api/src/test/java/com/roombook/api/domain/ReservationPolicyTest.java",
+            "range": null,
+            "read": null,
+            "part": 1
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-105",
+            "path": "apps/api/src/test/java/com/roombook/api/domain/ReservationPolicyTest.java",
+            "range": null,
+            "read": null,
+            "part": 1
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-106",
+            "path": "apps/api/src/test/java/com/roombook/api/domain/ReservationPolicyTest.java",
+            "range": null,
+            "read": null,
+            "part": 1
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-107",
+            "path": "apps/api/src/test/java/com/roombook/api/domain/ReservationPolicyTest.java",
+            "range": null,
+            "read": null,
+            "part": 1
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-108",
+            "path": "apps/api/src/test/java/com/roombook/api/domain/ReservationPolicyTest.java",
+            "range": null,
+            "read": null,
+            "part": 1
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-126",
+            "path": "apps/api/src/test/java/com/roombook/api/domain/ReservationPropertiesTest.java",
+            "range": null,
+            "read": null,
+            "part": 1
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-121",
+            "path": "apps/api/src/test/java/com/roombook/api/domain/ReservationTest.java",
+            "range": null,
+            "read": null,
+            "part": 1
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-122",
+            "path": "apps/api/src/test/java/com/roombook/api/domain/ReservationTest.java",
+            "range": null,
+            "read": null,
+            "part": 1
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-123",
+            "path": "apps/api/src/test/java/com/roombook/api/domain/ReservationTest.java",
+            "range": null,
+            "read": null,
+            "part": 1
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-124",
+            "path": "apps/api/src/test/java/com/roombook/api/domain/ReservationTest.java",
+            "range": null,
+            "read": null,
+            "part": 1
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-125",
+            "path": "apps/api/src/test/java/com/roombook/api/domain/ReservationTest.java",
+            "range": null,
+            "read": null,
+            "part": 1
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-131",
+            "path": "apps/api/src/test/java/com/roombook/api/domain/ReservationTest.java",
+            "range": null,
+            "read": null,
+            "part": 1
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-113",
+            "path": "apps/api/src/test/java/com/roombook/api/domain/TimeRangePropertiesTest.java",
+            "range": null,
+            "read": null,
+            "part": 1
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-114",
+            "path": "apps/api/src/test/java/com/roombook/api/domain/TimeRangePropertiesTest.java",
+            "range": null,
+            "read": null,
+            "part": 1
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-111",
+            "path": "apps/api/src/test/java/com/roombook/api/domain/TimeRangeTest.java",
+            "range": null,
+            "read": null,
+            "part": 1
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-112",
+            "path": "apps/api/src/test/java/com/roombook/api/domain/TimeRangeTest.java",
+            "range": null,
+            "read": null,
+            "part": 1
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-042",
+            "path": "apps/api/src/test/java/com/roombook/api/web/ReservationCancelApiTest.java",
+            "range": null,
+            "read": null,
+            "part": 1
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-043",
+            "path": "apps/api/src/test/java/com/roombook/api/web/ReservationCancelApiTest.java",
+            "range": null,
+            "read": null,
+            "part": 1
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-044",
+            "path": "apps/api/src/test/java/com/roombook/api/web/ReservationCancelApiTest.java",
+            "range": null,
+            "read": null,
+            "part": 1
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-045",
+            "path": "apps/api/src/test/java/com/roombook/api/web/ReservationCancelApiTest.java",
+            "range": null,
+            "read": null,
+            "part": 1
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-046",
+            "path": "apps/api/src/test/java/com/roombook/api/web/ReservationCancelApiTest.java",
+            "range": null,
+            "read": null,
+            "part": 2
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-047",
+            "path": "apps/api/src/test/java/com/roombook/api/web/ReservationCancelApiTest.java",
+            "range": null,
+            "read": null,
+            "part": 2
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-014",
+            "path": "apps/api/src/test/java/com/roombook/api/web/ReservationCreateApiTest.java",
+            "range": null,
+            "read": null,
+            "part": 2
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-015",
+            "path": "apps/api/src/test/java/com/roombook/api/web/ReservationCreateApiTest.java",
+            "range": null,
+            "read": null,
+            "part": 2
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-016",
+            "path": "apps/api/src/test/java/com/roombook/api/web/ReservationCreateApiTest.java",
+            "range": null,
+            "read": null,
+            "part": 2
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-017",
+            "path": "apps/api/src/test/java/com/roombook/api/web/ReservationCreateApiTest.java",
+            "range": null,
+            "read": null,
+            "part": 2
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-018",
+            "path": "apps/api/src/test/java/com/roombook/api/web/ReservationCreateApiTest.java",
+            "range": null,
+            "read": null,
+            "part": 2
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-019",
+            "path": "apps/api/src/test/java/com/roombook/api/web/ReservationCreateApiTest.java",
+            "range": null,
+            "read": null,
+            "part": 2
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-020",
+            "path": "apps/api/src/test/java/com/roombook/api/web/ReservationCreateApiTest.java",
+            "range": null,
+            "read": null,
+            "part": 2
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-021",
+            "path": "apps/api/src/test/java/com/roombook/api/web/ReservationCreateApiTest.java",
+            "range": null,
+            "read": null,
+            "part": 2
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-022",
+            "path": "apps/api/src/test/java/com/roombook/api/web/ReservationCreateApiTest.java",
+            "range": null,
+            "read": null,
+            "part": 2
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-023",
+            "path": "apps/api/src/test/java/com/roombook/api/web/ReservationCreateApiTest.java",
+            "range": null,
+            "read": null,
+            "part": 2
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-024",
+            "path": "apps/api/src/test/java/com/roombook/api/web/ReservationCreateApiTest.java",
+            "range": null,
+            "read": null,
+            "part": 2
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-025",
+            "path": "apps/api/src/test/java/com/roombook/api/web/ReservationCreateApiTest.java",
+            "range": null,
+            "read": null,
+            "part": 2
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-026",
+            "path": "apps/api/src/test/java/com/roombook/api/web/ReservationCreateApiTest.java",
+            "range": null,
+            "read": null,
+            "part": 2
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-027",
+            "path": "apps/api/src/test/java/com/roombook/api/web/ReservationCreateApiTest.java",
+            "range": null,
+            "read": null,
+            "part": 2
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-028",
+            "path": "apps/api/src/test/java/com/roombook/api/web/ReservationCreateApiTest.java",
+            "range": null,
+            "read": null,
+            "part": 2
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-029",
+            "path": "apps/api/src/test/java/com/roombook/api/web/ReservationCreateApiTest.java",
+            "range": null,
+            "read": null,
+            "part": 2
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-030",
+            "path": "apps/api/src/test/java/com/roombook/api/web/ReservationCreateApiTest.java",
+            "range": null,
+            "read": null,
+            "part": 2
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-031",
+            "path": "apps/api/src/test/java/com/roombook/api/web/ReservationCreateApiTest.java",
+            "range": null,
+            "read": null,
+            "part": 2
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-002",
+            "path": "apps/api/src/test/java/com/roombook/api/web/ReservationListApiTest.java",
+            "range": null,
+            "read": null,
+            "part": 2
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-003",
+            "path": "apps/api/src/test/java/com/roombook/api/web/ReservationListApiTest.java",
+            "range": null,
+            "read": null,
+            "part": 2
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-004",
+            "path": "apps/api/src/test/java/com/roombook/api/web/ReservationListApiTest.java",
+            "range": null,
+            "read": null,
+            "part": 2
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-005",
+            "path": "apps/api/src/test/java/com/roombook/api/web/ReservationListApiTest.java",
+            "range": null,
+            "read": null,
+            "part": 2
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-006",
+            "path": "apps/api/src/test/java/com/roombook/api/web/ReservationListApiTest.java",
+            "range": null,
+            "read": null,
+            "part": 2
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-007",
+            "path": "apps/api/src/test/java/com/roombook/api/web/ReservationListApiTest.java",
+            "range": null,
+            "read": null,
+            "part": 2
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-008",
+            "path": "apps/api/src/test/java/com/roombook/api/web/ReservationListApiTest.java",
+            "range": null,
+            "read": null,
+            "part": 2
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-009",
+            "path": "apps/api/src/test/java/com/roombook/api/web/ReservationListApiTest.java",
+            "range": null,
+            "read": null,
+            "part": 2
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-037",
+            "path": "apps/api/src/test/java/com/roombook/api/web/ReservationOverlapApiTest.java",
+            "range": null,
+            "read": null,
+            "part": 2
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-038",
+            "path": "apps/api/src/test/java/com/roombook/api/web/ReservationOverlapApiTest.java",
+            "range": null,
+            "read": null,
+            "part": 2
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-039",
+            "path": "apps/api/src/test/java/com/roombook/api/web/ReservationOverlapApiTest.java",
+            "range": null,
+            "read": null,
+            "part": 2
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-040",
+            "path": "apps/api/src/test/java/com/roombook/api/web/ReservationOverlapApiTest.java",
+            "range": null,
+            "read": null,
+            "part": 2
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-041",
+            "path": "apps/api/src/test/java/com/roombook/api/web/ReservationOverlapApiTest.java",
+            "range": null,
+            "read": null,
+            "part": 2
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-001",
+            "path": "apps/api/src/test/java/com/roombook/api/web/RoomListApiTest.java",
+            "range": null,
+            "read": null,
+            "part": 2
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-010",
+            "path": "apps/web/src/components/ReservationBoard.test.tsx",
+            "range": [
+              12,
+              39
+            ],
+            "read": null,
+            "part": 2
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-011",
+            "path": "apps/web/src/components/ReservationBoard.test.tsx",
+            "range": [
+              41,
+              67
+            ],
+            "read": null,
+            "part": 2
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-012",
+            "path": "apps/web/src/components/ReservationBoard.test.tsx",
+            "range": [
+              69,
+              78
+            ],
+            "read": null,
+            "part": 2
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-013",
+            "path": "apps/web/src/components/ReservationBoard.test.tsx",
+            "range": [
+              80,
+              97
+            ],
+            "read": null,
+            "part": 2
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-048",
+            "path": "apps/web/src/components/ReservationBoard.test.tsx",
+            "range": [
+              101,
+              120
+            ],
+            "read": null,
+            "part": 2
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-049",
+            "path": "apps/web/src/components/ReservationBoard.test.tsx",
+            "range": [
+              122,
+              135
+            ],
+            "read": null,
+            "part": 2
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-032",
+            "path": "apps/web/src/components/ReservationForm.test.tsx",
+            "range": [
+              31,
+              57
+            ],
+            "read": null,
+            "part": 2
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-033",
+            "path": "apps/web/src/components/ReservationForm.test.tsx",
+            "range": [
+              59,
+              75
+            ],
+            "read": null,
+            "part": 2
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-034",
+            "path": "apps/web/src/components/ReservationForm.test.tsx",
+            "range": [
+              77,
+              91
+            ],
+            "read": null,
+            "part": 2
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-036",
+            "path": "apps/web/src/components/ReservationForm.test.tsx",
+            "range": [
+              93,
+              116
+            ],
+            "read": null,
+            "part": 3
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-035",
+            "path": "apps/web/src/rejection-messages.test.ts",
+            "range": [
+              15,
+              27
+            ],
+            "read": null,
+            "part": 3
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-141",
+            "path": "apps/web/src/rejection-messages.test.ts",
+            "range": [
+              29,
+              36
+            ],
+            "read": null,
+            "part": 3
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-142",
+            "path": "apps/web/src/rejection-messages.test.ts",
+            "range": [
+              38,
+              47
+            ],
+            "read": null,
+            "part": 3
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-151",
+            "path": "apps/web/src/time-options.test.ts",
+            "range": [
+              5,
+              20
+            ],
+            "read": null,
+            "part": 3
+          }
+        ],
+        "parts": 3
+      },
+      "completed_at": "2026-11-13T15:12:20.483Z",
+      "gate_decision": "go",
+      "approved_tests": {
+        "version": 3,
+        "stamped_at": "2026-11-13T15:12:20.470Z",
+        "source": "tags",
+        "files": {
+          "apps/api/src/test/java/com/roombook/api/domain/ReservationPolicyPropertiesTest.java": "08a88f287cadf52f3a904e40e69cb2f8fe7deda7a30004b370cf93730f42a7a0",
+          "apps/api/src/test/java/com/roombook/api/domain/ReservationPolicyTest.java": "dc01be16c55d9962655fb28bd98513645b30689570dc1a0a755b68e1d82ccb05",
+          "apps/api/src/test/java/com/roombook/api/domain/ReservationPropertiesTest.java": "66970c7f54ca40a40bbb31978b7633d254a593e572a9ca9f03c40cbb7b69aa7f",
+          "apps/api/src/test/java/com/roombook/api/domain/ReservationTest.java": "777eb3f66cc59467213efe7fb00631b4682648bae885c7583b5a4a3471755be0",
+          "apps/api/src/test/java/com/roombook/api/domain/TimeRangePropertiesTest.java": "50ee3a9c9e8821d33e42c61b899ce2597788d6ed2025224415524b984aedbe0a",
+          "apps/api/src/test/java/com/roombook/api/domain/TimeRangeTest.java": "e4f3fed5382f13a131286042ba61101309fe6fd942599af52ffd2d7f8e9f0e46",
+          "apps/api/src/test/java/com/roombook/api/web/ReservationCancelApiTest.java": "4e7a3f2e3648c5aca0428d65bcbd00a099fda9d555f0a510a9efc8f59b846620",
+          "apps/api/src/test/java/com/roombook/api/web/ReservationCreateApiTest.java": "8e29b41bbf867d6d4b3850774cdc3402e103cdf59fc2af5c06d88ec1fb519684",
+          "apps/api/src/test/java/com/roombook/api/web/ReservationListApiTest.java": "7aa33a0efa6ad9458369fdb1a927cccb632f66230b4138571ee517053b0278a1",
+          "apps/api/src/test/java/com/roombook/api/web/ReservationOverlapApiTest.java": "dcba29eff68484c94779fcb6139108a9f41f32ad9d7e21a9f30658f1757336ec",
+          "apps/api/src/test/java/com/roombook/api/web/RoomListApiTest.java": "f40cac88a06f823d834d687cdae0fc9ef5ad3c5e6c14c3c36567247901c08736",
+          "apps/web/src/components/ReservationBoard.test.tsx": "3d4ed5a3e862b6ec553bd197886c0a55472b5776cf12efff94281a139a2ab700",
+          "apps/web/src/components/ReservationForm.test.tsx": "5cef73ae154191ec1e783fa2f79fc663dbaa0eb4dc035c499d969442b35fb9b0",
+          "apps/web/src/rejection-messages.test.ts": "5aba5d67d6e5a40af6efece5111e463de6b2a1e134739006c091d63b34187969",
+          "apps/web/src/time-options.test.ts": "06add699ceccf18e1400455448ea78c4b636f03499c14b1d0ccfb5ecdd9e0808"
+        },
+        "test_cmd": "d723fcda779a49e2bc2c4fc7cc218c5fd1ccb6015eeb5983b36f1c9dea3a6dd0",
+        "red_proven": [
+          "TC-RESERVATION-001",
+          "TC-RESERVATION-002",
+          "TC-RESERVATION-003",
+          "TC-RESERVATION-004",
+          "TC-RESERVATION-005",
+          "TC-RESERVATION-006",
+          "TC-RESERVATION-007",
+          "TC-RESERVATION-008",
+          "TC-RESERVATION-009",
+          "TC-RESERVATION-010",
+          "TC-RESERVATION-011",
+          "TC-RESERVATION-012",
+          "TC-RESERVATION-013",
+          "TC-RESERVATION-014",
+          "TC-RESERVATION-015",
+          "TC-RESERVATION-016",
+          "TC-RESERVATION-017",
+          "TC-RESERVATION-018",
+          "TC-RESERVATION-019",
+          "TC-RESERVATION-020",
+          "TC-RESERVATION-021",
+          "TC-RESERVATION-022",
+          "TC-RESERVATION-023",
+          "TC-RESERVATION-024",
+          "TC-RESERVATION-025",
+          "TC-RESERVATION-026",
+          "TC-RESERVATION-027",
+          "TC-RESERVATION-028",
+          "TC-RESERVATION-029",
+          "TC-RESERVATION-030",
+          "TC-RESERVATION-031",
+          "TC-RESERVATION-032",
+          "TC-RESERVATION-033",
+          "TC-RESERVATION-034",
+          "TC-RESERVATION-035",
+          "TC-RESERVATION-036",
+          "TC-RESERVATION-037",
+          "TC-RESERVATION-038",
+          "TC-RESERVATION-039",
+          "TC-RESERVATION-040",
+          "TC-RESERVATION-041",
+          "TC-RESERVATION-042",
+          "TC-RESERVATION-043",
+          "TC-RESERVATION-044",
+          "TC-RESERVATION-045",
+          "TC-RESERVATION-046",
+          "TC-RESERVATION-047",
+          "TC-RESERVATION-048",
+          "TC-RESERVATION-049",
+          "TC-RESERVATION-101",
+          "TC-RESERVATION-102",
+          "TC-RESERVATION-103",
+          "TC-RESERVATION-104",
+          "TC-RESERVATION-105",
+          "TC-RESERVATION-106",
+          "TC-RESERVATION-107",
+          "TC-RESERVATION-108",
+          "TC-RESERVATION-109",
+          "TC-RESERVATION-111",
+          "TC-RESERVATION-112",
+          "TC-RESERVATION-113",
+          "TC-RESERVATION-114",
+          "TC-RESERVATION-121",
+          "TC-RESERVATION-122",
+          "TC-RESERVATION-123",
+          "TC-RESERVATION-124",
+          "TC-RESERVATION-125",
+          "TC-RESERVATION-126",
+          "TC-RESERVATION-131",
+          "TC-RESERVATION-141",
+          "TC-RESERVATION-142",
+          "TC-RESERVATION-151"
+        ],
+        "red_base": "4c3e23b17da870d29011e618d725933b1ce4ab70",
+        "red_summary": {
+          "result_hash": "sha256:d3886775663a6bf926e8f4933decaf5c220d08704175dbdc3b3f118e8f599baa",
+          "pass": 72,
+          "fail": 0,
+          "at": "2026-11-13T15:12:20.470Z"
+        }
+      },
+      "metrics": {
+        "time": {
+          "wall_ms": 1000536,
+          "last_pass_ms": 17924,
+          "first_started_at": "2026-11-13T14:40:44.592Z",
+          "last_completed_at": "2026-11-13T15:12:20.483Z",
+          "passes": 3
+        },
+        "cost": {
+          "main_usd": 0,
+          "subagent_usd": 0,
+          "background_usd": 0,
+          "total_usd": 0,
+          "duration_ms": 0,
+          "samples": 0,
+          "source": "transcript",
+          "includes_subagents": true,
+          "lower_bound": true
+        },
+        "tokens": {
+          "input": 98,
+          "output": 73210,
+          "cache_read": 20716544,
+          "cache_creation": 139312,
+          "billable": 212620,
+          "background_billable": 0,
+          "samples": 47,
+          "requests": 47,
+          "background_requests": 0,
+          "source": "transcript",
+          "cache_read_per_request": 440778
+        }
+      }
+    },
+    "implement": {
+      "status": "in_progress",
+      "started_at": "2026-11-13T15:12:20.483Z",
+      "agent_required": null,
+      "agent_required_at": null,
+      "stage_agent_available": "context-ops:implement-agent",
+      "agent_dispatch_attempts": 0,
+      "agent_dispatched_at": null,
+      "artifact_view_plan": [
+        {
+          "artifact": "criteria",
+          "for_stage": "implement",
+          "context": "mid",
+          "uc_ids": [
+            "UC-RESERVATION-001",
+            "UC-RESERVATION-002",
+            "UC-RESERVATION-003",
+            "UC-RESERVATION-004"
+          ]
+        },
+        {
+          "artifact": "task-card",
+          "for_stage": "implement",
+          "context": "mid",
+          "uc_ids": [
+            "UC-RESERVATION-001",
+            "UC-RESERVATION-002",
+            "UC-RESERVATION-003",
+            "UC-RESERVATION-004"
+          ]
+        },
+        {
+          "artifact": "test-view",
+          "for_stage": "implement",
+          "context": "mid",
+          "uc_ids": [
+            "UC-RESERVATION-001",
+            "UC-RESERVATION-002",
+            "UC-RESERVATION-003",
+            "UC-RESERVATION-004"
+          ]
+        }
+      ],
+      "stage_kit": {
+        "outputs": [],
+        "validators": [
+          "test-impl-pass-validator",
+          "static-runner (Semgrep · PMD)",
+          "lint-no-simulation (chain-strict)",
+          "schema-validator",
+          "traceability-matrix-builder",
+          "chain-coverage-validator",
+          "spec-test-link-validator",
+          "graph-integrity-validator",
+          "code-pointer-validator"
+        ],
+        "degraded": null
+      },
+      "reading_plan": {
+        "protocol": "methodology-spec/policies/artifact-reading-protocol.md",
+        "index_cmd": "chain-driver index <project> --scope roombook-mvp",
+        "closure_cmd": "chain-driver closure <project> --scope roombook-mvp --seed UC-RESERVATION-001,UC-RESERVATION-002,UC-RESERVATION-003,UC-RESERVATION-004",
+        "seed_ids": [
+          "UC-RESERVATION-001",
+          "UC-RESERVATION-002",
+          "UC-RESERVATION-003",
+          "UC-RESERVATION-004"
+        ],
+        "seed_kinds": [
+          "TASK",
+          "TC"
+        ],
+        "engraved_at": "2026-11-13T15:12:23.698Z",
+        "items": [
+          {
+            "kind": "element",
+            "id": null,
+            "path": ".ai-context/base/specs",
+            "range": null,
+            "read": null,
+            "part": 1
+          },
+          {
+            "kind": "unit_body",
+            "id": "UNIT-RESERVATION-020",
+            "path": "apps/api/src/main/java/com/roombook/api/RoombookApplication.java",
+            "range": [
+              6,
+              12
+            ],
+            "read": {
+              "offset": 1,
+              "limit": 12
+            },
+            "part": 1
+          },
+          {
+            "kind": "unit_body",
+            "id": "UNIT-RESERVATION-025",
+            "path": "apps/api/src/main/java/com/roombook/api/application/ReservationCommand.java",
+            "range": [
+              6,
+              9
+            ],
+            "read": null,
+            "part": 1
+          },
+          {
+            "kind": "unit_body",
+            "id": "UNIT-RESERVATION-003",
+            "path": "apps/api/src/main/java/com/roombook/api/application/ReservationService.java",
+            "range": [
+              19,
+              89
+            ],
+            "read": {
+              "offset": 1,
+              "limit": 89
+            },
+            "part": 1
+          },
+          {
+            "kind": "unit_body",
+            "id": "UNIT-RESERVATION-024",
+            "path": "apps/api/src/main/java/com/roombook/api/application/ReservationView.java",
+            "range": [
+              5,
+              7
+            ],
+            "read": null,
+            "part": 1
+          },
+          {
+            "kind": "unit_body",
+            "id": "UNIT-RESERVATION-012",
+            "path": "apps/api/src/main/java/com/roombook/api/config/ClockConfig.java",
+            "range": [
+              8,
+              18
+            ],
+            "read": {
+              "offset": 1,
+              "limit": 18
+            },
+            "part": 1
+          },
+          {
+            "kind": "unit_body",
+            "id": "UNIT-RESERVATION-010",
+            "path": "apps/api/src/main/java/com/roombook/api/domain/RejectionCode.java",
+            "range": [
+              3,
+              34
+            ],
+            "read": {
+              "offset": 1,
+              "limit": 34
+            },
+            "part": 1
+          },
+          {
+            "kind": "unit_body",
+            "id": "UNIT-RESERVATION-022",
+            "path": "apps/api/src/main/java/com/roombook/api/domain/RejectionException.java",
+            "range": [
+              3,
+              16
+            ],
+            "read": {
+              "offset": 1,
+              "limit": 16
+            },
+            "part": 1
+          },
+          {
+            "kind": "unit_body",
+            "id": "UNIT-RESERVATION-006",
+            "path": "apps/api/src/main/java/com/roombook/api/domain/Reservation.java",
+            "range": [
+              15,
+              156
+            ],
+            "read": {
+              "offset": 1,
+              "limit": 156
+            },
+            "part": 1
+          },
+          {
+            "kind": "unit_body",
+            "id": "UNIT-RESERVATION-007",
+            "path": "apps/api/src/main/java/com/roombook/api/domain/Reservation.java",
+            "range": [
+              96,
+              99
+            ],
+            "read": null,
+            "part": 1
+          },
+          {
+            "kind": "unit_body",
+            "id": "UNIT-RESERVATION-004",
+            "path": "apps/api/src/main/java/com/roombook/api/domain/ReservationPolicy.java",
+            "range": [
+              8,
+              54
+            ],
+            "read": {
+              "offset": 1,
+              "limit": 54
+            },
+            "part": 1
+          },
+          {
+            "kind": "unit_body",
+            "id": "UNIT-RESERVATION-023",
+            "path": "apps/api/src/main/java/com/roombook/api/domain/ReservationStatus.java",
+            "range": [
+              3,
+              6
+            ],
+            "read": {
+              "offset": 1,
+              "limit": 6
+            },
+            "part": 1
+          },
+          {
+            "kind": "unit_body",
+            "id": "UNIT-RESERVATION-021",
+            "path": "apps/api/src/main/java/com/roombook/api/domain/Room.java",
+            "range": [
+              8,
+              45
+            ],
+            "read": {
+              "offset": 1,
+              "limit": 45
+            },
+            "part": 1
+          },
+          {
+            "kind": "unit_body",
+            "id": "UNIT-RESERVATION-005",
+            "path": "apps/api/src/main/java/com/roombook/api/domain/TimeRange.java",
+            "range": [
+              5,
+              12
+            ],
+            "read": {
+              "offset": 1,
+              "limit": 12
+            },
+            "part": 1
+          },
+          {
+            "kind": "unit_body",
+            "id": "UNIT-RESERVATION-009",
+            "path": "apps/api/src/main/java/com/roombook/api/persistence/ReservationRepository.java",
+            "range": [
+              9,
+              13
+            ],
+            "read": null,
+            "part": 1
+          },
+          {
+            "kind": "unit_body",
+            "id": "UNIT-RESERVATION-008",
+            "path": "apps/api/src/main/java/com/roombook/api/persistence/RoomRepository.java",
+            "range": [
+              12,
+              23
+            ],
+            "read": {
+              "offset": 1,
+              "limit": 23
+            },
+            "part": 1
+          },
+          {
+            "kind": "unit_body",
+            "id": "UNIT-RESERVATION-011",
+            "path": "apps/api/src/main/java/com/roombook/api/web/ApiExceptionHandler.java",
+            "range": [
+              13,
+              35
+            ],
+            "read": {
+              "offset": 1,
+              "limit": 35
+            },
+            "part": 1
+          },
+          {
+            "kind": "unit_body",
+            "id": "UNIT-RESERVATION-026",
+            "path": "apps/api/src/main/java/com/roombook/api/web/CreateReservationRequest.java",
+            "range": [
+              9,
+              19
+            ],
+            "read": {
+              "offset": 1,
+              "limit": 19
+            },
+            "part": 1
+          },
+          {
+            "kind": "unit_body",
+            "id": "UNIT-RESERVATION-029",
+            "path": "apps/api/src/main/java/com/roombook/api/web/RejectionResponse.java",
+            "range": [
+              5,
+              10
+            ],
+            "read": {
+              "offset": 1,
+              "limit": 10
+            },
+            "part": 1
+          },
+          {
+            "kind": "unit_body",
+            "id": "UNIT-RESERVATION-002",
+            "path": "apps/api/src/main/java/com/roombook/api/web/ReservationController.java",
+            "range": [
+              17,
+              48
+            ],
+            "read": {
+              "offset": 1,
+              "limit": 48
+            },
+            "part": 1
+          },
+          {
+            "kind": "unit_body",
+            "id": "UNIT-RESERVATION-027",
+            "path": "apps/api/src/main/java/com/roombook/api/web/ReservationResponse.java",
+            "range": [
+              9,
+              29
+            ],
+            "read": {
+              "offset": 1,
+              "limit": 29
+            },
+            "part": 1
+          },
+          {
+            "kind": "unit_body",
+            "id": "UNIT-RESERVATION-001",
+            "path": "apps/api/src/main/java/com/roombook/api/web/RoomController.java",
+            "range": [
+              8,
+              21
+            ],
+            "read": {
+              "offset": 1,
+              "limit": 21
+            },
+            "part": 1
+          },
+          {
+            "kind": "unit_body",
+            "id": "UNIT-RESERVATION-028",
+            "path": "apps/api/src/main/java/com/roombook/api/web/RoomResponse.java",
+            "range": [
+              5,
+              10
+            ],
+            "read": {
+              "offset": 1,
+              "limit": 10
+            },
+            "part": 1
+          },
+          {
+            "kind": "unit_body",
+            "id": "UNIT-RESERVATION-033",
+            "path": "apps/api/src/main/resources/data.sql",
+            "range": null,
+            "read": null,
+            "part": 1
+          },
+          {
+            "kind": "unit_body",
+            "id": "UNIT-RESERVATION-013",
+            "path": "apps/api/src/main/resources/schema.sql",
+            "range": [
+              1,
+              7
+            ],
+            "read": null,
+            "part": 1
+          },
+          {
+            "kind": "unit_body",
+            "id": "UNIT-RESERVATION-014",
+            "path": "apps/api/src/main/resources/schema.sql",
+            "range": [
+              9,
+              24
+            ],
+            "read": {
+              "offset": 1,
+              "limit": 26
+            },
+            "part": 1
+          },
+          {
+            "kind": "unit_body",
+            "id": "UNIT-RESERVATION-032",
+            "path": "apps/api/src/main/resources/schema.sql",
+            "range": null,
+            "read": null,
+            "part": 1
+          },
+          {
+            "kind": "unit_body",
+            "id": "UNIT-RESERVATION-030",
+            "path": "apps/web/src/App.tsx",
+            "range": [
+              3,
+              10
+            ],
+            "read": {
+              "offset": 1,
+              "limit": 10
+            },
+            "part": 1
+          },
+          {
+            "kind": "unit_body",
+            "id": "UNIT-RESERVATION-015",
+            "path": "apps/web/src/api/client.ts",
+            "range": null,
+            "read": null,
+            "part": 1
+          },
+          {
+            "kind": "unit_body",
+            "id": "UNIT-RESERVATION-018",
+            "path": "apps/web/src/components/ReservationBoard.tsx",
+            "range": [
+              13,
+              149
+            ],
+            "read": {
+              "offset": 1,
+              "limit": 149
+            },
+            "part": 1
+          },
+          {
+            "kind": "unit_body",
+            "id": "UNIT-RESERVATION-019",
+            "path": "apps/web/src/components/ReservationForm.tsx",
+            "range": [
+              19,
+              97
+            ],
+            "read": {
+              "offset": 1,
+              "limit": 97
+            },
+            "part": 1
+          },
+          {
+            "kind": "unit_body",
+            "id": "UNIT-RESERVATION-031",
+            "path": "apps/web/src/main.tsx",
+            "range": null,
+            "read": null,
+            "part": 1
+          },
+          {
+            "kind": "unit_body",
+            "id": "UNIT-RESERVATION-016",
+            "path": "apps/web/src/rejection-messages.ts",
+            "range": [
+              1,
+              18
+            ],
+            "read": {
+              "offset": 1,
+              "limit": 18
+            },
+            "part": 1
+          },
+          {
+            "kind": "unit_body",
+            "id": "UNIT-RESERVATION-017",
+            "path": "apps/web/src/time-options.ts",
+            "range": [
+              1,
+              13
+            ],
+            "read": {
+              "offset": 1,
+              "limit": 13
+            },
+            "part": 1
+          },
+          {
+            "kind": "unit_body",
+            "id": "UNIT-RESERVATION-034",
+            "path": "apps/web/vite.config.ts",
+            "range": [
+              5,
+              20
+            ],
+            "read": {
+              "offset": 1,
+              "limit": 20
+            },
+            "part": 1
+          },
+          {
+            "kind": "collaborator_signature",
+            "id": "UNIT-RESERVATION-003",
+            "path": "apps/api/src/main/java/com/roombook/api/application/ReservationService.java",
+            "range": [
+              19,
+              20
+            ],
+            "read": null,
+            "part": 1
+          },
+          {
+            "kind": "collaborator_signature",
+            "id": "UNIT-RESERVATION-012",
+            "path": "apps/api/src/main/java/com/roombook/api/config/ClockConfig.java",
+            "range": [
+              9,
+              10
+            ],
+            "read": null,
+            "part": 1
+          },
+          {
+            "kind": "collaborator_signature",
+            "id": "UNIT-RESERVATION-010",
+            "path": "apps/api/src/main/java/com/roombook/api/domain/RejectionCode.java",
+            "range": [
+              4,
+              4
+            ],
+            "read": null,
+            "part": 1
+          },
+          {
+            "kind": "collaborator_signature",
+            "id": "UNIT-RESERVATION-006",
+            "path": "apps/api/src/main/java/com/roombook/api/domain/Reservation.java",
+            "range": [
+              16,
+              18
+            ],
+            "read": null,
+            "part": 1
+          },
+          {
+            "kind": "collaborator_signature",
+            "id": "UNIT-RESERVATION-007",
+            "path": "apps/api/src/main/java/com/roombook/api/domain/Reservation.java",
+            "range": [
+              97,
+              97
+            ],
+            "read": null,
+            "part": 1
+          },
+          {
+            "kind": "collaborator_signature",
+            "id": "UNIT-RESERVATION-004",
+            "path": "apps/api/src/main/java/com/roombook/api/domain/ReservationPolicy.java",
+            "range": [
+              13,
+              13
+            ],
+            "read": null,
+            "part": 1
+          },
+          {
+            "kind": "collaborator_signature",
+            "id": "UNIT-RESERVATION-005",
+            "path": "apps/api/src/main/java/com/roombook/api/domain/TimeRange.java",
+            "range": [
+              6,
+              6
+            ],
+            "read": null,
+            "part": 1
+          },
+          {
+            "kind": "collaborator_signature",
+            "id": "UNIT-RESERVATION-009",
+            "path": "apps/api/src/main/java/com/roombook/api/persistence/ReservationRepository.java",
+            "range": [
+              9,
+              9
+            ],
+            "read": null,
+            "part": 1
+          },
+          {
+            "kind": "collaborator_signature",
+            "id": "UNIT-RESERVATION-008",
+            "path": "apps/api/src/main/java/com/roombook/api/persistence/RoomRepository.java",
+            "range": [
+              12,
+              12
+            ],
+            "read": null,
+            "part": 1
+          },
+          {
+            "kind": "collaborator_signature",
+            "id": "UNIT-RESERVATION-015",
+            "path": "apps/web/src/api/client.ts",
+            "range": null,
+            "read": null,
+            "part": 1
+          },
+          {
+            "kind": "collaborator_signature",
+            "id": "UNIT-RESERVATION-019",
+            "path": "apps/web/src/components/ReservationForm.tsx",
+            "range": [
+              19,
+              19
+            ],
+            "read": null,
+            "part": 1
+          },
+          {
+            "kind": "collaborator_signature",
+            "id": "UNIT-RESERVATION-016",
+            "path": "apps/web/src/rejection-messages.ts",
+            "range": [
+              2,
+              2
+            ],
+            "read": null,
+            "part": 1
+          },
+          {
+            "kind": "collaborator_signature",
+            "id": "UNIT-RESERVATION-017",
+            "path": "apps/web/src/time-options.ts",
+            "range": [
+              2,
+              2
+            ],
+            "read": null,
+            "part": 1
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-109",
+            "path": "apps/api/src/test/java/com/roombook/api/domain/ReservationPolicyPropertiesTest.java",
+            "range": null,
+            "read": null,
+            "part": 1
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-101",
+            "path": "apps/api/src/test/java/com/roombook/api/domain/ReservationPolicyTest.java",
+            "range": null,
+            "read": null,
+            "part": 1
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-102",
+            "path": "apps/api/src/test/java/com/roombook/api/domain/ReservationPolicyTest.java",
+            "range": null,
+            "read": null,
+            "part": 1
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-103",
+            "path": "apps/api/src/test/java/com/roombook/api/domain/ReservationPolicyTest.java",
+            "range": null,
+            "read": null,
+            "part": 1
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-104",
+            "path": "apps/api/src/test/java/com/roombook/api/domain/ReservationPolicyTest.java",
+            "range": null,
+            "read": null,
+            "part": 1
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-105",
+            "path": "apps/api/src/test/java/com/roombook/api/domain/ReservationPolicyTest.java",
+            "range": null,
+            "read": null,
+            "part": 1
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-106",
+            "path": "apps/api/src/test/java/com/roombook/api/domain/ReservationPolicyTest.java",
+            "range": null,
+            "read": null,
+            "part": 1
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-107",
+            "path": "apps/api/src/test/java/com/roombook/api/domain/ReservationPolicyTest.java",
+            "range": null,
+            "read": null,
+            "part": 1
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-108",
+            "path": "apps/api/src/test/java/com/roombook/api/domain/ReservationPolicyTest.java",
+            "range": null,
+            "read": null,
+            "part": 1
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-126",
+            "path": "apps/api/src/test/java/com/roombook/api/domain/ReservationPropertiesTest.java",
+            "range": null,
+            "read": null,
+            "part": 1
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-121",
+            "path": "apps/api/src/test/java/com/roombook/api/domain/ReservationTest.java",
+            "range": null,
+            "read": null,
+            "part": 1
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-122",
+            "path": "apps/api/src/test/java/com/roombook/api/domain/ReservationTest.java",
+            "range": null,
+            "read": null,
+            "part": 1
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-123",
+            "path": "apps/api/src/test/java/com/roombook/api/domain/ReservationTest.java",
+            "range": null,
+            "read": null,
+            "part": 1
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-124",
+            "path": "apps/api/src/test/java/com/roombook/api/domain/ReservationTest.java",
+            "range": null,
+            "read": null,
+            "part": 1
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-125",
+            "path": "apps/api/src/test/java/com/roombook/api/domain/ReservationTest.java",
+            "range": null,
+            "read": null,
+            "part": 1
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-131",
+            "path": "apps/api/src/test/java/com/roombook/api/domain/ReservationTest.java",
+            "range": null,
+            "read": null,
+            "part": 1
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-113",
+            "path": "apps/api/src/test/java/com/roombook/api/domain/TimeRangePropertiesTest.java",
+            "range": null,
+            "read": null,
+            "part": 1
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-114",
+            "path": "apps/api/src/test/java/com/roombook/api/domain/TimeRangePropertiesTest.java",
+            "range": null,
+            "read": null,
+            "part": 1
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-111",
+            "path": "apps/api/src/test/java/com/roombook/api/domain/TimeRangeTest.java",
+            "range": null,
+            "read": null,
+            "part": 1
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-112",
+            "path": "apps/api/src/test/java/com/roombook/api/domain/TimeRangeTest.java",
+            "range": null,
+            "read": null,
+            "part": 1
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-042",
+            "path": "apps/api/src/test/java/com/roombook/api/web/ReservationCancelApiTest.java",
+            "range": null,
+            "read": null,
+            "part": 1
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-043",
+            "path": "apps/api/src/test/java/com/roombook/api/web/ReservationCancelApiTest.java",
+            "range": null,
+            "read": null,
+            "part": 1
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-044",
+            "path": "apps/api/src/test/java/com/roombook/api/web/ReservationCancelApiTest.java",
+            "range": null,
+            "read": null,
+            "part": 1
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-045",
+            "path": "apps/api/src/test/java/com/roombook/api/web/ReservationCancelApiTest.java",
+            "range": null,
+            "read": null,
+            "part": 1
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-046",
+            "path": "apps/api/src/test/java/com/roombook/api/web/ReservationCancelApiTest.java",
+            "range": null,
+            "read": null,
+            "part": 2
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-047",
+            "path": "apps/api/src/test/java/com/roombook/api/web/ReservationCancelApiTest.java",
+            "range": null,
+            "read": null,
+            "part": 2
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-014",
+            "path": "apps/api/src/test/java/com/roombook/api/web/ReservationCreateApiTest.java",
+            "range": null,
+            "read": null,
+            "part": 2
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-015",
+            "path": "apps/api/src/test/java/com/roombook/api/web/ReservationCreateApiTest.java",
+            "range": null,
+            "read": null,
+            "part": 2
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-016",
+            "path": "apps/api/src/test/java/com/roombook/api/web/ReservationCreateApiTest.java",
+            "range": null,
+            "read": null,
+            "part": 2
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-017",
+            "path": "apps/api/src/test/java/com/roombook/api/web/ReservationCreateApiTest.java",
+            "range": null,
+            "read": null,
+            "part": 2
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-018",
+            "path": "apps/api/src/test/java/com/roombook/api/web/ReservationCreateApiTest.java",
+            "range": null,
+            "read": null,
+            "part": 2
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-019",
+            "path": "apps/api/src/test/java/com/roombook/api/web/ReservationCreateApiTest.java",
+            "range": null,
+            "read": null,
+            "part": 2
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-020",
+            "path": "apps/api/src/test/java/com/roombook/api/web/ReservationCreateApiTest.java",
+            "range": null,
+            "read": null,
+            "part": 2
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-021",
+            "path": "apps/api/src/test/java/com/roombook/api/web/ReservationCreateApiTest.java",
+            "range": null,
+            "read": null,
+            "part": 2
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-022",
+            "path": "apps/api/src/test/java/com/roombook/api/web/ReservationCreateApiTest.java",
+            "range": null,
+            "read": null,
+            "part": 2
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-023",
+            "path": "apps/api/src/test/java/com/roombook/api/web/ReservationCreateApiTest.java",
+            "range": null,
+            "read": null,
+            "part": 2
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-024",
+            "path": "apps/api/src/test/java/com/roombook/api/web/ReservationCreateApiTest.java",
+            "range": null,
+            "read": null,
+            "part": 2
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-025",
+            "path": "apps/api/src/test/java/com/roombook/api/web/ReservationCreateApiTest.java",
+            "range": null,
+            "read": null,
+            "part": 2
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-026",
+            "path": "apps/api/src/test/java/com/roombook/api/web/ReservationCreateApiTest.java",
+            "range": null,
+            "read": null,
+            "part": 2
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-027",
+            "path": "apps/api/src/test/java/com/roombook/api/web/ReservationCreateApiTest.java",
+            "range": null,
+            "read": null,
+            "part": 2
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-028",
+            "path": "apps/api/src/test/java/com/roombook/api/web/ReservationCreateApiTest.java",
+            "range": null,
+            "read": null,
+            "part": 2
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-029",
+            "path": "apps/api/src/test/java/com/roombook/api/web/ReservationCreateApiTest.java",
+            "range": null,
+            "read": null,
+            "part": 2
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-030",
+            "path": "apps/api/src/test/java/com/roombook/api/web/ReservationCreateApiTest.java",
+            "range": null,
+            "read": null,
+            "part": 2
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-031",
+            "path": "apps/api/src/test/java/com/roombook/api/web/ReservationCreateApiTest.java",
+            "range": null,
+            "read": null,
+            "part": 2
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-002",
+            "path": "apps/api/src/test/java/com/roombook/api/web/ReservationListApiTest.java",
+            "range": null,
+            "read": null,
+            "part": 2
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-003",
+            "path": "apps/api/src/test/java/com/roombook/api/web/ReservationListApiTest.java",
+            "range": null,
+            "read": null,
+            "part": 2
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-004",
+            "path": "apps/api/src/test/java/com/roombook/api/web/ReservationListApiTest.java",
+            "range": null,
+            "read": null,
+            "part": 2
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-005",
+            "path": "apps/api/src/test/java/com/roombook/api/web/ReservationListApiTest.java",
+            "range": null,
+            "read": null,
+            "part": 2
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-006",
+            "path": "apps/api/src/test/java/com/roombook/api/web/ReservationListApiTest.java",
+            "range": null,
+            "read": null,
+            "part": 2
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-007",
+            "path": "apps/api/src/test/java/com/roombook/api/web/ReservationListApiTest.java",
+            "range": null,
+            "read": null,
+            "part": 2
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-008",
+            "path": "apps/api/src/test/java/com/roombook/api/web/ReservationListApiTest.java",
+            "range": null,
+            "read": null,
+            "part": 2
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-009",
+            "path": "apps/api/src/test/java/com/roombook/api/web/ReservationListApiTest.java",
+            "range": null,
+            "read": null,
+            "part": 2
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-037",
+            "path": "apps/api/src/test/java/com/roombook/api/web/ReservationOverlapApiTest.java",
+            "range": null,
+            "read": null,
+            "part": 2
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-038",
+            "path": "apps/api/src/test/java/com/roombook/api/web/ReservationOverlapApiTest.java",
+            "range": null,
+            "read": null,
+            "part": 2
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-039",
+            "path": "apps/api/src/test/java/com/roombook/api/web/ReservationOverlapApiTest.java",
+            "range": null,
+            "read": null,
+            "part": 2
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-040",
+            "path": "apps/api/src/test/java/com/roombook/api/web/ReservationOverlapApiTest.java",
+            "range": null,
+            "read": null,
+            "part": 2
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-041",
+            "path": "apps/api/src/test/java/com/roombook/api/web/ReservationOverlapApiTest.java",
+            "range": null,
+            "read": null,
+            "part": 2
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-001",
+            "path": "apps/api/src/test/java/com/roombook/api/web/RoomListApiTest.java",
+            "range": null,
+            "read": null,
+            "part": 2
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-010",
+            "path": "apps/web/src/components/ReservationBoard.test.tsx",
+            "range": [
+              12,
+              39
+            ],
+            "read": null,
+            "part": 2
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-011",
+            "path": "apps/web/src/components/ReservationBoard.test.tsx",
+            "range": [
+              41,
+              67
+            ],
+            "read": null,
+            "part": 2
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-012",
+            "path": "apps/web/src/components/ReservationBoard.test.tsx",
+            "range": [
+              69,
+              78
+            ],
+            "read": null,
+            "part": 2
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-013",
+            "path": "apps/web/src/components/ReservationBoard.test.tsx",
+            "range": [
+              80,
+              97
+            ],
+            "read": null,
+            "part": 2
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-048",
+            "path": "apps/web/src/components/ReservationBoard.test.tsx",
+            "range": [
+              101,
+              120
+            ],
+            "read": null,
+            "part": 2
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-049",
+            "path": "apps/web/src/components/ReservationBoard.test.tsx",
+            "range": [
+              122,
+              135
+            ],
+            "read": null,
+            "part": 2
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-032",
+            "path": "apps/web/src/components/ReservationForm.test.tsx",
+            "range": [
+              31,
+              57
+            ],
+            "read": null,
+            "part": 2
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-033",
+            "path": "apps/web/src/components/ReservationForm.test.tsx",
+            "range": [
+              59,
+              75
+            ],
+            "read": null,
+            "part": 2
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-034",
+            "path": "apps/web/src/components/ReservationForm.test.tsx",
+            "range": [
+              77,
+              91
+            ],
+            "read": null,
+            "part": 2
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-036",
+            "path": "apps/web/src/components/ReservationForm.test.tsx",
+            "range": [
+              93,
+              116
+            ],
+            "read": null,
+            "part": 3
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-035",
+            "path": "apps/web/src/rejection-messages.test.ts",
+            "range": [
+              15,
+              27
+            ],
+            "read": null,
+            "part": 3
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-141",
+            "path": "apps/web/src/rejection-messages.test.ts",
+            "range": [
+              29,
+              36
+            ],
+            "read": null,
+            "part": 3
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-142",
+            "path": "apps/web/src/rejection-messages.test.ts",
+            "range": [
+              38,
+              47
+            ],
+            "read": null,
+            "part": 3
+          },
+          {
+            "kind": "test_range",
+            "id": "TC-RESERVATION-151",
+            "path": "apps/web/src/time-options.test.ts",
+            "range": [
+              5,
+              20
+            ],
+            "read": null,
+            "part": 3
+          }
+        ],
+        "parts": 3
+      },
+      "gate_decision": "revisit"
+    }
+  },
+  "last_gate": {
+    "id": "#4",
+    "stage": "test",
+    "decision": "go",
+    "decision_at": "2026-11-13T15:12:20.483Z",
+    "validator_findings": {
+      "critical": 0,
+      "high": 0,
+      "medium": 0,
+      "low": 0,
+      "info": 0
+    },
+    "intervention_log_path": ".ai-context/local/evidence/intervention-log.jsonl"
+  },
+  "pending_revisit": null,
+  "blocked": true,
+  "block_reason": "gate_not_surfaced",
+  "revisit_ignore_globs": [],
+  "intervention_log_path": ".ai-context/local/evidence/intervention-log.jsonl",
+  "current_task": null,
+  "task": {
+    "scope": "roombook-mvp",
+    "status": "in_progress",
+    "opened_at": "2026-11-13T14:16:52.999Z",
+    "scenario": "S3",
+    "route": "full",
+    "analysis_refs": {
+      "rules": [
+        "BR-RESERVATION-ATTENDEES-001",
+        "BR-RESERVATION-CANCEL-001",
+        "BR-RESERVATION-CANCEL-002",
+        "BR-RESERVATION-DURATION-001",
+        "BR-RESERVATION-HOURS-001",
+        "BR-RESERVATION-OVERLAP-001",
+        "BR-RESERVATION-RETAIN-001",
+        "BR-RESERVATION-SLOT-001",
+        "BR-RESERVATION-TITLE-001",
+        "BR-RESERVATION-WINDOW-001"
+      ],
+      "endpoints": [],
+      "schemas": [],
+      "domain": [],
+      "antipatterns": [],
+      "artifacts": {
+        "antipatterns.json": ".ai-context/base/antipatterns.json",
+        "architecture.json": ".ai-context/base/shared/architecture.json",
+        "business-rules.json": ".ai-context/base",
+        "domain.json": ".ai-context/base/shared/domain.json",
+        "openapi.yaml": ".ai-context/base",
+        "schema.json": ".ai-context/base/shared/schema.json"
+      }
+    },
+    "reference_sources": [],
+    "finished_tasks": [],
+    "closure": null
+  },
+  "guards": {
+    "stage_dirty": {
+      "status": "undetermined",
+      "attempts": 0,
+      "cap": null,
+      "waiver": null,
+      "updated_at": "2026-11-13T15:13:23.072Z"
+    },
+    "entry_task": {
+      "status": "armed",
+      "attempts": 0,
+      "cap": null,
+      "waiver": null,
+      "updated_at": "2026-11-13T15:12:23.698Z"
+    },
+    "gate_surfacing": {
+      "status": "armed",
+      "attempts": 0,
+      "cap": null,
+      "waiver": null,
+      "updated_at": "2026-11-13T15:12:23.698Z"
+    },
+    "task_close": {
+      "status": "armed",
+      "attempts": 0,
+      "cap": null,
+      "waiver": null,
+      "updated_at": "2026-11-13T15:12:23.698Z"
+    },
+    "picker_repeat": {
+      "status": "armed",
+      "attempts": 0,
+      "cap": null,
+      "waiver": null,
+      "updated_at": "2026-11-13T15:12:23.698Z"
+    },
+    "stage_agent": {
+      "status": "armed",
+      "attempts": 0,
+      "cap": null,
+      "waiver": null,
+      "updated_at": "2026-11-13T15:12:23.698Z"
+    },
+    "initiative": {
+      "status": "armed",
+      "attempts": 0,
+      "cap": null,
+      "waiver": null,
+      "updated_at": "2026-11-13T15:12:23.698Z"
+    },
+    "task_post": {
+      "status": "armed",
+      "attempts": 0,
+      "cap": 3,
+      "waiver": null,
+      "updated_at": "2026-11-13T15:12:23.698Z"
+    },
+    "research_dispatch": {
+      "status": "armed",
+      "attempts": 0,
+      "cap": null,
+      "waiver": null,
+      "updated_at": "2026-11-13T15:12:23.698Z"
+    },
+    "external_write": {
+      "status": "armed",
+      "attempts": 0,
+      "cap": null,
+      "waiver": null,
+      "opted_in": false,
+      "updated_at": "2026-11-13T15:12:23.698Z"
+    },
+    "stage_write": {
+      "status": "armed",
+      "attempts": 0,
+      "cap": 3,
+      "waiver": null,
+      "updated_at": "2026-11-13T15:12:23.698Z"
+    },
+    "impl_retry": {
+      "status": "armed",
+      "attempts": 0,
+      "cap": null,
+      "waiver": null,
+      "updated_at": "2026-11-13T15:12:23.698Z"
+    }
+  },
+  "user_waive_token": null,
+  "user_external_write_token": null,
+  "user_discard_token": null,
+  "user_heavier_token": null,
+  "light_heavier_pending": null,
+  "user_start_token": null,
+  "start_recommendation": null,
+  "block_scope": "roombook-mvp",
+  "pending_gate": {
+    "stage": "implement",
+    "gate_id": "#5",
+    "presented_at": "2026-11-13T15:13:27.074Z",
+    "hold_count": 1,
+    "reasons": [
+      "ticket_evidence_unobserved"
+    ],
+    "findings_snapshot": {
+      "critical": 0,
+      "high": 0,
+      "medium": 0,
+      "low": 0,
+      "info": 0
+    }
+  },
+  "user_gate_token": null,
+  "sessions_seen": [
+    {
+      "id": "ae737add-278d-4acd-a16c-0aba0db7d17e",
+      "scope": "roombook-mvp",
+      "first_seen_at": "2026-11-13T14:16:53.003Z",
+      "last_seen_at": "2026-11-13T14:16:53.003Z"
+    }
+  ],
+  "user_auto_delegation_token": {
+    "issued_at": "2026-11-13T14:55:25.218Z",
+    "nonce": "5d7f1a7e-669c-48e4-ba65-ab535e00edf7",
+    "consumed": false,
+    "scope": "roombook-mvp",
+    "session_id": "ae737add-278d-4acd-a16c-0aba0db7d17e",
+    "confirmed_by": {
+      "context": "gate",
+      "choice_id": "gate:confirm",
+      "stage": "test",
+      "fingerprint": "sha256:0f1737fb1763f14a5e6434c1a99c079b60ddb3c8c225503c7ecb62da5047a413",
+      "issued_at": "2026-11-13T14:55:25.215Z"
+    }
+  },
+  "user_option_token": {
+    "context": "gate",
+    "fingerprint": "sha256:0f1737fb1763f14a5e6434c1a99c079b60ddb3c8c225503c7ecb62da5047a413",
+    "choice_id": "gate:confirm",
+    "label": "확인하고 이어 가기",
+    "stage": "test",
+    "issued_at": "2026-11-13T14:55:25.215Z",
+    "consumed": true
+  }
+}

@@ -1,0 +1,46 @@
+
+$ gradle test --console=plain --continue  (/home/user/testbed/apps/api)
+> Task :compileJava UP-TO-DATE
+> Task :processResources UP-TO-DATE
+> Task :classes UP-TO-DATE
+> Task :compileTestJava UP-TO-DATE
+> Task :processTestResources NO-SOURCE
+> Task :testClasses UP-TO-DATE
+
+> Task :test
+
+2026-11-13T15:12:33.602Z  INFO 13258 --- [roombook-api] [ionShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2026-11-13T15:12:33.608Z  INFO 13258 --- [roombook-api] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2026-11-13T15:12:33.612Z  INFO 13258 --- [roombook-api] [ionShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-11-13T15:12:33.614Z  INFO 13258 --- [roombook-api] [ionShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-11-13T15:12:33.617Z  INFO 13258 --- [roombook-api] [ionShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+
+[Incubating] Problems report is available at: file:///home/user/testbed/apps/api/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.14.3/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 8s
+4 actionable tasks: 1 executed, 3 up-to-date
+
+$ npx vitest run --reporter=default --reporter=junit --outputFile.junit=/home/user/testbed/build/test-reports/web-vitest.xml  (/home/user/testbed/apps/web)
+
+ RUN  v3.2.7 /home/user/testbed/apps/web
+
+ ✓ src/rejection-messages.test.ts (3 tests) 7ms
+ ✓ src/components/ReservationBoard.test.tsx (6 tests) 498ms
+ ✓ src/time-options.test.ts (1 test) 5ms
+ ✓ src/components/ReservationForm.test.tsx (4 tests) 1066ms
+   ✓ UC-RESERVATION-003 / BHV-RESERVATION-003 예약 폼 > TC-RESERVATION-032 — 예약하기 버튼을 누르면 예약 폼이 열린다 (AC-RESERVATION-032)  336ms
+
+ Test Files  4 passed (4)
+      Tests  14 passed (14)
+   Start at  15:12:34
+   Duration  2.19s (transform 222ms, setup 537ms, collect 407ms, tests 1.58s, environment 1.79s, prepare 383ms)
+
+JUNIT report written to /home/user/testbed/build/test-reports/web-vitest.xml
+
+api: pass / web: pass

@@ -1,0 +1,6 @@
+{
+	"id": "RISK-RESERVATION-002",
+	"severity": "medium",
+	"type": "design",
+	"description": "저장을 H2 인메모리로 시작한다. 서버를 다시 띄우면 예약이 사라지고, 운영 DB 로 옮길 때 행 잠금(SELECT ... FOR UPDATE)과 DDL 의 동작을 다시 확인해야 한다(기획서 §6)."
+}

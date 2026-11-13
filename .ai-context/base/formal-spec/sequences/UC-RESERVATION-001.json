@@ -1,0 +1,53 @@
+{
+	"uc_id": "UC-RESERVATION-001",
+	"actors": [
+		{
+			"id": "직원",
+			"type": "user"
+		},
+		{
+			"id": "ReservationBoard",
+			"type": "system",
+			"unit_ref": "UNIT-RESERVATION-018"
+		},
+		{
+			"id": "RoomController",
+			"type": "controller",
+			"unit_ref": "UNIT-RESERVATION-001"
+		},
+		{
+			"id": "RoomRepository",
+			"type": "repository",
+			"unit_ref": "UNIT-RESERVATION-008"
+		}
+	],
+	"messages": [
+		{
+			"from": "직원",
+			"to": "ReservationBoard",
+			"label": "예약 현황 화면을 연다"
+		},
+		{
+			"from": "ReservationBoard",
+			"to": "RoomController",
+			"label": "GET /api/rooms"
+		},
+		{
+			"from": "RoomController",
+			"to": "RoomRepository",
+			"label": "findAllByOrderByIdAsc()"
+		},
+		{
+			"from": "RoomRepository",
+			"to": "RoomController",
+			"label": "List<Room>",
+			"sync": "return"
+		},
+		{
+			"from": "RoomController",
+			"to": "ReservationBoard",
+			"label": "200 Room[]",
+			"sync": "return"
+		}
+	]
+}

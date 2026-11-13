@@ -1,0 +1,25 @@
+{
+	"id": "UNIT-RESERVATION-012",
+	"name": "ClockConfig.clock",
+	"provenance": "designed_from_spec",
+	"kind": "class",
+	"code_pointer": {
+		"anchor_type": "ast_symbol",
+		"path": "apps/api/src/main/java/com/roombook/api/config/ClockConfig.java",
+		"symbol": "ClockConfig"
+	},
+	"bc_ref": "BC-RESERVATION",
+	"realizes": [
+		"BHV-RESERVATION-002",
+		"BHV-RESERVATION-003",
+		"BHV-RESERVATION-005"
+	],
+	"unit_test_obligation": "waived",
+	"waiver_reason": "Asia/Seoul 시계 빈 하나를 내는 설정이다(ADR-RESERVATION-002)",
+	"interface": {
+		"inputs": [],
+		"output": {
+			"type": "java.time.Clock"
+		}
+	}
+}

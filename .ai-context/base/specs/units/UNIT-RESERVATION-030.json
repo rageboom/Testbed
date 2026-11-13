@@ -1,0 +1,20 @@
+{
+	"id": "UNIT-RESERVATION-030",
+	"name": "App",
+	"provenance": "designed_from_spec",
+	"kind": "component",
+	"code_pointer": {
+		"anchor_type": "ast_symbol",
+		"path": "apps/web/src/App.tsx",
+		"symbol": "App"
+	},
+	"bc_ref": "BC-RESERVATION",
+	"realizes": [
+		"BHV-RESERVATION-001",
+		"BHV-RESERVATION-002",
+		"BHV-RESERVATION-003",
+		"BHV-RESERVATION-005"
+	],
+	"unit_test_obligation": "waived",
+	"waiver_reason": "예약 현황 화면을 싣는 껍데기다"
+}

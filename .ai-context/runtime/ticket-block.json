@@ -1,0 +1,13 @@
+{
+  "scope": "roombook-mvp",
+  "at": "2026-11-13T14:39:49.704Z",
+  "cause": "tool_absent",
+  "source": "declared",
+  "lines": [
+    "원인: 이 세션에 Jira MCP 도구가 없습니다(`mcp__mcp-server-wiki-jira__*` · `mcp__wiki-jira-assistant__*` 둘 다 보이지 않는다).",
+    "  1. `claude mcp list` 로 Jira MCP 서버의 상태를 봅니다(✔ Connected · ! Needs authentication · ✘ Failed to connect).",
+    "  2. 서버가 목록에 없으면 위키지라 MCP 서버를 등록하고, 꺼져 있으면 `/mcp` 에서 켠 뒤 세션을 다시 엽니다.",
+    "  3. 사내망 밖이라 서버를 붙일 수 없는 세션이면 여기서는 티켓을 딸 수 없습니다. 사내 세션에서 이 일감의 plan 을 이어 갑니다.",
+    "  이 원인은 ticket-sync 가 적은 값입니다. 훅이 본 실패 기록은 없습니다."
+  ]
+}

@@ -1,0 +1,124 @@
+{
+  "meta": {
+    "generated_at": "2026-11-13T00:00:00Z",
+    "confidence": 0.6,
+    "inputs_used": [
+      "planning_docs"
+    ],
+    "warnings": [
+      "그린필드(S3): 코드가 없어 설계 의도(docs/prd.md §6)와 plan 의 ADR-RESERVATION-001~004 에서 도출했다."
+    ]
+  },
+  "system_name": "roombook",
+  "architecture_style": "layered",
+  "modules": [
+    {
+      "id": "MOD-API-WEB",
+      "name": "api presentation",
+      "path": "apps/api/src/main/java/com/roombook/api/web",
+      "layer": "presentation",
+      "responsibility": "REST 컨트롤러, X-Employee-Id 헤더 해석, 규칙 위반을 코드가 담긴 거절 응답으로 변환(doc:§6, §3.2)",
+      "related_bounded_context": "BC-RESERVATION"
+    },
+    {
+      "id": "MOD-API-APPLICATION",
+      "name": "api application",
+      "path": "apps/api/src/main/java/com/roombook/api/application",
+      "layer": "application",
+      "responsibility": "조회 · 예약 생성 · 예약 취소 유스케이스와 트랜잭션 경계(doc:§3.1, §7)",
+      "related_bounded_context": "BC-RESERVATION"
+    },
+    {
+      "id": "MOD-API-DOMAIN",
+      "name": "api domain",
+      "path": "apps/api/src/main/java/com/roombook/api/domain",
+      "layer": "domain",
+      "responsibility": "Room · Reservation 과 업무 규칙 R1~R9(doc:§4)",
+      "related_bounded_context": "BC-RESERVATION"
+    },
+    {
+      "id": "MOD-API-PERSISTENCE",
+      "name": "api persistence",
+      "path": "apps/api/src/main/java/com/roombook/api/persistence",
+      "layer": "infrastructure",
+      "responsibility": "관계형 DB 저장(H2 인메모리로 시작), 회의실 초기 데이터(doc:§6, §2)",
+      "related_bounded_context": "BC-RESERVATION"
+    },
+    {
+      "id": "MOD-API-CONFIG",
+      "name": "api config",
+      "path": "apps/api/src/main/java/com/roombook/api/config",
+      "layer": "cross-cutting",
+      "responsibility": "Asia/Seoul Clock 빈(ADR-RESERVATION-002)",
+      "related_bounded_context": "BC-RESERVATION"
+    },
+    {
+      "id": "MOD-WEB-UI",
+      "name": "web ui",
+      "path": "apps/web/src/components",
+      "layer": "presentation",
+      "responsibility": "예약 현황 화면과 예약 폼(doc:§5)",
+      "related_bounded_context": "BC-RESERVATION"
+    },
+    {
+      "id": "MOD-WEB-API-CLIENT",
+      "name": "web api client",
+      "path": "apps/web/src/api",
+      "layer": "infrastructure",
+      "responsibility": "백엔드 REST API 호출과 거절 코드의 문장 변환(doc:§6, §5.2)",
+      "related_bounded_context": "BC-RESERVATION"
+    }
+  ],
+  "dependencies": [
+    {
+      "from": "MOD-API-WEB",
+      "to": "MOD-API-APPLICATION",
+      "type": "import"
+    },
+    {
+      "from": "MOD-API-APPLICATION",
+      "to": "MOD-API-DOMAIN",
+      "type": "import"
+    },
+    {
+      "from": "MOD-API-PERSISTENCE",
+      "to": "MOD-API-DOMAIN",
+      "type": "import",
+      "note": "저장소 구현이 도메인 타입에 의존한다(inferred)"
+    },
+    {
+      "from": "MOD-API-APPLICATION",
+      "to": "MOD-API-PERSISTENCE",
+      "type": "import"
+    },
+    {
+      "from": "MOD-WEB-UI",
+      "to": "MOD-WEB-API-CLIENT",
+      "type": "import"
+    },
+    {
+      "from": "MOD-WEB-API-CLIENT",
+      "to": "MOD-API-WEB",
+      "type": "api_call",
+      "note": "프론트엔드는 백엔드의 REST API 를 부른다(doc:§6)"
+    },
+    {
+      "from": "MOD-API-APPLICATION",
+      "to": "MOD-API-CONFIG",
+      "type": "composition",
+      "note": "서비스가 Clock 빈을 주입받는다"
+    }
+  ],
+  "circular_dependencies": [],
+  "external_dependencies": [
+    {
+      "id": "EXT-GATEWAY",
+      "name": "사내 게이트웨이",
+      "type": "auth",
+      "protocol": "other",
+      "called_from_modules": [
+        "MOD-API-WEB"
+      ]
+    }
+  ]
+}

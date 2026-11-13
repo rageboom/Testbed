@@ -1,0 +1,20 @@
+{
+	"id": "UNIT-RESERVATION-014",
+	"name": "RESERVATION 테이블",
+	"provenance": "designed_from_spec",
+	"kind": "schema",
+	"code_pointer": {
+		"anchor_type": "ast_symbol",
+		"path": "apps/api/src/main/resources/schema.sql",
+		"symbol": "RESERVATION"
+	},
+	"bc_ref": "BC-RESERVATION",
+	"realizes": [
+		"BHV-RESERVATION-002",
+		"BHV-RESERVATION-003",
+		"BHV-RESERVATION-004",
+		"BHV-RESERVATION-005"
+	],
+	"unit_test_obligation": "waived",
+	"waiver_reason": "DDL 이다. 통합 테스트가 이 스키마 위에서 돈다"
+}

@@ -1,0 +1,17 @@
+{
+	"id": "UNIT-RESERVATION-026",
+	"name": "CreateReservationRequest",
+	"provenance": "designed_from_spec",
+	"kind": "class",
+	"code_pointer": {
+		"anchor_type": "ast_symbol",
+		"path": "apps/api/src/main/java/com/roombook/api/web/CreateReservationRequest.java",
+		"symbol": "CreateReservationRequest"
+	},
+	"bc_ref": "BC-RESERVATION",
+	"realizes": [
+		"BHV-RESERVATION-003"
+	],
+	"unit_test_obligation": "waived",
+	"waiver_reason": "요청 본문 데이터다. 빠진 칸 확인은 AC-RESERVATION-031 과 같은 통합 테스트가 지난다"
+}

@@ -1,0 +1,22 @@
+{
+	"id": "UNIT-RESERVATION-019",
+	"name": "ReservationForm",
+	"provenance": "designed_from_spec",
+	"kind": "module",
+	"code_pointer": {
+		"anchor_type": "ast_symbol",
+		"path": "apps/web/src/components/ReservationForm.tsx",
+		"symbol": "ReservationForm"
+	},
+	"bc_ref": "BC-RESERVATION",
+	"realizes": [
+		"BHV-RESERVATION-003"
+	],
+	"unit_test_obligation": "waived",
+	"waiver_reason": "AC 의 컴포넌트 테스트가 이 컴포넌트를 직접 렌더하므로 따로 unit TC 를 두지 않는다",
+	"collaborators": [
+		"UNIT-RESERVATION-015",
+		"UNIT-RESERVATION-016",
+		"UNIT-RESERVATION-017"
+	]
+}

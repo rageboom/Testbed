@@ -1,0 +1,214 @@
+{
+  "last": {
+    "at": "2026-11-13T15:14:03.370Z",
+    "scope": "roombook-mvp",
+    "stage": "implement",
+    "trigger": "session_end",
+    "sum": null,
+    "status": "skipped",
+    "reason": "no_parent",
+    "targets": []
+  },
+  "history": [
+    {
+      "at": "2026-11-13T15:14:03.370Z",
+      "scope": "roombook-mvp",
+      "stage": "implement",
+      "trigger": "session_end",
+      "sum": null,
+      "status": "skipped",
+      "reason": "no_parent",
+      "targets": []
+    },
+    {
+      "at": "2026-11-13T15:12:20.877Z",
+      "scope": "roombook-mvp",
+      "stage": "test",
+      "trigger": "gate",
+      "sum": null,
+      "status": "skipped",
+      "reason": "no_parent",
+      "targets": []
+    },
+    {
+      "at": "2026-11-13T15:12:20.596Z",
+      "scope": "roombook-mvp",
+      "stage": "test",
+      "trigger": "gate",
+      "sum": null,
+      "status": "queued",
+      "reason": null,
+      "targets": []
+    },
+    {
+      "at": "2026-11-13T15:12:02.980Z",
+      "scope": "roombook-mvp",
+      "stage": "plan",
+      "trigger": "gate",
+      "sum": null,
+      "status": "skipped",
+      "reason": "no_parent",
+      "targets": []
+    },
+    {
+      "at": "2026-11-13T15:12:02.702Z",
+      "scope": "roombook-mvp",
+      "stage": "plan",
+      "trigger": "gate",
+      "sum": null,
+      "status": "queued",
+      "reason": null,
+      "targets": []
+    },
+    {
+      "at": "2026-11-13T15:07:09.578Z",
+      "scope": "roombook-mvp",
+      "stage": "test",
+      "trigger": "gate",
+      "sum": null,
+      "status": "skipped",
+      "reason": "no_parent",
+      "targets": []
+    },
+    {
+      "at": "2026-11-13T15:07:09.325Z",
+      "scope": "roombook-mvp",
+      "stage": "test",
+      "trigger": "gate",
+      "sum": null,
+      "status": "queued",
+      "reason": null,
+      "targets": []
+    },
+    {
+      "at": "2026-11-13T15:05:41.291Z",
+      "scope": "roombook-mvp",
+      "stage": "plan",
+      "trigger": "gate",
+      "sum": null,
+      "status": "skipped",
+      "reason": "no_parent",
+      "targets": []
+    },
+    {
+      "at": "2026-11-13T15:05:40.892Z",
+      "scope": "roombook-mvp",
+      "stage": "plan",
+      "trigger": "gate",
+      "sum": null,
+      "status": "queued",
+      "reason": null,
+      "targets": []
+    },
+    {
+      "at": "2026-11-13T14:55:39.318Z",
+      "scope": "roombook-mvp",
+      "stage": "test",
+      "trigger": "gate",
+      "sum": null,
+      "status": "skipped",
+      "reason": "no_parent",
+      "targets": []
+    },
+    {
+      "at": "2026-11-13T14:55:38.983Z",
+      "scope": "roombook-mvp",
+      "stage": "test",
+      "trigger": "gate",
+      "sum": null,
+      "status": "queued",
+      "reason": null,
+      "targets": []
+    },
+    {
+      "at": "2026-11-13T14:53:45.551Z",
+      "scope": "roombook-mvp",
+      "stage": "test",
+      "trigger": "session_end",
+      "sum": null,
+      "status": "skipped",
+      "reason": "no_parent",
+      "targets": []
+    },
+    {
+      "at": "2026-11-13T14:52:22.666Z",
+      "scope": "roombook-mvp",
+      "stage": "test",
+      "trigger": "session_end",
+      "sum": null,
+      "status": "skipped",
+      "reason": "no_parent",
+      "targets": []
+    },
+    {
+      "at": "2026-11-13T14:51:09.377Z",
+      "scope": "roombook-mvp",
+      "stage": "plan",
+      "trigger": "ticket_issued",
+      "sum": null,
+      "status": "skipped",
+      "reason": "no_parent",
+      "targets": []
+    },
+    {
+      "at": "2026-11-13T14:51:08.929Z",
+      "scope": "roombook-mvp",
+      "stage": "plan",
+      "trigger": "ticket_issued",
+      "sum": null,
+      "status": "queued",
+      "reason": null,
+      "targets": []
+    },
+    {
+      "at": "2026-11-13T14:40:45.072Z",
+      "scope": "roombook-mvp",
+      "stage": "plan",
+      "trigger": "gate",
+      "sum": null,
+      "status": "skipped",
+      "reason": "no_parent",
+      "targets": []
+    },
+    {
+      "at": "2026-11-13T14:40:44.721Z",
+      "scope": "roombook-mvp",
+      "stage": "plan",
+      "trigger": "gate",
+      "sum": null,
+      "status": "queued",
+      "reason": null,
+      "targets": []
+    },
+    {
+      "at": "2026-11-13T14:33:11.071Z",
+      "scope": "roombook-mvp",
+      "stage": "plan",
+      "trigger": "session_end",
+      "sum": null,
+      "status": "skipped",
+      "reason": "no_parent",
+      "targets": []
+    },
+    {
+      "at": "2026-11-13T14:28:10.967Z",
+      "scope": "roombook-mvp",
+      "stage": "spec",
+      "trigger": "gate",
+      "sum": null,
+      "status": "skipped",
+      "reason": "no_parent",
+      "targets": []
+    },
+    {
+      "at": "2026-11-13T14:28:10.659Z",
+      "scope": "roombook-mvp",
+      "stage": "spec",
+      "trigger": "gate",
+      "sum": null,
+      "status": "queued",
+      "reason": null,
+      "targets": []
+    }
+  ]
+}

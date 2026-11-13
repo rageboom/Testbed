@@ -1,0 +1,225 @@
+{
+	"id": "BHV-RESERVATION-005",
+	"name": "예약 취소",
+	"description": "예약한 본인이 시작 30분 전까지 예약을 취소한다. 취소한 예약은 지워지지 않고 취소 상태로 남으며 겹침 판정에서 빠진다. 화면은 취소 뒤 현황을 다시 불러온다.",
+	"use_case_refs": [
+		"UC-RESERVATION-004"
+	],
+	"br_refs": [
+		"BR-RESERVATION-CANCEL-001",
+		"BR-RESERVATION-CANCEL-002",
+		"BR-RESERVATION-RETAIN-001"
+	],
+	"preconditions": [
+		"취소할 예약이 있고 예약 상태다",
+		"요청에 X-Employee-Id 헤더가 있다"
+	],
+	"postconditions": [
+		"성공하면 예약이 취소 상태가 되고 행은 남는다",
+		"거절하면 예약 상태가 그대로다"
+	],
+	"invariants": [
+		"INV-RESERVATION-002"
+	],
+	"state_transition_ref": ".ai-context/base/formal-spec/state-machines/Reservation.json",
+	"source_grounded_evidence": [
+		"doc:docs/prd.md:9:4",
+		"doc:docs/prd.md:13:9",
+		"doc:docs/prd.md:13:10",
+		"doc:docs/prd.md:13:11",
+		"doc:docs/prd.md:16:3"
+	],
+	"acceptance_criteria": [
+		{
+			"id": "AC-RESERVATION-042",
+			"title": "본인이 기한 안에 취소하면 취소 상태가 된다",
+			"gherkin": {
+				"given": [
+					"서버 현재 시각이 2026-11-16 10:00 (Asia/Seoul) 이다",
+					"E100 의 예약 R1(회의실 1, 2026-11-16 11:00~12:00)이 예약 상태다"
+				],
+				"when": "직원 E100 가 POST /api/reservations/{R1 의 id}/cancel 을 호출한다",
+				"then": [
+					"200 응답",
+					"응답 본문의 status 가 CANCELLED 이다",
+					"R1 은 지워지지 않고 취소 상태로 저장되어 있다"
+				]
+			},
+			"severity": "must",
+			"verifiable": true,
+			"automated_runnable": true,
+			"layer": "be",
+			"openapi_path": "/api/reservations/{reservationId}/cancel",
+			"operationId": "cancelReservation",
+			"related_brs": [
+				"BR-RESERVATION-CANCEL-001",
+				"BR-RESERVATION-CANCEL-002",
+				"BR-RESERVATION-RETAIN-001"
+			]
+		},
+		{
+			"id": "AC-RESERVATION-043",
+			"title": "정확히 시작 30분 전의 취소는 받는다",
+			"gherkin": {
+				"given": [
+					"서버 현재 시각이 2026-11-16 10:00 (Asia/Seoul) 이다",
+					"E100 의 예약 R1(회의실 1, 2026-11-16 10:30~11:30)이 예약 상태다"
+				],
+				"when": "직원 E100 가 POST /api/reservations/{R1 의 id}/cancel 을 호출한다",
+				"then": [
+					"200 응답",
+					"응답 본문의 status 가 CANCELLED 이다"
+				]
+			},
+			"severity": "must",
+			"verifiable": true,
+			"automated_runnable": true,
+			"layer": "be",
+			"openapi_path": "/api/reservations/{reservationId}/cancel",
+			"operationId": "cancelReservation",
+			"related_brs": [
+				"BR-RESERVATION-CANCEL-002"
+			]
+		},
+		{
+			"id": "AC-RESERVATION-044",
+			"title": "예약한 본인이 아니면 NOT_OWNER 로 거절한다",
+			"gherkin": {
+				"given": [
+					"서버 현재 시각이 2026-11-16 10:00 (Asia/Seoul) 이다",
+					"E200 의 예약 R1(회의실 1, 2026-11-16 11:00~12:00)이 예약 상태다"
+				],
+				"when": "직원 E100 가 POST /api/reservations/{R1 의 id}/cancel 을 호출한다",
+				"then": [
+					"403 응답",
+					"응답 본문의 code 가 NOT_OWNER 이다",
+					"R1 은 예약 상태 그대로다"
+				]
+			},
+			"severity": "must",
+			"verifiable": true,
+			"automated_runnable": true,
+			"layer": "be",
+			"openapi_path": "/api/reservations/{reservationId}/cancel",
+			"operationId": "cancelReservation",
+			"related_brs": [
+				"BR-RESERVATION-CANCEL-001"
+			]
+		},
+		{
+			"id": "AC-RESERVATION-045",
+			"title": "시작 30분 전이 지나면 CANCEL_TOO_LATE 로 거절한다",
+			"gherkin": {
+				"given": [
+					"서버 현재 시각이 2026-11-16 10:00 (Asia/Seoul) 이다",
+					"E100 의 예약 R1(회의실 1, 2026-11-16 10:00~11:00)이 예약 상태다"
+				],
+				"when": "직원 E100 가 POST /api/reservations/{R1 의 id}/cancel 을 호출한다",
+				"then": [
+					"422 응답",
+					"응답 본문의 code 가 CANCEL_TOO_LATE 이다",
+					"R1 은 예약 상태 그대로다"
+				]
+			},
+			"severity": "must",
+			"verifiable": true,
+			"automated_runnable": true,
+			"layer": "be",
+			"openapi_path": "/api/reservations/{reservationId}/cancel",
+			"operationId": "cancelReservation",
+			"related_brs": [
+				"BR-RESERVATION-CANCEL-002"
+			]
+		},
+		{
+			"id": "AC-RESERVATION-046",
+			"title": "이미 취소된 예약의 취소는 ALREADY_CANCELLED 로 거절한다",
+			"gherkin": {
+				"given": [
+					"서버 현재 시각이 2026-11-16 10:00 (Asia/Seoul) 이다",
+					"E100 의 예약 R1(회의실 1, 2026-11-16 11:00~12:00)이 취소 상태다"
+				],
+				"when": "직원 E100 가 POST /api/reservations/{R1 의 id}/cancel 을 호출한다",
+				"then": [
+					"422 응답",
+					"응답 본문의 code 가 ALREADY_CANCELLED 이다"
+				]
+			},
+			"severity": "should",
+			"verifiable": true,
+			"automated_runnable": true,
+			"layer": "be",
+			"openapi_path": "/api/reservations/{reservationId}/cancel",
+			"operationId": "cancelReservation",
+			"related_brs": [
+				"BR-RESERVATION-RETAIN-001"
+			]
+		},
+		{
+			"id": "AC-RESERVATION-047",
+			"title": "없는 예약의 취소는 404 로 거절한다",
+			"gherkin": {
+				"given": [
+					"id 가 999 인 예약이 없다"
+				],
+				"when": "직원 E100 이 POST /api/reservations/999/cancel 을 호출한다",
+				"then": [
+					"404 응답",
+					"응답 본문의 code 가 RESERVATION_NOT_FOUND 이다"
+				]
+			},
+			"severity": "must",
+			"verifiable": true,
+			"automated_runnable": true,
+			"layer": "be",
+			"openapi_path": "/api/reservations/{reservationId}/cancel",
+			"operationId": "cancelReservation"
+		},
+		{
+			"id": "AC-RESERVATION-048",
+			"title": "취소 버튼을 누르면 취소를 요청하고 현황을 다시 불러온다",
+			"gherkin": {
+				"given": [
+					"예약 현황 화면에 활성 '취소' 버튼이 있는 자기 예약(id 7)이 보인다"
+				],
+				"when": "직원이 그 예약의 '취소' 버튼을 누른다",
+				"then": [
+					"POST /api/reservations/7/cancel 을 요청한다",
+					"성공하면 예약 현황 목록을 다시 요청한다"
+				]
+			},
+			"severity": "must",
+			"verifiable": true,
+			"automated_runnable": true,
+			"layer": "fe",
+			"state_map_ref": "FSM-FE-BOARD-001.loaded",
+			"dtcg_token_ref": "default",
+			"related_brs": [
+				"BR-RESERVATION-CANCEL-001"
+			]
+		},
+		{
+			"id": "AC-RESERVATION-049",
+			"title": "취소가 거절되면 걸린 규칙을 현황 화면에 문장으로 보여 준다",
+			"gherkin": {
+				"given": [
+					"예약 현황 화면에 활성 '취소' 버튼이 있는 자기 예약이 보인다",
+					"서버가 422 와 code CANCEL_TOO_LATE 로 거절한다"
+				],
+				"when": "직원이 그 예약의 '취소' 버튼을 누른다",
+				"then": [
+					"화면에 '시작 30분 전까지만 취소할 수 있습니다.' 가 보인다"
+				]
+			},
+			"severity": "should",
+			"verifiable": true,
+			"automated_runnable": true,
+			"layer": "fe",
+			"state_map_ref": "FSM-FE-BOARD-001.loaded",
+			"dtcg_token_ref": "default",
+			"related_brs": [
+				"BR-RESERVATION-CANCEL-002"
+			]
+		}
+	]
+}

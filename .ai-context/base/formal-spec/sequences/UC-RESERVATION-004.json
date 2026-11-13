@@ -1,0 +1,87 @@
+{
+	"uc_id": "UC-RESERVATION-004",
+	"actors": [
+		{
+			"id": "직원",
+			"type": "user"
+		},
+		{
+			"id": "ReservationBoard",
+			"type": "system",
+			"unit_ref": "UNIT-RESERVATION-018"
+		},
+		{
+			"id": "ReservationController",
+			"type": "controller",
+			"unit_ref": "UNIT-RESERVATION-002"
+		},
+		{
+			"id": "ReservationService",
+			"type": "service",
+			"unit_ref": "UNIT-RESERVATION-003"
+		},
+		{
+			"id": "ReservationRepository",
+			"type": "repository",
+			"unit_ref": "UNIT-RESERVATION-009"
+		},
+		{
+			"id": "Reservation",
+			"type": "domain",
+			"unit_ref": "UNIT-RESERVATION-006"
+		},
+		{
+			"id": "ApiExceptionHandler",
+			"type": "controller",
+			"unit_ref": "UNIT-RESERVATION-011"
+		}
+	],
+	"messages": [
+		{
+			"from": "직원",
+			"to": "ReservationBoard",
+			"label": "취소 버튼을 누른다"
+		},
+		{
+			"from": "ReservationBoard",
+			"to": "ReservationController",
+			"label": "POST /api/reservations/{reservationId}/cancel"
+		},
+		{
+			"from": "ReservationController",
+			"to": "ReservationService",
+			"label": "cancel(reservationId, employeeId)"
+		},
+		{
+			"from": "ReservationService",
+			"to": "ReservationRepository",
+			"label": "findById(reservationId)",
+			"sync": "sync",
+			"guard": "없으면 RESERVATION_NOT_FOUND"
+		},
+		{
+			"from": "ReservationService",
+			"to": "Reservation",
+			"label": "cancel(employeeId, now)"
+		},
+		{
+			"from": "ReservationService",
+			"to": "ReservationController",
+			"label": "Reservation",
+			"sync": "return"
+		},
+		{
+			"from": "ReservationController",
+			"to": "ReservationBoard",
+			"label": "200 Reservation",
+			"sync": "return"
+		},
+		{
+			"from": "ApiExceptionHandler",
+			"to": "ReservationBoard",
+			"label": "4xx {code, message}",
+			"sync": "return",
+			"guard": "규칙 위반일 때"
+		}
+	]
+}

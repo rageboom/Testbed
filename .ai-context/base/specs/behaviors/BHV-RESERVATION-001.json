@@ -1,0 +1,41 @@
+{
+	"id": "BHV-RESERVATION-001",
+	"name": "회의실 목록 조회",
+	"description": "초기 데이터로 넣은 회의실 전부를 이름, 층, 수용 인원과 함께 돌려주고 화면의 회의실 선택에 싣는다.",
+	"use_case_refs": [
+		"UC-RESERVATION-001"
+	],
+	"preconditions": [
+		"회의실이 초기 데이터로 들어 있다"
+	],
+	"postconditions": [
+		"회의실 데이터는 바뀌지 않는다"
+	],
+	"source_grounded_evidence": [
+		"doc:docs/prd.md:9:1",
+		"doc:docs/prd.md:6:2"
+	],
+	"acceptance_criteria": [
+		{
+			"id": "AC-RESERVATION-001",
+			"title": "회의실 목록을 이름·층·수용 인원과 함께 돌려준다",
+			"gherkin": {
+				"given": [
+					"초기 데이터로 회의실 1(이름 '오로라', 3층, 6명)과 회의실 2(이름 '보리', 5층, 12명)가 있다"
+				],
+				"when": "GET /api/rooms 를 호출한다",
+				"then": [
+					"200 응답",
+					"본문은 회의실 배열이고 항목마다 id, name, floor, capacity 가 있다",
+					"회의실 1 은 name '오로라', floor 3, capacity 6 이다"
+				]
+			},
+			"severity": "must",
+			"verifiable": true,
+			"automated_runnable": true,
+			"layer": "be",
+			"openapi_path": "/api/rooms",
+			"operationId": "listRooms"
+		}
+	]
+}

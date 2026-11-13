@@ -1,0 +1,162 @@
+{
+  "schema_version": 1,
+  "scope": "roombook-mvp",
+  "generated_at": "2026-11-13T15:13:27.060Z",
+  "route": "full",
+  "authorization_stage": "discovery",
+  "authorized_at": "2026-11-13T14:25:35.904Z",
+  "terminal": {
+    "reason": "blocked",
+    "at": "2026-11-13T15:13:27.060Z",
+    "stage": "implement"
+  },
+  "stages": [
+    {
+      "stage": "spec",
+      "verifies": 1,
+      "result": "passed"
+    },
+    {
+      "stage": "plan",
+      "verifies": 10,
+      "result": "passed"
+    },
+    {
+      "stage": "test",
+      "verifies": 12,
+      "result": "carried"
+    },
+    {
+      "stage": "implement",
+      "verifies": 20,
+      "result": "unresolved"
+    }
+  ],
+  "items": [
+    {
+      "code": "ticket_evidence_unobserved",
+      "stage": "test",
+      "status": "carried",
+      "attempts": 12,
+      "mark": "human_confirmed"
+    },
+    {
+      "code": "ticket_evidence_unobserved",
+      "stage": "implement",
+      "status": "unresolved",
+      "attempts": 20,
+      "mark": null,
+      "blocks": true
+    },
+    {
+      "code": "evidence_missing",
+      "stage": "implement",
+      "status": "fixed",
+      "attempts": 1,
+      "mark": null
+    },
+    {
+      "code": "unit_symbol_not_in_code",
+      "stage": "implement",
+      "status": "fixed",
+      "attempts": 2,
+      "mark": null
+    },
+    {
+      "code": "scope_impl_unexplained",
+      "stage": "implement",
+      "status": "fixed",
+      "attempts": 15,
+      "mark": null
+    },
+    {
+      "code": "scope_unit_revised",
+      "stage": "implement",
+      "status": "fixed",
+      "attempts": 7,
+      "mark": null
+    },
+    {
+      "code": "static_baseline_missing",
+      "stage": "implement",
+      "status": "fixed",
+      "attempts": 1,
+      "mark": null
+    },
+    {
+      "code": "test_outcome_unmet",
+      "stage": "test",
+      "status": "fixed",
+      "attempts": 1,
+      "mark": null
+    }
+  ],
+  "notes": [],
+  "revisits": [
+    {
+      "from": "implement",
+      "to": "plan",
+      "at": "2026-11-13T15:05:37.784Z",
+      "codes": [
+        "scope_impl_unexplained"
+      ]
+    },
+    {
+      "from": "implement",
+      "to": "plan",
+      "at": "2026-11-13T15:11:48.390Z",
+      "codes": [
+        "findings_unverified",
+        "ticket_evidence_unobserved",
+        "evidence_missing",
+        "scope_unit_revised"
+      ]
+    }
+  ],
+  "approved_tests_changes": [
+    {
+      "at": "2026-11-13T15:07:09.156Z",
+      "files": [
+        "apps/api/src/test/java/com/roombook/api/domain/ReservationPolicyPropertiesTest.java",
+        "apps/api/src/test/java/com/roombook/api/domain/ReservationPolicyTest.java",
+        "apps/api/src/test/java/com/roombook/api/domain/ReservationPropertiesTest.java",
+        "apps/api/src/test/java/com/roombook/api/domain/ReservationTest.java",
+        "apps/api/src/test/java/com/roombook/api/domain/TimeRangePropertiesTest.java",
+        "apps/api/src/test/java/com/roombook/api/domain/TimeRangeTest.java",
+        "apps/web/src/rejection-messages.test.ts",
+        "apps/web/src/time-options.test.ts"
+      ]
+    }
+  ],
+  "counts": {
+    "drives": 9,
+    "verifies": 43,
+    "revisits": 2,
+    "elapsed_ms": 2871156
+  },
+  "summary": {
+    "fixed": 6,
+    "carried": 1,
+    "unresolved": 1,
+    "unverified": 0,
+    "open": 0,
+    "notes": 0,
+    "completable": false
+  },
+  "pauses": [
+    {
+      "reason": "ticket",
+      "stage": "plan",
+      "at": "2026-11-13T14:33:10.633Z",
+      "resumed_at": "2026-11-13T14:39:49.677Z",
+      "resumed_by": null
+    },
+    {
+      "reason": "blocked",
+      "stage": "test",
+      "at": "2026-11-13T14:52:07.948Z",
+      "resumed_at": "2026-11-13T14:55:25.218Z",
+      "resumed_by": "gate:confirm"
+    }
+  ]
+}

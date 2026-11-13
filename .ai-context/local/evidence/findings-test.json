@@ -1,0 +1,356 @@
+{
+  "critical": 0,
+  "high": 0,
+  "medium": 0,
+  "low": 0,
+  "info": 0,
+  "evidence_missing": [],
+  "advisories": [],
+  "unseen": [],
+  "sources": {
+    "test-impl-pass-validator": {
+      "status": "ok",
+      "findings": {
+        "critical": 0,
+        "high": 0,
+        "medium": 0,
+        "low": 0,
+        "info": 0,
+        "tests_total": 62,
+        "tests_passed": 0,
+        "tests_failed": 62,
+        "failed_tests": [
+          {
+            "name": null,
+            "file": "src/rejection-messages.test.ts"
+          },
+          {
+            "name": null,
+            "file": "src/time-options.test.ts"
+          },
+          {
+            "name": null,
+            "file": "src/components/ReservationBoard.test.tsx"
+          },
+          {
+            "name": null,
+            "file": "src/components/ReservationForm.test.tsx"
+          },
+          {
+            "name": "com.roombook.api.domain.ReservationPolicyPropertiesTest.TC-RESERVATION-109 — 시간 규칙은 30분 단위 · 길이 · 시간대를 모두 지킬 때에만 통과한다",
+            "file": null
+          },
+          {
+            "name": "com.roombook.api.domain.ReservationPolicyTest.TC-RESERVATION-103 — 길이가 30분 미만이거나 4시간을 넘으면 INVALID_DURATION 이다 (BR-RESERVATION-DURATION-001)",
+            "file": null
+          },
+          {
+            "name": "com.roombook.api.domain.ReservationPolicyTest.TC-RESERVATION-105 — 지난 시각이나 오늘 + 30일을 넘는 날짜는 OUT_OF_WINDOW 다 (BR-RESERVATION-WINDOW-001)",
+            "file": null
+          },
+          {
+            "name": "com.roombook.api.domain.ReservationPolicyTest.TC-RESERVATION-101 — 규칙을 모두 지킨 예약은 통과한다",
+            "file": null
+          },
+          {
+            "name": "com.roombook.api.domain.ReservationPolicyTest.TC-RESERVATION-102 — 시작이나 끝이 30분 단위가 아니면 INVALID_SLOT 이다 (BR-RESERVATION-SLOT-001)",
+            "file": null
+          },
+          {
+            "name": "com.roombook.api.domain.ReservationPolicyTest.TC-RESERVATION-106 — 참석 인원이 1명 미만이거나 수용 인원을 넘으면 INVALID_ATTENDEES 다 (BR-RESERVATION-ATTENDEES-001)",
+            "file": null
+          },
+          {
+            "name": "com.roombook.api.domain.ReservationPolicyTest.TC-RESERVATION-104 — 09:00 이전 시작이나 20:00 이후 끝은 OUT_OF_HOURS 다 (BR-RESERVATION-HOURS-001)",
+            "file": null
+          },
+          {
+            "name": "com.roombook.api.domain.ReservationPolicyTest.TC-RESERVATION-108 — 여러 규칙에 걸리면 정해진 순서의 첫 위반을 알린다",
+            "file": null
+          },
+          {
+            "name": "com.roombook.api.domain.ReservationPolicyTest.TC-RESERVATION-107 — 제목이 비었거나 50자를 넘으면 INVALID_TITLE 이다 (BR-RESERVATION-TITLE-001)",
+            "file": null
+          },
+          {
+            "name": "com.roombook.api.domain.ReservationPropertiesTest.TC-RESERVATION-126 — 취소된 예약은 다시 예약 상태로 돌아가지 않는다",
+            "file": null
+          },
+          {
+            "name": "com.roombook.api.domain.ReservationTest.TC-RESERVATION-124 — 이미 취소된 예약의 취소는 ALREADY_CANCELLED 다 (BR-RESERVATION-RETAIN-001)",
+            "file": null
+          },
+          {
+            "name": "com.roombook.api.domain.ReservationTest.TC-RESERVATION-121 — 새 예약은 예약 상태이고 본인이 기한 안에 취소하면 취소 상태가 된다 (BR-RESERVATION-RETAIN-001)",
+            "file": null
+          },
+          {
+            "name": "com.roombook.api.domain.ReservationTest.TC-RESERVATION-125 — 본인 확인이 기한 확인보다 먼저다",
+            "file": null
+          },
+          {
+            "name": "com.roombook.api.domain.ReservationTest.TC-RESERVATION-131 — 본인 예약이고 예약 상태이며 시작 30분 전 이내가 아닐 때만 취소할 수 있다고 답한다 (BR-RESERVATION-CANCEL-002)",
+            "file": null
+          },
+          {
+            "name": "com.roombook.api.domain.ReservationTest.TC-RESERVATION-123 — 시작 30분 전까지는 취소되고 그 뒤에는 CANCEL_TOO_LATE 다 (BR-RESERVATION-CANCEL-002)",
+            "file": null
+          },
+          {
+            "name": "com.roombook.api.domain.ReservationTest.TC-RESERVATION-122 — 예약한 본인이 아니면 NOT_OWNER 이고 상태는 그대로다 (BR-RESERVATION-CANCEL-001)",
+            "file": null
+          }
+        ],
+        "passed_tests": [],
+        "failed_tests_more": 46,
+        "green_observed": [],
+        "red_observed": [
+          "TC-RESERVATION-001",
+          "TC-RESERVATION-002",
+          "TC-RESERVATION-003",
+          "TC-RESERVATION-004",
+          "TC-RESERVATION-005",
+          "TC-RESERVATION-006",
+          "TC-RESERVATION-007",
+          "TC-RESERVATION-008",
+          "TC-RESERVATION-009",
+          "TC-RESERVATION-014",
+          "TC-RESERVATION-015",
+          "TC-RESERVATION-016",
+          "TC-RESERVATION-017",
+          "TC-RESERVATION-018",
+          "TC-RESERVATION-019",
+          "TC-RESERVATION-020",
+          "TC-RESERVATION-021",
+          "TC-RESERVATION-022",
+          "TC-RESERVATION-023",
+          "TC-RESERVATION-024",
+          "TC-RESERVATION-025",
+          "TC-RESERVATION-026",
+          "TC-RESERVATION-027",
+          "TC-RESERVATION-028",
+          "TC-RESERVATION-029",
+          "TC-RESERVATION-030",
+          "TC-RESERVATION-031",
+          "TC-RESERVATION-037",
+          "TC-RESERVATION-038",
+          "TC-RESERVATION-039",
+          "TC-RESERVATION-040",
+          "TC-RESERVATION-041",
+          "TC-RESERVATION-042",
+          "TC-RESERVATION-043",
+          "TC-RESERVATION-044",
+          "TC-RESERVATION-045",
+          "TC-RESERVATION-046",
+          "TC-RESERVATION-047",
+          "TC-RESERVATION-101",
+          "TC-RESERVATION-102",
+          "TC-RESERVATION-103",
+          "TC-RESERVATION-104",
+          "TC-RESERVATION-105",
+          "TC-RESERVATION-106",
+          "TC-RESERVATION-107",
+          "TC-RESERVATION-108",
+          "TC-RESERVATION-109",
+          "TC-RESERVATION-111",
+          "TC-RESERVATION-112",
+          "TC-RESERVATION-113",
+          "TC-RESERVATION-114",
+          "TC-RESERVATION-121",
+          "TC-RESERVATION-122",
+          "TC-RESERVATION-123",
+          "TC-RESERVATION-124",
+          "TC-RESERVATION-125",
+          "TC-RESERVATION-126",
+          "TC-RESERVATION-131"
+        ],
+        "test_scope": {
+          "source": "runner",
+          "files": null,
+          "file_list": []
+        },
+        "test_result_hash": "sha256:340619f560e36afeddc2d6698d2d457a83581c47c4b99f173487ddf9b6681ffb"
+      }
+    },
+    "spec-test-link-validator": {
+      "status": "ok",
+      "findings": {
+        "critical": 0,
+        "high": 0,
+        "medium": 0,
+        "low": 0,
+        "info": 0,
+        "targets": []
+      }
+    },
+    "schema-validator": {
+      "status": "ok",
+      "findings": {
+        "critical": 0,
+        "high": 0,
+        "medium": 0,
+        "low": 0,
+        "info": 0,
+        "targets": []
+      }
+    }
+  },
+  "test_scope": {
+    "source": "runner",
+    "files": null,
+    "file_list": []
+  },
+  "tests_total": 62,
+  "tests_passed": 0,
+  "tests_failed": 62,
+  "test_result_hash": "sha256:340619f560e36afeddc2d6698d2d457a83581c47c4b99f173487ddf9b6681ffb",
+  "failed_tests": [
+    {
+      "name": null,
+      "file": "src/rejection-messages.test.ts"
+    },
+    {
+      "name": null,
+      "file": "src/time-options.test.ts"
+    },
+    {
+      "name": null,
+      "file": "src/components/ReservationBoard.test.tsx"
+    },
+    {
+      "name": null,
+      "file": "src/components/ReservationForm.test.tsx"
+    },
+    {
+      "name": "com.roombook.api.domain.ReservationPolicyPropertiesTest.TC-RESERVATION-109 — 시간 규칙은 30분 단위 · 길이 · 시간대를 모두 지킬 때에만 통과한다",
+      "file": null
+    },
+    {
+      "name": "com.roombook.api.domain.ReservationPolicyTest.TC-RESERVATION-103 — 길이가 30분 미만이거나 4시간을 넘으면 INVALID_DURATION 이다 (BR-RESERVATION-DURATION-001)",
+      "file": null
+    },
+    {
+      "name": "com.roombook.api.domain.ReservationPolicyTest.TC-RESERVATION-105 — 지난 시각이나 오늘 + 30일을 넘는 날짜는 OUT_OF_WINDOW 다 (BR-RESERVATION-WINDOW-001)",
+      "file": null
+    },
+    {
+      "name": "com.roombook.api.domain.ReservationPolicyTest.TC-RESERVATION-101 — 규칙을 모두 지킨 예약은 통과한다",
+      "file": null
+    },
+    {
+      "name": "com.roombook.api.domain.ReservationPolicyTest.TC-RESERVATION-102 — 시작이나 끝이 30분 단위가 아니면 INVALID_SLOT 이다 (BR-RESERVATION-SLOT-001)",
+      "file": null
+    },
+    {
+      "name": "com.roombook.api.domain.ReservationPolicyTest.TC-RESERVATION-106 — 참석 인원이 1명 미만이거나 수용 인원을 넘으면 INVALID_ATTENDEES 다 (BR-RESERVATION-ATTENDEES-001)",
+      "file": null
+    },
+    {
+      "name": "com.roombook.api.domain.ReservationPolicyTest.TC-RESERVATION-104 — 09:00 이전 시작이나 20:00 이후 끝은 OUT_OF_HOURS 다 (BR-RESERVATION-HOURS-001)",
+      "file": null
+    },
+    {
+      "name": "com.roombook.api.domain.ReservationPolicyTest.TC-RESERVATION-108 — 여러 규칙에 걸리면 정해진 순서의 첫 위반을 알린다",
+      "file": null
+    },
+    {
+      "name": "com.roombook.api.domain.ReservationPolicyTest.TC-RESERVATION-107 — 제목이 비었거나 50자를 넘으면 INVALID_TITLE 이다 (BR-RESERVATION-TITLE-001)",
+      "file": null
+    },
+    {
+      "name": "com.roombook.api.domain.ReservationPropertiesTest.TC-RESERVATION-126 — 취소된 예약은 다시 예약 상태로 돌아가지 않는다",
+      "file": null
+    },
+    {
+      "name": "com.roombook.api.domain.ReservationTest.TC-RESERVATION-124 — 이미 취소된 예약의 취소는 ALREADY_CANCELLED 다 (BR-RESERVATION-RETAIN-001)",
+      "file": null
+    },
+    {
+      "name": "com.roombook.api.domain.ReservationTest.TC-RESERVATION-121 — 새 예약은 예약 상태이고 본인이 기한 안에 취소하면 취소 상태가 된다 (BR-RESERVATION-RETAIN-001)",
+      "file": null
+    },
+    {
+      "name": "com.roombook.api.domain.ReservationTest.TC-RESERVATION-125 — 본인 확인이 기한 확인보다 먼저다",
+      "file": null
+    },
+    {
+      "name": "com.roombook.api.domain.ReservationTest.TC-RESERVATION-131 — 본인 예약이고 예약 상태이며 시작 30분 전 이내가 아닐 때만 취소할 수 있다고 답한다 (BR-RESERVATION-CANCEL-002)",
+      "file": null
+    },
+    {
+      "name": "com.roombook.api.domain.ReservationTest.TC-RESERVATION-123 — 시작 30분 전까지는 취소되고 그 뒤에는 CANCEL_TOO_LATE 다 (BR-RESERVATION-CANCEL-002)",
+      "file": null
+    },
+    {
+      "name": "com.roombook.api.domain.ReservationTest.TC-RESERVATION-122 — 예약한 본인이 아니면 NOT_OWNER 이고 상태는 그대로다 (BR-RESERVATION-CANCEL-001)",
+      "file": null
+    }
+  ],
+  "failed_tests_more": 46,
+  "passed_tests": [],
+  "green_observed": [],
+  "red_observed": [
+    "TC-RESERVATION-001",
+    "TC-RESERVATION-002",
+    "TC-RESERVATION-003",
+    "TC-RESERVATION-004",
+    "TC-RESERVATION-005",
+    "TC-RESERVATION-006",
+    "TC-RESERVATION-007",
+    "TC-RESERVATION-008",
+    "TC-RESERVATION-009",
+    "TC-RESERVATION-014",
+    "TC-RESERVATION-015",
+    "TC-RESERVATION-016",
+    "TC-RESERVATION-017",
+    "TC-RESERVATION-018",
+    "TC-RESERVATION-019",
+    "TC-RESERVATION-020",
+    "TC-RESERVATION-021",
+    "TC-RESERVATION-022",
+    "TC-RESERVATION-023",
+    "TC-RESERVATION-024",
+    "TC-RESERVATION-025",
+    "TC-RESERVATION-026",
+    "TC-RESERVATION-027",
+    "TC-RESERVATION-028",
+    "TC-RESERVATION-029",
+    "TC-RESERVATION-030",
+    "TC-RESERVATION-031",
+    "TC-RESERVATION-037",
+    "TC-RESERVATION-038",
+    "TC-RESERVATION-039",
+    "TC-RESERVATION-040",
+    "TC-RESERVATION-041",
+    "TC-RESERVATION-042",
+    "TC-RESERVATION-043",
+    "TC-RESERVATION-044",
+    "TC-RESERVATION-045",
+    "TC-RESERVATION-046",
+    "TC-RESERVATION-047",
+    "TC-RESERVATION-101",
+    "TC-RESERVATION-102",
+    "TC-RESERVATION-103",
+    "TC-RESERVATION-104",
+    "TC-RESERVATION-105",
+    "TC-RESERVATION-106",
+    "TC-RESERVATION-107",
+    "TC-RESERVATION-108",
+    "TC-RESERVATION-109",
+    "TC-RESERVATION-111",
+    "TC-RESERVATION-112",
+    "TC-RESERVATION-113",
+    "TC-RESERVATION-114",
+    "TC-RESERVATION-121",
+    "TC-RESERVATION-122",
+    "TC-RESERVATION-123",
+    "TC-RESERVATION-124",
+    "TC-RESERVATION-125",
+    "TC-RESERVATION-126",
+    "TC-RESERVATION-131"
+  ],
+  "stage": "test",
+  "scope": "roombook-mvp",
+  "generated_at": "2026-11-13T14:51:18.950Z",
+  "collected_by": "next"
+}
